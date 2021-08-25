@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+{% extends "aless_art_shop/base.html" %}
+
+{% block content %}
+<p> HI there</p>
+<ul>
+    {% for entry in product %}
+    <li>
+        <a> {{ entry.title }}</a>
+        <a> {{ entry.price }}</a>
+        <a> {{ entry.product }}</a>
+    </li>
+    {% empty %}
+        <li> No Listings added yet</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
+</body>
+</html>

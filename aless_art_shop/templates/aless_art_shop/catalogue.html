@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogue</title>
+</head>
+<body>
+{% extends "aless_art_shop/base.html" %}
+
+{% block content %}
+<p> Listings </p>
+<ul>
+    {% for item in catalogue %}
+    <li>
+        <a href= "{% url 'aless_art_shop:product' item.id %}"> {{ item }}</a>
+    </li>
+    {% empty %}
+        <li> No catalogue added yet</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
+</body>
+</html>
