@@ -10,9 +10,10 @@
 {% block content %}
 <p> Listings </p>
 <ul>
-    {% for item in catalogue %}
+    {% for item in product %}
     <li>
-        <a href= "{% url 'aless_art_shop:product' item.id %}"> {{ item }}</a>
+        <a> {{ item }}</a> -
+        <a> {{ item.price }}</a>
     </li>
     {% empty %}
         <li> No catalogue added yet</li>

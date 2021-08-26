@@ -12,9 +12,7 @@
 <ul>
     {% for entry in product %}
     <li>
-        <a> {{ entry.title }}</a>
-        <a> {{ entry.price }}</a>
-        <a> {{ entry.product }}</a>
+        <a> {{ entry }}</a>
     </li>
     {% empty %}
         <li> No Listings added yet</li>
