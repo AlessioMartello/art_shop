@@ -1,1 +1,1 @@
-web: gunicorn aless_art_shop.wsgi --log-file -
+web: gunicorn art_shop.wsgi --log-file -
