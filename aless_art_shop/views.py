@@ -10,13 +10,13 @@ def index(request):
 def catalogue(request):
     """Display the listings"""
     catalogue = Catalogue.objects.order_by('name')
-    product = Product.objects.all()
-    context = {'catalogue': catalogue, 'product':product}
+    context = {'catalogue': catalogue}
     return render(request, 'aless_art_shop/catalogue.html', context)
 
 
-def product(request, id):
+def product(request, product_id):
     """Display the individual listing details"""
-    product = Product.objects.filter(id=id)
-    context = {'product': product}
+    catalogue = Catalogue.objects.get(product_id)
+    product = Product.objects.all()
+    context = {'catalogue': catalogue, 'product': product}
     return render(request, 'aless_art_shop/product.html', context)

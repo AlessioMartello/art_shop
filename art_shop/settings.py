@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     # MyApps
     'aless_art_shop',
 
+    # Third-party apps
+    'bootstrap4',
+
     # Default Django Apps
     'django.contrib.admin',
     'django.contrib.auth',

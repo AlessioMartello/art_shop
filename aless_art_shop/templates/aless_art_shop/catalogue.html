@@ -10,10 +10,9 @@
 {% block content %}
 <p> Listings </p>
 <ul>
-    {% for item in product %}
+    {% for item in catalogue %}
     <li>
-        <a> {{ item }}</a> -
-        <a> {{ item.price }}</a>
+        <a > {{ item }}</a>
     </li>
     {% empty %}
         <li> No catalogue added yet</li>
