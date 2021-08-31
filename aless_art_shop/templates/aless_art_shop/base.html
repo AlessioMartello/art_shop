@@ -34,6 +34,7 @@
         <div class = "pb-2 mb-2 border-bottom">
             {%block page_header %}{% endblock page_header %}
         </div>
+        <a href="{% url 'stripe_payments:landing-page' %}"> Life Drawings</a>
         <div>
             {% block content %}{% endblock content %}
         </div>

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('aless_art_shop.urls')),
+    path(r'admin/', admin.site.urls),
+    path(r'', include('aless_art_shop.urls', namespace='aless_art_shop')),
+    path(r'stripe_payments/', include('stripe_payments.urls', namespace='stripe_payments'))
 ]
