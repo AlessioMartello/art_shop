@@ -17,6 +17,7 @@ class ProductLandingPageView(TemplateView):
     template_name = "landing.html"
 
     def get_context_data(self, **kwargs):
+        # product = Product.objects.get(id=self.kwargs["pk"])
         product = Product.objects.get(product_name="test")  # todo Gets the name linked to the django model
         context = super(ProductLandingPageView, self).get_context_data(**kwargs)
         context.update({
@@ -36,8 +37,7 @@ class CreateCheckoutSessionView(View):
         checkout_session = stripe.checkout.Session.create(
             line_items=[
                 {
-                    # TODO: replace this with the `price` of the product you want to sell
-                    'price': "price_1JUT0lKVKjceH6nvjAjPrgzy",  # todo add stripe price id to model so to not hardcode
+                    'price': product.stripe_price_id,
                     'quantity': 1,
                 },
             ],

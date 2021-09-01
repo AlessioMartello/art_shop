@@ -1,5 +1,4 @@
 {% load bootstrap4 %}
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,11 +6,17 @@
     <title>Base</title>
         {% bootstrap_css %}
         {% bootstrap_javascript jquery='full' %}
+        {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+
         <a class="navbar-brand" href="{% url 'aless_art_shop:index'%}">
-            Aless art shop
+            <img src="{% static 'am_logo.png' %}" alt="My logo" height="60" class="d-inline-block align-text-top">
+
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -34,10 +39,28 @@
         <div class = "pb-2 mb-2 border-bottom">
             {%block page_header %}{% endblock page_header %}
         </div>
-        <a href="{% url 'stripe_payments:landing-page' %}"> Life Drawings</a>
         <div>
-            {% block content %}{% endblock content %}
+           {% block content %}{% endblock content %}
         </div>
     </main>
+
+        <!-- Footer -->
+    <footer class="bd-footer p-3 p-md-5 mt-5 bg-light text-center text-sm-left">
+
+      <!-- Copyright -->
+        <div class = "footer-container">
+            <div class="row" >
+                <ul class="social-network social-circle" >
+
+                    <li><a href="#" class="icoInstagram" title="Instagram +"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+
+            </div>
+        </div>
+      <!-- Copyright -->
+
+    </footer>
+<!-- Footer -->
 </body>
 </html>

@@ -16,6 +16,7 @@ class Product(models.Model):
     catalogue = models.ForeignKey(
         Catalogue, on_delete=models.CASCADE, related_name="art_name")
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    stripe_price_id = models.CharField(max_length=100)
     description = models.CharField(max_length=5000, default="Enter product description here")
 
     # # photo = models.ImageField(upload_to="product_photo", blank=True)
