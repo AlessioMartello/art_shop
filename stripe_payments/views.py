@@ -6,7 +6,7 @@ from django.views import View
 from aless_art_shop.models import Product
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-
+from stripe_payments.email.send_email import confirmation_email
 
 stripe.api_key = settings.STRIPE_PRIVATE_KEY
 
@@ -28,11 +28,11 @@ class ProductDetailView(DetailView):
         return context
 
 class SuccessView(TemplateView):
-    template_name = "success.html"
+    template_name = "stripe_payments/success.html"
 
 
 class CancelView(TemplateView):
-    template_name = "cancel.html"
+    template_name = "stripe_payments/cancel.html"
 
 
 class CreateCheckoutSessionView(View):
@@ -80,6 +80,14 @@ def stripe_webhook(request):
         customer_email = session["customer_details"]["email"]
         payment_intent = session["payment_intent"]
 
-        # todo send email confirmation
+        confirmation_email(customer_email) # todo check this works
+
     return HttpResponse(status=200)
 
+# Donations classes
+
+class Donate(TemplateView):
+    template_name = "stripe_payments/donate.html"
+
+
+# class CreateDonationCheckoutSessionView(View):
