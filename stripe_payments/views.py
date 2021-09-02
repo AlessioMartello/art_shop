@@ -1,7 +1,7 @@
 from django.conf import settings
 import stripe
 from django.shortcuts import redirect
-from django.views.generic.base import TemplateView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views import View
 from aless_art_shop.models import Product
 from django.views.decorators.csrf import csrf_exempt
@@ -11,20 +11,28 @@ from django.http import HttpResponse
 stripe.api_key = settings.STRIPE_PRIVATE_KEY
 
 
-class ProductLandingPageView(TemplateView):
-    """Product landing page that will display some information about our product as well as prompt the visitor to
-    purchase it """
-    template_name = "landing.html"
+class ProductListView(ListView):
+    model = Product
+    template_name = "aless_art_shop/product_list.html"
+    context_object_name = 'product_list'
+
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = "aless_art_shop/product_detail.html"
+    pk_url_kwarg = 'id'
 
     def get_context_data(self, **kwargs):
-        # product = Product.objects.get(id=self.kwargs["pk"])
-        product = Product.objects.get(product_name="test")  # todo Gets the name linked to the django model
-        context = super(ProductLandingPageView, self).get_context_data(**kwargs)
-        context.update({
-            "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
-            "products": product
-        })
+        context = super(ProductDetailView, self).get_context_data(**kwargs)
+        context['stripe_public_key'] = settings.STRIPE_PUBLIC_KEY
         return context
+
+class SuccessView(TemplateView):
+    template_name = "success.html"
+
+
+class CancelView(TemplateView):
+    template_name = "cancel.html"
 
 
 class CreateCheckoutSessionView(View):
@@ -50,14 +58,6 @@ class CreateCheckoutSessionView(View):
             cancel_url=DOMAIN + '/cancel/',
         )
         return redirect(checkout_session.url)
-
-
-class SuccessView(TemplateView):
-    template_name = "success.html"
-
-
-class CancelView(TemplateView):
-    template_name = "cancel.html"
 
 
 @csrf_exempt

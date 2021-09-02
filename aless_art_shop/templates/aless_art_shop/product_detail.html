@@ -1,0 +1,46 @@
+{% extends 'aless_art_shop/base.html' %}
+
+{% block content %}
+<h1 class="text-center">Product Detail</h1>
+<div class="container">
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Product Detail</h2>
+        </div>
+        <div class="card-body">
+            <div class="container row">
+                <div class="col-md-2">
+                    <img src="https://dummyimage.com/150x150.gif?text={{ object.name }}" alt="">
+                </div>
+                <div class="col-md-10">
+                    <h1>Name: {{ object.name }}</h1>
+                    <p>Description: {{ object.description }}</p>
+                    <p>Price: {{ object.price }}</p>
+
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                        <small>Please enter your email address</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer d-flex">
+            <form action="/create-checkout-session" method="POST">
+                <button class="btn btn-success ml-auto" id="checkout-button">Checkout</button></form>
+        </div>
+    </div>
+</div>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+    var stripe = Stripe('{{ stripe_public_key }}')
+    const buy_now_button = document.querySelector('#buy_now_btn')
+
+    buy_now_button.addEventListener('click', event => {
+      stripe.redirectToCheckout({
+      sessionId: '{{ session_id }}'
+      }).then(function (result) {
+      });
+     </script>{% endblock content %}
