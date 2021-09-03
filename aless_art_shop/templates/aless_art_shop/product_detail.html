@@ -14,9 +14,9 @@
                     <img src="https://dummyimage.com/150x150.gif?text={{ object.name }}" alt="">
                 </div>
                 <div class="col-md-10">
-                    <h1>Name: {{ object.name }}</h1>
+                    <h1>{{ object.product_name }}</h1>
                     <p>Description: {{ object.description }}</p>
-                    <p>Price: {{ object.price }}</p>
+                    <p>Price: £{{ object.price }}</p>
 
                     <div class="form-group">
                         <label for="email">Email: </label>
@@ -27,8 +27,10 @@
             </div>
         </div>
         <div class="card-footer d-flex">
-            <form action="/create-checkout-session" method="POST">
-                <button class="btn btn-success ml-auto" id="checkout-button">Checkout</button></form>
+            <form action="{% url 'stripe_payments:create-checkout-session' object.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" id="checkout-button">Buy me!</button>
+            </form>
         </div>
     </div>
 </div>

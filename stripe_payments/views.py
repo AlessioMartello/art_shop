@@ -27,6 +27,7 @@ class ProductDetailView(DetailView):
         context['stripe_public_key'] = settings.STRIPE_PUBLIC_KEY
         return context
 
+
 class SuccessView(TemplateView):
     template_name = "stripe_payments/success.html"
 
@@ -39,8 +40,10 @@ class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         """Creates a session to display the product, as listed in Stripe and redirects to stripe for checkout"""
         product = Product.objects.get(id=self.kwargs["pk"])
-
-        DOMAIN = 'http://127.0.0.1:8000'  # todo change me when deployed
+        if settings.DEBUG == True:
+            DOMAIN = 'http://127.0.0.1:8000'
+        else:
+            DOMAIN = 'https://aless-art-shop.herokuapp.com/stripe_payments'  # todo change me when domain is acquired
 
         checkout_session = stripe.checkout.Session.create(
             line_items=[
@@ -51,11 +54,10 @@ class CreateCheckoutSessionView(View):
             ],
             payment_method_types=[
                 'card',
-                # 'bacs_debit',
             ],
             mode='payment',
-            success_url=DOMAIN + '/success/',
-            cancel_url=DOMAIN + '/cancel/',
+            success_url=DOMAIN + 'stripe_payments/success/',
+            cancel_url=DOMAIN + 'stripe_payments/cancel/',
         )
         return redirect(checkout_session.url)
 
@@ -80,14 +82,14 @@ def stripe_webhook(request):
         customer_email = session["customer_details"]["email"]
         payment_intent = session["payment_intent"]
 
-        confirmation_email(customer_email) # todo check this works
+        confirmation_email(customer_email)  # todo check this works
 
     return HttpResponse(status=200)
+
 
 # Donations classes
 
 class Donate(TemplateView):
     template_name = "stripe_payments/donate.html"
-
 
 # class CreateDonationCheckoutSessionView(View):
