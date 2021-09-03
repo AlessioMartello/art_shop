@@ -18,7 +18,6 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     stripe_price_id = models.CharField(max_length=100)
     description = models.CharField(max_length=5000, default="Enter product description here")
-
-    # # photo = models.ImageField(upload_to="product_photo", blank=True)
+    photo = models.ImageField(upload_to="images/", blank=True)
     def __str__(self):
         return self.product_name

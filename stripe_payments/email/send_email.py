@@ -14,7 +14,6 @@ context = ssl.create_default_context()
 
 smtp_server = "smtp.gmail.com"
 sender_email = "alessartshop@gmail.com"
-# receiver_email = "your@gmail.com"
 
 def confirmation_email(receiver):
     message = MIMEMultipart("alternative")
@@ -35,9 +34,9 @@ def confirmation_email(receiver):
     <html>
       <body>
       <h1>Thank you! Your order has been received <h1/>
-        <p>>Your order is being processed
+        <p>Your order is being processed
         </p>
-        <p>>In the meantime, feel free to email me at alessartshop@gmail.com if you have any questions.
+        <p>In the meantime, feel free to email me at alessartshop@gmail.com if you have any questions.
         </p>
       </body>
     </html>

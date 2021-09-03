@@ -56,8 +56,8 @@ class CreateCheckoutSessionView(View):
                 'card',
             ],
             mode='payment',
-            success_url=DOMAIN + 'stripe_payments/success/',
-            cancel_url=DOMAIN + 'stripe_payments/cancel/',
+            success_url=DOMAIN + '/stripe_payments/success/',
+            cancel_url=DOMAIN + '/stripe_payments/cancel/',
         )
         return redirect(checkout_session.url)
 
@@ -81,8 +81,7 @@ def stripe_webhook(request):
         session = event['data']['object']
         customer_email = session["customer_details"]["email"]
         payment_intent = session["payment_intent"]
-
-        confirmation_email(customer_email)  # todo check this works
+        confirmation_email(customer_email) # TODO NOT WORKING
 
     return HttpResponse(status=200)
 
