@@ -2,11 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Donate</title>
-        <link rel="icon" type="image/png" href="/static/am_logo_white.png">
+    <title>Donate!</title>
+    <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 
 </head>
 <body>
-<P> Donate!</P>
+{% extends "aless_art_shop/base.html" %}
+{% block page_header %}
+    <section>
+        <form action="{% url 'stripe_payments:make-donation' amount=5%}" method="POST">
+                {% csrf_token %}
+                <button>Donate £5</button>
+        </form>
+
+        <form action="{% url 'stripe_payments:make-donation' amount=10%}" method="POST">
+                {% csrf_token %}
+                <button>Donate £10</button>
+        </form>
+
+        <form action="{% url 'stripe_payments:make-donation' amount=20%}" method="POST">
+                {% csrf_token %}
+                <button>Donate £20</button>
+        </form>
+        
+    </section>
 </body>
+{% endblock page_header %}
+
 </html>

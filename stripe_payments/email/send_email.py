@@ -21,26 +21,29 @@ def confirmation_email(receiver):
     message["From"] = sender_email
     message["To"] = receiver
 
-    # todo make this a more visually appealling email wiith more info, including the product and image etc
-
     plain_text = """
-    Thank you! Your order has been received
-    Your order is being processed
-    
-    In the meantime, feel free to email me at alessartshop@gmail.com if you have any questions.
-    """
+        Thank you so much for your purchase!
+        Your order is being processed
+        
+        Your order has been received and is being processed.
+        
+        In the meantime, feel free to email me at alessartshop@gmail.com if you have any questions or check out the 
+        faqs page here. """
 
     html_text = """
     <html>
       <body>
-      <h1>Thank you! Your order has been received <h1/>
+      <h1>Thank you so much for your purchase! </h1>
         <p>Your order is being processed
         </p>
-        <p>In the meantime, feel free to email me at alessartshop@gmail.com if you have any questions.
-        </p>
+        <p>Your order has been received and is being processed.</p>
+        <p>In the meantime, feel free to email me at 
+            <a href="mailto:alessartshop@gmail.com">alessartshop@gmail.com</a>
+         if you have any questions or check out the <a href = "{% url 'stripe_payments:#' %}"> faqs <a/> page here.<p/>
       </body>
     </html>
     """
+    #todo add an image to the email
 
     # Turn these into plain/html MIMEText objects
     part1 = MIMEText(plain_text, "plain")

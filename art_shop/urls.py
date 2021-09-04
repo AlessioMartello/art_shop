@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from aless_art_shop.admin import donation_admin_site
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
+    path(r'donation_admin/', donation_admin_site.urls),
     path(r'', include('aless_art_shop.urls', namespace='aless_art_shop')),
     path(r'stripe_payments/', include('stripe_payments.urls', namespace='stripe_payments'))
 ]

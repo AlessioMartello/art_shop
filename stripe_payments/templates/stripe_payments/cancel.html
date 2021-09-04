@@ -1,13 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cancel</title>
+    <link rel="icon" type="image/png" href="/static/am_logo_white.png">
+
+</head>
+<body>
+
+{% extends "aless_art_shop/base.html" %}
+{% block page_header %}
 
 <head>
     <title>Checkout canceled</title>
 </head>
 
-<body>
     <section>
-        <p>Forgot to add something to your cart? <a href="{% url 'aless_art_shop:index' %}">Try again</a></p>
+        <p>Forgot to add something to your cart? <a href="{% url 'stripe_payments:home' %}">Try again</a></p>
     </section>
 </body>
+{% endblock page_header %}
 
 </html>

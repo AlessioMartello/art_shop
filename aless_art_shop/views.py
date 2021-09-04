@@ -14,6 +14,7 @@ def product(request, product_id):
     context = {'catalogue': catalogue, 'product': product}
     return render(request, 'aless_art_shop/product_list.html', context)
 
+
 def about(request):
     """Display the about page"""
     return render(request, 'aless_art_shop/about.html')

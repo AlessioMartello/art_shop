@@ -1,5 +1,5 @@
 from django.urls import path
-from stripe_payments.views import CreateCheckoutSessionView, CancelView, SuccessView, stripe_webhook, ProductDetailView, ProductListView, Donate
+from stripe_payments.views import CreateCheckoutSessionView, CancelView, SuccessView, stripe_webhook, ProductDetailView, ProductListView, Donate, MakeDonation
 
 
 
@@ -12,7 +12,8 @@ urlpatterns = [
     path('success/', SuccessView.as_view(), name='success'),
     path('detail/<id>/', ProductDetailView.as_view(), name='detail'),
     path('create-checkout-session/<pk>/', CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
-    path('webhooks/stripe/', stripe_webhook, name='stripe-webhook'),
-    path('donate/', Donate.as_view(), name='donate')
+    path('webhook/stripe/', stripe_webhook, name='stripe-webhook'),
+    path('donate/', Donate.as_view(), name='donate'),
+    path('donate/make-donation/<amount>/', MakeDonation.as_view(), name='make-donation'),
 ]
 

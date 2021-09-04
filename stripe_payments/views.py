@@ -7,6 +7,8 @@ from aless_art_shop.models import Product
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from stripe_payments.email.send_email import confirmation_email
+from aless_art_shop.models import Donation
+
 
 stripe.api_key = settings.STRIPE_PRIVATE_KEY
 
@@ -80,7 +82,6 @@ def stripe_webhook(request):
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         customer_email = session["customer_details"]["email"]
-        payment_intent = session["payment_intent"]
         confirmation_email(customer_email) # TODO NOT WORKING
 
     return HttpResponse(status=200)
@@ -91,4 +92,24 @@ def stripe_webhook(request):
 class Donate(TemplateView):
     template_name = "stripe_payments/donate.html"
 
-# class CreateDonationCheckoutSessionView(View):
+
+class MakeDonation(View):
+    """To make a fixed amount donation using stripe checkout. Currently £10 only, not dynamic"""
+    def post(self, request, *args, **kwargs):
+        donation_object = Donation.objects.get(amount=self.kwargs["amount"])
+        donation_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    'price': donation_object.stripe_price_id,
+                    'quantity': 1,
+                },
+            ],
+            payment_method_types=[
+                'card',
+            ],
+            mode='payment',
+            success_url='http://127.0.0.1:8000/stripe_payments/success/',
+            cancel_url='http://127.0.0.1:8000/stripe_payments/cancel/',
+        )
+
+        return redirect(donation_session.url,  code=303)

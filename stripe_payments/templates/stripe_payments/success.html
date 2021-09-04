@@ -1,17 +1,23 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Thanks for your order!</title>
-</head>
+    <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 
+</head>
 <body>
+
+{% extends "aless_art_shop/base.html" %}
+{% block page_header %}
     <section>
         <p>
             We appreciate your business! If you have any questions, please email
-            <a href="mailto:orders@example.com">orders@example.com</a>.
+            <a href="mailto:alessartshop@gmail.com">alessartshop</a>.
         </p>
-        <a href="{% url 'stripe_payments:home' %}">Home</a>
+        <a href="{% url 'stripe_payments:home' %}">Gallery</a>
     </section>
 </body>
+{% endblock page_header %}
 
 </html>

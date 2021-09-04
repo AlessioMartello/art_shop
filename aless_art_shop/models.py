@@ -21,3 +21,12 @@ class Product(models.Model):
     photo = models.ImageField(upload_to="images/", blank=True)
     def __str__(self):
         return self.product_name
+
+
+class Donation(models.Model):
+    """An group of donations the user can choose"""
+    amount = models.IntegerField(primary_key=True)
+    stripe_price_id = models.CharField(max_length=100)
+
+    def __int__(self):
+        return self.amount
