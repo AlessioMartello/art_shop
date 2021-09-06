@@ -9,7 +9,7 @@ class DonationAdminSite(admin.AdminSite):
     index_title = "Welcome to the Donations admin"
 
 
-donation_admin_site = DonationAdminSite(name='doantion_admin')
+donation_admin_site = DonationAdminSite(name='donation_admin')
 
 admin.site.register(Catalogue)
 admin.site.register(Product)

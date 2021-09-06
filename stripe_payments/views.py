@@ -45,7 +45,7 @@ class CreateCheckoutSessionView(View):
         if settings.DEBUG == True:
             DOMAIN = 'http://127.0.0.1:8000'
         else:
-            DOMAIN = 'https://aless-art-shop.herokuapp.com/stripe_payments'  # todo change me when domain is acquired
+            DOMAIN = 'https://aless-art-shop.herokuapp.com'  # todo change me when domain is acquired
 
         checkout_session = stripe.checkout.Session.create(
             line_items=[
