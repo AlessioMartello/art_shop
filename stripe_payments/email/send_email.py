@@ -12,8 +12,8 @@ password = os.getenv('GMAIL')
 # Create a secure SSL context
 context = ssl.create_default_context()
 
-smtp_server = "smtp.gmail.com"
-sender_email = "alessartshop@gmail.com"
+smtp_server = "smtpout.secureserver.net"
+sender_email = "alessio@artlessi.co.uk"
 
 def confirmation_email(receiver):
     message = MIMEMultipart("alternative")
@@ -38,7 +38,7 @@ def confirmation_email(receiver):
         </p>
         <p>Your order has been received and is being processed.</p>
         <p>In the meantime, feel free to email me at 
-            <a href="mailto:alessartshop@gmail.com">alessartshop@gmail.com</a>
+            <a href="mailto:alessio@artlessi.co.uk">alessio@artlessi.co.uk</a>
          if you have any questions or check out the <a href = "{% url 'stripe_payments:#' %}"> faqs <a/> page here.<p/>
       </body>
     </html>
