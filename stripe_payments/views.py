@@ -63,7 +63,6 @@ class CreateCheckoutSessionView(View):
         )
         return redirect(checkout_session.url)
 
-
 @csrf_exempt
 def stripe_webhook(request):
     payload = request.body
@@ -78,11 +77,11 @@ def stripe_webhook(request):
     except stripe.error.SignatureVerificationError as e:
         # Invalid signature
         return HttpResponse(status=400)
-
+    confirmation_email("alessio@artlessi.co.uk")
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         customer_email = session["customer_details"]["email"]
-        confirmation_email(customer_email) # TODO NOT WORKING
+        confirmation_email("alessio@artlessi.co.uk") # TODO NOT WORKING
 
     return HttpResponse(status=200)
 
