@@ -9,7 +9,6 @@ from django.http import HttpResponse
 from stripe_payments.email.send_email import confirmation_email
 from aless_art_shop.models import Donation
 
-
 stripe.api_key = settings.STRIPE_PRIVATE_KEY
 
 
@@ -45,7 +44,7 @@ class CreateCheckoutSessionView(View):
         if settings.DEBUG == True:
             DOMAIN = 'http://127.0.0.1:8000'
         else:
-            DOMAIN = 'https://aless-art-shop.herokuapp.com'  # todo change me when domain is acquired
+            DOMAIN = 'http://artlessi.co.uk'  # todo change me when domain is acquired
 
         checkout_session = stripe.checkout.Session.create(
             line_items=[
@@ -63,6 +62,7 @@ class CreateCheckoutSessionView(View):
         )
         return redirect(checkout_session.url)
 
+
 @csrf_exempt
 def stripe_webhook(request):
     payload = request.body
@@ -70,7 +70,7 @@ def stripe_webhook(request):
     event = None
 
     try:
-        event = stripe.Webhook.construct_event(payload, sig_header, settings.STRIPE_WEBHOOK_SECRET)
+        event = stripe.Webhook.construct_event(payload, sig_header, settings.STRIPE_PRIVATE_KEY)
     except ValueError as e:
         # An invalid payment
         return HttpResponse(status=400)
@@ -81,7 +81,7 @@ def stripe_webhook(request):
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         customer_email = session["customer_details"]["email"]
-        confirmation_email("alessio@artlessi.co.uk") # TODO NOT WORKING
+        confirmation_email("alessio@artlessi.co.uk")  # TODO NOT WORKING
 
     return HttpResponse(status=200)
 
@@ -94,6 +94,7 @@ class Donate(TemplateView):
 
 class MakeDonation(View):
     """To make a fixed amount donation using stripe checkout. Currently £10 only, not dynamic"""
+
     def post(self, request, *args, **kwargs):
         donation_object = Donation.objects.get(amount=self.kwargs["amount"])
         donation_session = stripe.checkout.Session.create(
@@ -111,4 +112,4 @@ class MakeDonation(View):
             cancel_url='http://127.0.0.1:8000/stripe_payments/cancel/',
         )
 
-        return redirect(donation_session.url,  code=303)
+        return redirect(donation_session.url, code=303)
