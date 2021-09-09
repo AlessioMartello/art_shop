@@ -70,7 +70,7 @@ def stripe_webhook(request):
     event = None
 
     try:
-        event = stripe.Webhook.construct_event(payload, sig_header, settings.STRIPE_PRIVATE_KEY)
+        event = stripe.Webhook.construct_event(payload, sig_header, settings.STRIPE_WEBHOOK_SECRET)
     except ValueError as e:
         # An invalid payment
         return HttpResponse(status=400)
