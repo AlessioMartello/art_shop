@@ -63,29 +63,6 @@ class CreateCheckoutSessionView(View):
         return redirect(checkout_session.url)
 
 
-@csrf_exempt
-def stripe_webhook(request):
-    payload = request.body
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
-    event = None
-
-    try:
-        event = stripe.Webhook.construct_event(payload, sig_header, settings.STRIPE_WEBHOOK_SECRET)
-    except ValueError as e:
-        # An invalid payment
-        return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
-        return HttpResponse(status=400)
-    confirmation_email("alessio@artlessi.co.uk")
-    if event['type'] == 'checkout.session.completed':
-        session = event['data']['object']
-        customer_email = session["customer_details"]["email"]
-        confirmation_email("alessio@artlessi.co.uk")  # TODO NOT WORKING
-
-    return HttpResponse(status=200)
-
-
 # Donations classes
 
 class Donate(TemplateView):
@@ -108,8 +85,29 @@ class MakeDonation(View):
                 'card',
             ],
             mode='payment',
-            success_url='http://127.0.0.1:8000/stripe_payments/success/',
-            cancel_url='http://127.0.0.1:8000/stripe_payments/cancel/',
+            success_url='http:artlessi.co.uk/stripe_payments/success/',
+            cancel_url='http:artlessi.co.uk/stripe_payments/cancel/',
         )
 
         return redirect(donation_session.url, code=303)
+
+
+def stripe_webhook(request):
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
+    try:
+        event = stripe.Webhook.construct_event(payload, sig_header, settings.STRIPE_WEBHOOK_SECRET)
+    except ValueError as e:
+        # An invalid payment
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        return HttpResponse(status=400)
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+        customer_email = session["customer_details"]["email"]
+        confirmation_email("alessio@artlessi.co.uk")  # TODO NOT WORKING
+    else:
+        print("no")
+    return HttpResponse(status=200)

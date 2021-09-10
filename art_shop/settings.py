@@ -142,7 +142,7 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
 
 STRIPE_PRIVATE_KEY = os.getenv('STRIPE_PRIVATE_KEY')
 
-STRIPE_WEBOOK_SECRET = os.getenv('STRIPE_WEBOOK_SECRET')
+STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
