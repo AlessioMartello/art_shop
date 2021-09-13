@@ -42,9 +42,9 @@ class CreateCheckoutSessionView(View):
         """Creates a session to display the product, as listed in Stripe and redirects to stripe for checkout"""
         product = Product.objects.get(id=self.kwargs["pk"])
         if settings.DEBUG == True:
-            DOMAIN = 'http://127.0.0.1:8000'
+            DOMAIN = 'https://127.0.0.1:8000'
         else:
-            DOMAIN = 'http://artlessi.co.uk'  # todo change me when domain is acquired
+            DOMAIN = 'https://artlessi.co.uk'  # todo change me when domain is acquired
 
         checkout_session = stripe.checkout.Session.create(
             line_items=[
@@ -85,8 +85,8 @@ class MakeDonation(View):
                 'card',
             ],
             mode='payment',
-            success_url='http:artlessi.co.uk/stripe_payments/success/',
-            cancel_url='http:artlessi.co.uk/stripe_payments/cancel/',
+            success_url='https:artlessi.co.uk/stripe_payments/success/',
+            cancel_url='https:artlessi.co.uk/stripe_payments/cancel/',
         )
 
         return redirect(donation_session.url, code=303)
@@ -107,7 +107,5 @@ def stripe_webhook(request):
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         customer_email = session["customer_details"]["email"]
-        confirmation_email("alessio@artlessi.co.uk")  # TODO NOT WORKING
-    else:
-        print("no")
+        confirmation_email(customer_email)
     return HttpResponse(status=200)

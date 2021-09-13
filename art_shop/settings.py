@@ -31,7 +31,7 @@ if os.environ.get('DEBUG') == 'TRUE':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["www.artlessi.co.uk", "artlessi.co.uk"]
 
 # Application definition
 
@@ -153,3 +153,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import django_heroku
 
 django_heroku.settings(locals())
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
