@@ -42,6 +42,8 @@ INSTALLED_APPS = [
 
     # Third-party apps
     'bootstrap4',
+    'cloudinary_storage'
+    'cloudinary',
 
     # Default Django Apps
     'django.contrib.admin',
@@ -128,8 +130,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+CLOUDINARY_STORAGE = {
+             'CLOUD_NAME': os.getenv('CLOUDINARY_API_NAME'),
+             'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+             'API_SECRET': os.getenv('CLOUDINARY_API_SECRET')
+            }
+
 # Base url to serve media files
 MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE='cloudinary_storage.storage.MediaCloudinaryStorage'
+
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 

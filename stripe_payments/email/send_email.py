@@ -1,6 +1,8 @@
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
+
 from dotenv import load_dotenv
 import os
 
@@ -15,6 +17,7 @@ context = ssl.create_default_context()
 smtp_server = "smtpout.secureserver.net"
 sender_email = "alessio@artlessi.co.uk"
 
+
 def confirmation_email(receiver):
     message = MIMEMultipart("alternative")
     message["Subject"] = "Thanks for your order!"
@@ -23,12 +26,11 @@ def confirmation_email(receiver):
 
     plain_text = """
         Thank you so much for your purchase!
-        Your order is being processed
-        
+       
         Your order has been received and is being processed.
         
         In the meantime, feel free to email me at alessartshop@gmail.com if you have any questions or check out the 
-        faqs page here. """
+        faqs page. """
 
     html_text = """
     <html>
@@ -43,7 +45,13 @@ def confirmation_email(receiver):
       </body>
     </html>
     """
-    #todo add an image to the email
+
+    # todo add images to email
+    image = MIMEImage(open('am_logo.png', 'rb').read())
+
+    # Define the image's ID as referenced in the HTML body above
+    # image.add_header('Content-ID', '<image1>')
+    message.attach(image)
 
     # Turn these into plain/html MIMEText objects
     part1 = MIMEText(plain_text, "plain")
@@ -58,3 +66,7 @@ def confirmation_email(receiver):
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver, message.as_string())
     return "email sent"
+
+
+if __name__ == "__main__":
+    confirmation_email(sender_email)
