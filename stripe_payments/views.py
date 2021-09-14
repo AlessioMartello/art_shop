@@ -42,11 +42,14 @@ class CreateCheckoutSessionView(View):
         """Creates a session to display the product, as listed in Stripe and redirects to stripe for checkout"""
         product = Product.objects.get(id=self.kwargs["pk"])
         if settings.DEBUG == True:
-            DOMAIN = 'https://127.0.0.1:8000'
+            DOMAIN = 'http://127.0.0.1:8000'
         else:
-            DOMAIN = 'https://artlessi.co.uk'  # todo change me when domain is acquired
+            DOMAIN = 'https://www.artlessi.co.uk'
 
         checkout_session = stripe.checkout.Session.create(
+            shipping_address_collection={
+                'allowed_countries': ['GB'],
+            },
             line_items=[
                 {
                     'price': product.stripe_price_id,
@@ -75,7 +78,11 @@ class MakeDonation(View):
     def post(self, request, *args, **kwargs):
         donation_object = Donation.objects.get(amount=self.kwargs["amount"])
         donation_session = stripe.checkout.Session.create(
+            shipping_address_collection={
+                'allowed_countries': ['GB'],
+            },
             line_items=[
+
                 {
                     'price': donation_object.stripe_price_id,
                     'quantity': 1,
@@ -85,8 +92,8 @@ class MakeDonation(View):
                 'card',
             ],
             mode='payment',
-            success_url='https:artlessi.co.uk/stripe_payments/success/',
-            cancel_url='https:artlessi.co.uk/stripe_payments/cancel/',
+            success_url='https://www.artlessi.co.uk/stripe_payments/success/',
+            cancel_url='https://www.artlessi.co.uk/stripe_payments/cancel/',
         )
 
         return redirect(donation_session.url, code=303)

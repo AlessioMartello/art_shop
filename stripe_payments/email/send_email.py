@@ -47,11 +47,11 @@ def confirmation_email(receiver):
     """
 
     # todo add images to email
-    image = MIMEImage(open('am_logo.png', 'rb').read())
+    # image = MIMEImage(open('am_logo.png', 'rb').read())
 
     # Define the image's ID as referenced in the HTML body above
     # image.add_header('Content-ID', '<image1>')
-    message.attach(image)
+    # message.attach(image)
 
     # Turn these into plain/html MIMEText objects
     part1 = MIMEText(plain_text, "plain")
