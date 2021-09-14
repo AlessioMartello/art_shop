@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 load_dotenv()
 
@@ -42,7 +45,7 @@ INSTALLED_APPS = [
 
     # Third-party apps
     'bootstrap4',
-    'cloudinary_storage'
+    'cloudinary_storage',
     'cloudinary',
 
     # Default Django Apps
