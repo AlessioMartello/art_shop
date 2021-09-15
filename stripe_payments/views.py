@@ -98,6 +98,7 @@ class MakeDonation(View):
 
         return redirect(donation_session.url, code=303)
 
+
 @csrf_exempt
 def stripe_webhook(request):
     payload = request.body
