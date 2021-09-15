@@ -19,6 +19,8 @@ class Product(models.Model):
     stripe_price_id = models.CharField(max_length=100)
     description = models.CharField(max_length=5000, default="Enter product description here")
     photo = models.ImageField(upload_to="images/", blank=True)
+    size = models.CharField(max_length=50)
+    material = models.CharField(max_length=200)
     def __str__(self):
         return self.product_name
 
