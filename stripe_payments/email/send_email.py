@@ -1,7 +1,7 @@
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from email.mime.image import MIMEImage
+from pathlib import Path
 
 from dotenv import load_dotenv
 import os
@@ -26,14 +26,16 @@ def confirmation_email(receiver):
     message["From"] = sender_email
     message["To"] = receiver
 
-    encoded = base64.b64encode(open(r"C:\Users\Alessio\programming\Python\art_shop\static\am_logo.png", 'rb').read()).decode()
+    logo_file_path = str(Path(__file__).parents[2] / "static" / "am_logo.png")
+
+    encoded = base64.b64encode(open(logo_file_path, 'rb').read()).decode()
 
     plain_text = """
         Thank you so much for your purchase!
-       
+
         Your order has been received and is being processed.
-        
-        In the meantime, feel free to email me at alessartshop@gmail.com if you have any questions or check out the 
+
+        In the meantime, feel free to email me at alessartshop@gmail.com if you have any questions or check out the
         faqs page. """
 
     html_text = f"""
@@ -44,7 +46,7 @@ def confirmation_email(receiver):
         <p>I'm so pleased you like my art and have decided to buy something!</p>
         <p>Your order has been received and is being processed.</p>
         <p>The item will be shipped as soon as possible and you will receive a shipping confirmation</p>
-        <p>In the meantime, feel free to email me at 
+        <p>In the meantime, feel free to email me at
             <a href="mailto:alessio@artlessi.co.uk">alessio@artlessi.co.uk</a>
          if you have any questions or check out the page <a href = "https://www.artlessi.co.uk"> faqs <a/> here.<p/>
         <p>Lots of love, Alessi</p>
