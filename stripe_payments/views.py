@@ -94,7 +94,7 @@ class MakeDonation(View):
             ],
             mode='payment',
             success_url=success_url,
-            cancel_url=cancel_url,
+            cancel_url=cancel_url.replace("cancel", "donate"),
         )
 
         return redirect(donation_session.url, code=303)

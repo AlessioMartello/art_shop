@@ -142,8 +142,6 @@ a.socialIcon:hover, .socialHoverClass {
 .jumbotron {
     background: url("am_logo.png") no-repeat center;
     background-size: cover;
-    padding-top: 15%;
-    padding-bottom: 15%;
 }
 
 .btn-primary {
@@ -151,5 +149,19 @@ a.socialIcon:hover, .socialHoverClass {
     border-color: #c60063;
 }
 
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 6;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 6;
+  }
+}
 
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
 
+  display: flex;
+  align-items: center;
+}

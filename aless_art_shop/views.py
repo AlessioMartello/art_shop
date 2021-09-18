@@ -3,7 +3,7 @@ from .models import Catalogue, Product
 
 
 def index(request):
-    """The home page for aless_art_shop"""
+    """The home page for artlessi.co.uk"""
     return render(request, "aless_art_shop/index.html")
 
 
@@ -18,3 +18,7 @@ def product(request, product_id):
 def about(request):
     """Display the about page"""
     return render(request, 'aless_art_shop/about.html')
+
+def faqs(request):
+    """Display the faqs page"""
+    return render(request, 'aless_art_shop/faqs.html')

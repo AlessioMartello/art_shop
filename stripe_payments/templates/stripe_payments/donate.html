@@ -6,26 +6,38 @@
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 
 </head>
-<body class="pt-5">
+<body class="pt-5 mt-5">
 {% extends "aless_art_shop/base.html" %}
 {% block page_header %}
-    <section class="pt-5">
-        <form action="{% url 'stripe_payments:make-donation' amount=5%}" method="POST">
-                {% csrf_token %}
-                <button>Donate £5</button>
+<h1 class="text-center pt-5 pb-5">Make a one off contribution</h1>
+<div class="container">
+    <div class="card-deck mt-5 text-center">
+    <div class="card">
+        <div class="card-body">
+            <form action="{% url 'stripe_payments:make-donation' amount=5%}" method="POST">
+            {% csrf_token %}
+            <button>Donate £5</button>
         </form>
-
-        <form action="{% url 'stripe_payments:make-donation' amount=10%}" method="POST">
-                {% csrf_token %}
-                <button>Donate £10</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form action="{% url 'stripe_payments:make-donation' amount=10%}" method="POST">
+            {% csrf_token %}
+            <button>Donate £10</button>
         </form>
-
-        <form action="{% url 'stripe_payments:make-donation' amount=20%}" method="POST">
-                {% csrf_token %}
-                <button>Donate £20</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form action="{% url 'stripe_payments:make-donation' amount=20%}" method="POST">
+            {% csrf_token %}
+            <button>Donate £20</button>
         </form>
-        
-    </section>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 {% endblock page_header %}
 

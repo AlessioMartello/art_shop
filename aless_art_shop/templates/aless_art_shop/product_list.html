@@ -6,33 +6,29 @@
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 
 </head>
-<body class="pt-5">
+<body class="pt-5 pb-5">
 {% extends 'aless_art_shop/base.html' %}
 
 {% block content %}
 <h1 class="text-center pt-5 pb-5">Life Drawings</h1>
-<div class="container">
+<div class="card-columns px-3">
     {% if product_list %}
-    <div class="row">
         {% for p in product_list %}
-        <div class="col-sm-4">
             <div class="card">
                 {% if p.photo %}
                     <a href="{% url 'stripe_payments:detail' id=p.id %}">
-                    <img class="card-img-top" src="{{ p.photo.url }}" alt="Hand drawn artwork"></a>
-                {% endif %}
-                <div class="card-body text-center">
-                    <h4 class="card-title">{{ p.product_name }}</h4>
-                    <p class="card-text">{{ p.description }}</p>
-                </div>
-                <div class="card-footer">
+                    <img class="card-img-top" src="{{ p.photo.url }}" alt="Hand drawn artwork" ></a>
+                    {% endif %}
+                    <div class="card-body text-center">
+                        <h4 class="card-title">{{ p.product_name }}</h4>
+                        <p class="card-text">{{ p.description }}</p>
+                    </div>
+                <div class="card-footer text-center">
                     <a href="{% url 'stripe_payments:detail' id=p.id %}" class="btn btn-success ml-auto">More info</a>
                 </div>
-            </div>
         </div>
         {% endfor %}
 
-    </div>
     {% else %}
     <div class="alert alert-info text-center mt-5">
         The product list is empty. Please add some products first.

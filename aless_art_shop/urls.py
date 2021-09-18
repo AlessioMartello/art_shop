@@ -6,10 +6,8 @@ from . import views
 
 app_name = "aless_art_shop"
 urlpatterns = [
-    # Home page
     path('', views.index, name='index'),
-    # Detailed page for a single listing
     path('product/<int:id>/', views.product, name='product'),
-    # About page
-    path('about/', views.about, name="about")
+    path('about/', views.about, name="about"),
+    path('faqs/', views.faqs, name="faqs")
 ]

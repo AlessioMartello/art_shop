@@ -5,7 +5,7 @@
         <title>About</title>
         <link rel="icon" type="image/png" href="/static/am_logo_white.png">
     </head>
-    <body class = "pt-5">
+    <body class = "pt-5 pb-5">
 
         {% extends "aless_art_shop/base.html" %}
         {% block page_header %}
@@ -16,7 +16,7 @@
             <div class="col-md-5 p-lg-5 mx-auto my-5">
                 <h1 class="display-4 fw-normal">About me</h1>
                 <p class="lead fw-normal">I'm Alessio. I'm an amateur artist based in London. I've been drawing all my life and my favourite medium is charcoal.</p>
-                <a class="btn btn-outline-secondary" href="#">Browse my stuff!</a>
+                <a class="btn btn-outline-secondary" href="{% url 'stripe_payments:home' %}">Browse life drawings!</a>
             </div>
 
             <div class="product-device shadow-sm d-none d-md-block"></div>

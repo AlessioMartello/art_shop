@@ -8,13 +8,13 @@
 
     </head>
 
-<body>
+<body class="pb-5">
 
 {% extends "aless_art_shop/base.html" %}
 
 {% block page_header %}
-    <header class="jumbotron jumbotron-fluid">
-        <div class = "container-fluid text-center" >
+    <header class="jumbotron jumbotron-fluid vertical-center" style="height:100vh;">
+        <div class = "container text-center" >
             <h1 class="display-3"> Artlessi</h1>
             <p class="lead"> Buy bespoke art locally</p>
             <p><a href = "{% url 'stripe_payments:home' %}" class="btn btn-primary btn-lg" role="button"> Explore!</a></p>
