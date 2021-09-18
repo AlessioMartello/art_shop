@@ -6,10 +6,10 @@
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 
 </head>
-<body>
+<body class="pt-5">
 {% extends "aless_art_shop/base.html" %}
 {% block page_header %}
-    <section>
+    <section class="pt-5">
         <form action="{% url 'stripe_payments:make-donation' amount=5%}" method="POST">
                 {% csrf_token %}
                 <button>Donate £5</button>

@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>About</title>
         <link rel="icon" type="image/png" href="/static/am_logo_white.png">
+    </head>
+    <body class = "pt-5">
 
-</head>
-<body>
-{% extends "aless_art_shop/base.html" %}
-{% block page_header %}
-{% endblock page_header %}
+        {% extends "aless_art_shop/base.html" %}
+        {% block page_header %}
+        {% endblock page_header %}
+        {% block content %}
 
-{% block content %}
+        <div class="position-relative overflow-hidden p-5 p-md-5 m-md-3 text-center bg-light">
+            <div class="col-md-5 p-lg-5 mx-auto my-5">
+                <h1 class="display-4 fw-normal">About me</h1>
+                <p class="lead fw-normal">I'm Alessio. I'm an amateur artist based in London. I've been drawing all my life and my favourite medium is charcoal.</p>
+                <a class="btn btn-outline-secondary" href="#">Browse my stuff!</a>
+            </div>
 
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-4 fw-normal">About me</h1>
-      <p class="lead fw-normal">I'm Alessio. I'm an amateur artist based in London. I've been drawing all my life and my favourite medium is charcoal.</p>
-      <a class="btn btn-outline-secondary" href="#">Browse my stuff!</a>
-    </div>
-    <div class="product-device shadow-sm d-none d-md-block"></div>
-    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-  </div>
+            <div class="product-device shadow-sm d-none d-md-block"></div>
+            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+        </div>
 
-{% endblock content %}
+        {% endblock content %}
 
-</body>
+    </body>
 </html>

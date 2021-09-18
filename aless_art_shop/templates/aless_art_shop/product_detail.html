@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <title>Product details</title>
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
-
 </head>
-<body>
+<body class="pt-5">
 {% extends 'aless_art_shop/base.html' %}
 
 {% block content %}
-<h1 class="text-center">Product Detail</h1>
-<div class="container">
+<h1 class="text-center pt-5 pb-5">Product Detail</h1>
 
+<div class="container">
     <div class="card">
         <div class="card-header">
             <h2>Product Detail</h2>
@@ -20,7 +19,7 @@
         <div class="card-body">
             <div class="container row">
                 <div class="col-md-2">
-                    <img src=" {{ object.photo.url }}" alt="" style="width:10rem;height:10rem";>
+                    <img src=" {{ object.photo.url }}" alt="Hand drawn artwork" style="width:10rem;height:10rem";>
                 </div>
                 <div class="col-md-10">
                     <h1>{{ object.product_name }}</h1>
@@ -28,27 +27,28 @@
                     <p>Price: £{{ object.price }}</p>
                     <p>Size: {{ object.size }}</p>
                     <p>Materials: {{ object.material }}</p>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="card-footer d-flex">
-            <form action="{% url 'stripe_payments:create-checkout-session' object.id %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" id="checkout-button">Buy me!</button>
-            </form>
-        </div>
+    </div>
+
+    <div class="card-footer d-flex">
+        <form action="{% url 'stripe_payments:create-checkout-session' object.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" id="checkout-button">Buy me!</button>
+        </form>
     </div>
 </div>
-    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-    var stripe = Stripe('{{ stripe_public_key }}')
-    const buy_now_button = document.querySelector('#buy_now_btn')
 
-    buy_now_button.addEventListener('click', event => {
-      stripe.redirectToCheckout({
-      sessionId: '{{ session_id }}'
-      }).then(function (result) {
-      });
-     </script>{% endblock content %}
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+var stripe = Stripe('{{ stripe_public_key }}')
+const buy_now_button = document.querySelector('#buy_now_btn')
+
+buy_now_button.addEventListener('click', event => {
+  stripe.redirectToCheckout({
+  sessionId: '{{ session_id }}'
+  }).then(function (result) {
+  });
+ </script>{% endblock content %}

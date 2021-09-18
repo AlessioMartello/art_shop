@@ -11,6 +11,14 @@ from aless_art_shop.models import Donation
 
 stripe.api_key = settings.STRIPE_PRIVATE_KEY
 
+if settings.DEBUG == True:
+    DOMAIN = 'http://127.0.0.1:8000'
+else:
+    DOMAIN = 'https://www.artlessi.co.uk'
+
+success_url = DOMAIN + '/stripe_payments/success/'
+cancel_url = DOMAIN + '/stripe_payments/cancel/'
+
 
 class ProductListView(ListView):
     model = Product
@@ -41,10 +49,6 @@ class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         """Creates a session to display the product, as listed in Stripe and redirects to stripe for checkout"""
         product = Product.objects.get(id=self.kwargs["pk"])
-        if settings.DEBUG == True:
-            DOMAIN = 'http://127.0.0.1:8000'
-        else:
-            DOMAIN = 'https://www.artlessi.co.uk'
 
         checkout_session = stripe.checkout.Session.create(
             shipping_address_collection={
@@ -60,8 +64,8 @@ class CreateCheckoutSessionView(View):
                 'card',
             ],
             mode='payment',
-            success_url=DOMAIN + '/stripe_payments/success/',
-            cancel_url=DOMAIN + '/stripe_payments/cancel/',
+            success_url=success_url,
+            cancel_url=cancel_url,
         )
         return redirect(checkout_session.url)
 
@@ -78,9 +82,6 @@ class MakeDonation(View):
     def post(self, request, *args, **kwargs):
         donation_object = Donation.objects.get(amount=self.kwargs["amount"])
         donation_session = stripe.checkout.Session.create(
-            shipping_address_collection={
-                'allowed_countries': ['GB'],
-            },
             line_items=[
 
                 {
@@ -92,8 +93,8 @@ class MakeDonation(View):
                 'card',
             ],
             mode='payment',
-            success_url='https://www.artlessi.co.uk/stripe_payments/success/',
-            cancel_url='https://www.artlessi.co.uk/stripe_payments/cancel/',
+            success_url=success_url,
+            cancel_url=cancel_url,
         )
 
         return redirect(donation_session.url, code=303)

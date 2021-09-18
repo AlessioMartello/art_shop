@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <title>Thanks for your order!</title>
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
-
 </head>
-<body>
+
+<body class="pt-5">
 
 {% extends "aless_art_shop/base.html" %}
-{% block page_header %}
-    <section>
-        <p>
-            We appreciate your business! If you have any questions, please email
-            <a href="mailto:alessartshop@gmail.com">alessartshop</a>.
-        </p>
-        <a href="{% url 'stripe_payments:home' %}">Gallery</a>
-    </section>
+
+{% block content %}
+<div class="container pt-5 text-center">
+   <h1>Order successful!</h1><br>
+    <img src="#", alt="Some funny image">
+<p>Thanks so much for purchasing some artwork! Feel free to keep browsing <a href="{% url 'stripe_payments:home' %}">here</a>!</p>
+<p>Check out my faqs <a href="#">here<a/> if you have any more questions. You will receive an email confirmation of your order shortly.</a></p>
+    <p> Have a lovely day!</p>
+    </div>
+{% endblock content %}
 </body>
-{% endblock page_header %}
 
 </html>

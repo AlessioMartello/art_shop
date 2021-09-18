@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cancel</title>
+    <title>Order canceled</title>
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
-
 </head>
-<body>
+
+<body class="pt-5">
 
 {% extends "aless_art_shop/base.html" %}
-{% block page_header %}
 
-<head>
-    <title>Checkout canceled</title>
-</head>
+{% block content %}
+<div class="container pt-5">
+   <h1 class="text-center">Order canceled</h1><br>
+    <img src="#", alt="Some funny image">
+<p class="text-center">Must've been an accident right? <br> Feel free to take another look at my artwork <a href="{% url 'stripe_payments:home' %}">here</a>!</p>
+    </div>
+{% endblock content %}
 
-    <section>
-        <p>Forgot to add something to your cart? <a href="{% url 'stripe_payments:home' %}">Try again</a></p>
-    </section>
 </body>
-{% endblock page_header %}
 
 </html>

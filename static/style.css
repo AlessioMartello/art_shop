@@ -134,3 +134,22 @@ a.socialIcon:hover, .socialHoverClass {
     flex: 1;
   }
 }
+
+/*
+ * Index page styling
+ */
+
+.jumbotron {
+    background: url("am_logo.png") no-repeat center;
+    background-size: cover;
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+
+.btn-primary {
+    background-color: #c63063;
+    border-color: #c60063;
+}
+
+
+

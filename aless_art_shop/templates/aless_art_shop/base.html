@@ -7,66 +7,53 @@
         {% bootstrap_css %}
         {% bootstrap_javascript jquery='full' %}
         {% load static %}
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 
-
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <a class="navbar-brand mx-auto" href="{% url 'aless_art_shop:index'%}">
             <img src="{% static 'am_logo.png' %}" alt="My logo" height="60" class="d-inline-block align-text-top">
-
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarCollapse" aria-controls="navbarCollapse"
                 aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span></button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class = "nav-link" href="{% url 'stripe_payments:home' %}"> Life Drawings</a>
-                </li>
-                <li class="nav-item">
-                    <a class = "nav-link" href="{% url 'aless_art_shop:about' %}"> About</a>
-                </li>                <li class="nav-item">
-                    <a class = "nav-link" href="{% url 'stripe_payments:donate' %}"> Donate</a>
-                </li>
+                <li class="nav-item"><a class = "nav-link" href="{% url 'stripe_payments:home' %}"> Life Drawings</a></li>
+                <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:about' %}"> About</a></li>
             </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class = "nav-link" href="{% url 'stripe_payments:donate' %}"> Donate</a></li>
+            </ul>
+           </div>
+ </nav>
 
-        </div>
+    <main role = "main" class="container-fluid">
+            {%block page_header %}
+            {% endblock page_header %}
 
-    </nav>
-
-    <main role = "main" class="container">
-        <div class = "pb-2 mb-2 border-bottom">
-            {%block page_header %}{% endblock page_header %}
-        </div>
-        <div>
-           {% block content %}{% endblock content %}
-        </div>
+            {% block content %}
+            {% endblock content %}
     </main>
 
-        <!-- Footer -->
-    <footer class="bd-footer p-3 p-md-5 mt-5 bg-light text-center text-sm-left">
-
-      <!-- Copyright -->
+    <footer class="bd-footer p-3 p-md-5 mt-5 text-center text-sm-left fixed-bottom">
         <div class = "footer-container">
             <div class="row" >
                 <ul class="social-network social-circle" >
-
                     <li><a href="#" class="icoInstagram" title="Instagram +"><i class="fa fa-instagram"></i></a></li>
                     <li><a href="https://www.linkedin.com/in/alessiomartello/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
-
             </div>
         </div>
-      <!-- Copyright -->
-
     </footer>
-<!-- Footer -->
+
 </body>
 </html>
