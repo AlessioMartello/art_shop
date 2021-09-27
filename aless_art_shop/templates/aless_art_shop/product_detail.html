@@ -9,35 +9,43 @@
 {% extends 'aless_art_shop/base.html' %}
 
 {% block content %}
-<h1 class="text-center pt-5 pb-5">Product Detail</h1>
 
-<div class="container">
-    <div class="card">
+<div class="container text-center pt-5 pb-5">
+    <div class="card bg-1">
         <div class="card-header">
-            <h2>Product Detail</h2>
+            <h1><em>{{ object.product_name }}</em></h1>
         </div>
         <div class="card-body">
-            <div class="container row">
-                <div class="col-md-2">
-                    <img src=" {{ object.photo.url }}" alt="Hand drawn artwork" style="width:10rem;height:10rem";>
+            <div class="row pt-5 pb-5" style="display: flex; justify-content:center; align-items: center;">
+                <div class="col-md-6">
+                    <img class="product-img" src=" {{ object.photo.url }}" alt="Hand drawn artwork";>
                 </div>
-                <div class="col-md-10">
-                    <h1>{{ object.product_name }}</h1>
-                    <p>Description: {{ object.description }}</p>
-                    <p>Price: £{{ object.price }}</p>
-                    <p>Size: {{ object.size }}</p>
-                    <p>Materials: {{ object.material }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
+                <div class="col-md-6">
+                    <p class="lead">About the art</p>
+                    <hr/>
+                    <p><strong>Description:</strong> {{ object.description }}</p>
+                    <p><strong>Price:</strong> £{{ object.price }}</p>
+                    <p><strong>Dimensions:</strong> {{ object.size }}</p>
 
-    <div class="card-footer d-flex">
+                    <p><strong>Medium:</strong> {{ object.material }}</p>
+    <div class="text-center pt-5">
         <form action="{% url 'stripe_payments:create-checkout-session' object.id %}" method="POST">
             {% csrf_token %}
-            <button type="submit" id="checkout-button">Buy me!</button>
+            <button class="btn btn-primary black-btn btn-lg" type="submit" id="checkout-button">Buy me!</button>
         </form>
     </div>
+                </div>
+            </div>
+            </div>
+
+    </div>
+
+
+              </div>
+  <div class="row ">
+                <div class="container text-center pt-5 pb-5">
+                    <p>Find out about delivery, security & payment <a href="{% url 'aless_art_shop:faqs' %}">here.</a></p>
+                </div>
 </div>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>

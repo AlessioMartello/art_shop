@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+    {% extends "aless_art_shop/base.html" %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,39 +7,52 @@
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 
 </head>
+
 <body class="pt-5 mt-5">
-{% extends "aless_art_shop/base.html" %}
 {% block page_header %}
-<h1 class="text-center pt-5 pb-5">Make a one off contribution</h1>
+<div class="container text-center pt-5 pb-5">
+<h1 class="display-4 fw-normal">Help me make art</h1>
+<hr>
+</div>
+
 <div class="container">
-<div class="col-md-6 mx-auto">
-    <p>If you'd like to contribute to help me purchase materials and attend classes that would be so appreciated.</p>
-    <p>The below options are one off contributions and would support and motivate me to continue making art!</p>
+<div class="col-md-6 mx-auto text-center">
+    <p>A small donation would help me purchase materials and attend classes so that I can make more art.</p>
+    <p>The below options are one off contributions, you would be making a really big difference to me!</p>
+    <p>Thank you!</p>
 
 </div>
 <div class="container">
     <div class="card-deck mt-5 text-center">
-    <div class="card">
+    <div class="card bg-1">
         <div class="card-body">
+            <h3 class="card-title">£5</h3>
+           <p class="card-text">New charcoals!</p>
             <form action="{% url 'stripe_payments:make-donation' amount=5%}" method="POST">
             {% csrf_token %}
-            <button>Donate £5</button>
+            <button type="button" class="btn button56 btn-success btn-lg black-btn">Donate</button>
         </form>
         </div>
     </div>
-    <div class="card">
+    <div class="card bg-1">
         <div class="card-body">
+            <h3 class="card-title">£10</h3>
+           <p class="card-text">A life drawing class!</p>
             <form action="{% url 'stripe_payments:make-donation' amount=10%}" method="POST">
             {% csrf_token %}
-            <button>Donate £10</button>
+            <button type="button" class="btn btn-success btn-lg black-btn">Donate</button>
         </form>
         </div>
     </div>
-    <div class="card">
+    <div class="card bg-1">
         <div class="card-body">
+            <h3 class="card-title">£20</h3>
+           <p class="card-text">A Canvas!</p>
+
             <form action="{% url 'stripe_payments:make-donation' amount=20%}" method="POST">
             {% csrf_token %}
-            <button>Donate £20</button>
+            <button type="button" class="btn btn-success btn-lg black-btn">Donate</button>
+
         </form>
         </div>
     </div>

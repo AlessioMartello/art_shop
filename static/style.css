@@ -99,10 +99,6 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 
-/*
- * Extra utilities
- */
-
 .flex-equal > * {
   flex: 1;
 }
@@ -112,18 +108,16 @@ a.socialIcon:hover, .socialHoverClass {
   }
 }
 
-/*
- * Index page styling
- */
-
 .jumbotron {
-    background: url("/static/am_logo.png") no-repeat center;
-    background-size: cover;
+    background: url("/static/man_sitting.jpeg") no-repeat center;
+    background-size: contain;
+    background-attachment: fixed;
+
 }
 
-.btn-primary {
-    background-color: #c63063;
-    border-color: #c60063;
+.black-btn {
+    background-color: black;
+    border-color: black;
 }
 
 .card-columns {
@@ -136,8 +130,8 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 .vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
+  min-height: 100%;
+  min-height: 100vh;
 
   display: flex;
   align-items: center;
@@ -145,4 +139,20 @@ a.socialIcon:hover, .socialHoverClass {
 
 .indexrow{
 background-color: #f99;
+}
+
+.product-img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.bg-1 {
+        background-color: #ABBAEA
+;
+    }
+
+.btn:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color:black;
+    background-color: white;
+    border-color: white; /*set the color you want here*/
 }
