@@ -16,8 +16,7 @@ ul.social-network li {
 .social-network a.icoLinkedin:hover {
 	background-color:#007bb7;
 }
-.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+.social-network a.icoLinkedin:hover i {
 	color:#fff;
 }
 a.socialIcon:hover, .socialHoverClass {
@@ -35,7 +34,7 @@ a.socialIcon:hover, .socialHoverClass {
 	width: 50px;
 	height: 50px;
 	font-size:20px;
-	background-color: #D3D3D3;
+	background-color: #7026b9;
 }
 .social-circle li i {
 	margin:0;
@@ -68,45 +67,8 @@ a.socialIcon:hover, .socialHoverClass {
   justify-content: space-evenly;
 }
 
-.product-device {
-  position: absolute;
-  right: 10%;
-  bottom: -30%;
-  width: 300px;
-  height: 540px;
-  background-color: #333;
-  border-radius: 21px;
-  transform: rotate(30deg);
-}
-
-.product-device::before {
-  position: absolute;
-  top: 10%;
-  right: 10px;
-  bottom: 10%;
-  left: 10px;
-  content: "";
-  background-color: rgba(255, 255, 255, .1);
-  border-radius: 5px;
-}
-
-.product-device-2 {
-  top: -25%;
-  right: auto;
-  bottom: 0;
-  left: 5%;
-  background-color: #e5e5e5;
-}
 
 
-.flex-equal > * {
-  flex: 1;
-}
-@media (min-width: 768px) {
-  .flex-md-equal > * {
-    flex: 1;
-  }
-}
 
 .jumbotron {
     background: url("/static/man_sitting.jpeg") no-repeat center;
@@ -116,8 +78,8 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 .black-btn {
-    background-color: black;
-    border-color: black;
+    background-color: #7026b9;
+    border-color: #7026b9;
 }
 
 .card-columns {
@@ -147,12 +109,38 @@ background-color: #f99;
 }
 
 .bg-1 {
-        background-color: #ABBAEA
-;
+        background-color: #ABBAEA;
     }
 
 .btn:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-    color:black;
-    background-color: white;
-    border-color: white; /*set the color you want here*/
+    color:white;
+    background-color: black;
+    border-color: black; /*set the color you want here*/
+}
+
+.page-headers {
+    color:#7026b9;
+  font-weight: bold;
+    font-family: "Sofia", sans-serif;
+    text-align:center;
+}
+
+.nav-link{
+    color: #7026b9;
+    font-size: large;
+    font-family: Montserrat;}
+
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    color: black;
+}
+
+h5{    font-family: "Sofia", sans-serif;
+}
+
+.sub-headers{
+    color:#7026b9;
+    font-family:Montserrat;
+    font-weight: bold;
+
 }

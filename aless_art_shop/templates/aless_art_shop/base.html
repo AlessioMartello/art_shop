@@ -2,24 +2,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <title>Base</title>
         {% bootstrap_css %}
         {% bootstrap_javascript jquery='full' %}
         {% load static %}
-       <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/png" href="/static/am_logo_white.png">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/png" href="/static/am_logo_white.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
 
 </head>
 
-<style>    body {
-        background-color: white;
-    }
-</style>
-
 <body>
-    <nav class="navbar navbar-expand-md navbar-light fixed-top mx-5">
+    <nav class="navbar navbar-expand-md fixed-top mx-5 sub-headers">
         <a class="navbar-brand mx-auto" href="{% url 'aless_art_shop:index'%}">
             <img src="{% static 'am_logo.png' %}" alt="Artlessi company logo" height="60">
         </a>
@@ -31,7 +30,7 @@
         </button>
 
         <div class="collapse navbar-collapse mx-5" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto nav-wording">
                 <li class="nav-item"><a class = "nav-link" href="{% url 'stripe_payments:home' %}"> Life Drawings</a></li>
                 <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:about' %}"> About</a></li>
                 <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:faqs' %}"> Faqs</a></li>
@@ -42,7 +41,7 @@
            </div>
  </nav>
 
-    <main role = "main" class="container-fluid pt-5">
+    <main role = "main" class="container-fluid">
             {%block page_header %}
             {% endblock page_header %}
 

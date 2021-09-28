@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
         <title>Artlessi</title>
         <link rel="icon" type="image/png" href="/static/am_logo_white.png">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 
     </head>
 
@@ -13,10 +14,10 @@
 {% extends "aless_art_shop/base.html" %}
 
 {% block page_header %}
-    <header class="jumbotron jumbotron-fluid vertical-center" style="height:100vh;">
-        <div class = "container rounded text-center" style="width:40%; background:rgba(171,186,234,0.7);">
-            <h1 class="display-3" > Artlessi</h1>
-            <p class="lead"> <b>Buy bespoke art locally</b></p>
+    <header class="jumbotron jumbotron-fluid vertical-center ">
+        <div class = "container rounded text-center" style="width:40%; background:rgba(171,186,234,0.3);">
+            <h1 class="display-3 page-headers"> Artlessi</h1>
+            <p class="lead" style="font-weight:bold;font-family:Montserrat;"><b>Buy bespoke art locally</b></p>
             <p><a href = "{% url 'stripe_payments:home' %}" class="btn btn-primary btn-lg black-btn" role="button"> Explore!</a></p>
         </div>
     </header>
@@ -27,52 +28,56 @@
 
 
 {% block content %}
-<div class="container div-1" style="height:100vh;">
-<div class="row pt-5 ">
-   <div class="col-sm-12 col-md-6 ">
+<div class="container" style="height:100vh;">
+<div class="row pt-md-5 ">
+   <div class="col-md-6 ">
       <div class="card card-block text-center " style="height: 18rem;">
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
-               <h5 class="card-title"><i class="fa fa-pencil fa-2x"></i><br>Whats the deal?</h5>
+                <h5 class="card-title"><i class="fa fa-pencil fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Whats the deal?</h5>
                <p class="card-text">An amateur artists selling art.</p>
             </div>
          </div>
       </div>
    </div>
-   <div class="col-sm-12 col-md-6">
+   <div class="col-md-6">
       <div class="card card-block text-center" style="height: 18rem;">
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
-               <h5 class="card-title"><i class="fa fa-calendar fa-2x"></i><br>Original artwork added weekly!</h5>
+                <h5 class="card-title"><i class="fa fa-calendar fa-2x"></i></h5>
+               <h5 class="card-title  sub-headers">Original artwork added regularly!</h5>
                <p class="card-text">Whether its life drawing, watercolour or something else I'll endeavour to add new content weekly!</p>
             </div>
          </div>
       </div>
    </div>
 </div>
-<div class="row pt-5">
-   <div class="col-sm-12 col-md-6">
+<div class="row pt-md-5">
+   <div class="col-md-6">
       <div class="card card-block text-center" style="height: 18rem;">
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
-               <h5 class="card-title"><i class="fa fa-lock fa-2x"></i><br>Secure payments </h5>
+                <h5 class="card-title"><i class="fa fa-lock fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Secure payments </h5>
                <p class="card-text">Using a trusted payment provider to process your order safely and risk free</p>
             </div>
          </div>
       </div>
    </div>
-   <div class="col-sm-12 col-md-6">
+   <div class="col-md-6">
       <div class="card card-block text-center" style="height: 18rem;">
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
-               <h5 class="card-title"> <i class="fa fa-truck fa-2x"></i><br>Free delivery!</h5>
+                <h5 class="card-title"> <i class="fa fa-truck fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Free delivery!</h5>
                <p class="card-text">If you're in the UK I'll send you the art you buy free of charge.</p>
             </div>
          </div>
       </div>
    </div>
 </div>
-  <div class="row pt-5">
+  <div class="row pt-md-5">
                 <div class="container text-center pt-5 pb-5">
                     <p>Find out about delivery, security & payment <a href="{% url 'aless_art_shop:faqs' %}">here.</a></p>
                 </div>

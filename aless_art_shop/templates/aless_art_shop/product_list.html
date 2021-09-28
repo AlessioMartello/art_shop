@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <title>Products</title>
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 
@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="container">
-<h1 class="text-center pt-5 ">Life Drawings</h1>
+<h1 class="pt-5 page-headers">Life Drawings</h1>
 <hr>
 </div>
 
@@ -24,7 +24,7 @@
                     <img class="card-img-top" src="{{ p.photo.url }}" alt="Hand drawn artwork" ></a>
                     {% endif %}
                     <div class="card-body text-center">
-                        <h4 class="card-title">{{ p.product_name }}</h4>
+                        <h4 class="sub-headers">{{ p.product_name }}</h4>
                         <p class="card-text">{{ p.description }}</p>
                     </div>
                 <div class="card-footer text-center">
