@@ -11,10 +11,16 @@
 {% extends "aless_art_shop/base.html" %}
 
 {% block content %}
-<div class="container pt-5">
-   <h1 class="text-center">Order canceled</h1><br>
-    <img src="#", alt="Some funny image">
-<p class="text-center">Must've been an accident right? <br> Feel free to take another look at my artwork <a href="{% url 'stripe_payments:home' %}">here</a>!</p>
+<div class="container">
+    <h1 class="pt-5 page-headers">Order canceled</h1>
+    <div class="container text-center pt-5">
+            <img src="/static/cancelled-image.jpg", alt="Order cancelled" class="responsive-image">
+    </div>
+    <div class="text-center pt-5">
+    <p>Must've been an accident right?</p>
+    <p>Feel free to take another look at my artwork <a href="{% url 'stripe_payments:home' %}">here!</a></p>
+    </div>
+
     </div>
 {% endblock content %}
 

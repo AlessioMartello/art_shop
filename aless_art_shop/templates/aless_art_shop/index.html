@@ -15,9 +15,11 @@
 
 {% block page_header %}
     <header class="jumbotron jumbotron-fluid vertical-center ">
-        <div class = "container rounded text-center" style="width:40%; background:rgba(171,186,234,0.3);">
+        <div class = "container rounded text-center">
             <h1 class="display-3 page-headers"> Artlessi</h1>
-            <p class="lead" style="font-weight:bold;font-family:Montserrat;"><b>Buy bespoke art locally</b></p>
+            <div class="container tagline">
+            <p class="lead" style="font-weight:bold">Buy bespoke art locally</p>
+            </div>
             <p><a href = "{% url 'stripe_payments:home' %}" class="btn btn-primary btn-lg black-btn" role="button"> Explore!</a></p>
         </div>
     </header>
@@ -28,7 +30,7 @@
 
 
 {% block content %}
-<div class="container" style="height:100vh;">
+<div class="container">
 <div class="row pt-md-5 ">
    <div class="col-md-6 ">
       <div class="card card-block text-center " style="height: 18rem;">
@@ -47,7 +49,7 @@
             <div class="container">
                 <h5 class="card-title"><i class="fa fa-calendar fa-2x"></i></h5>
                <h5 class="card-title  sub-headers">Original artwork added regularly!</h5>
-               <p class="card-text">Whether its life drawing, watercolour or something else I'll endeavour to add new content weekly!</p>
+               <p class="card-text">Whether its life drawing, watercolour or something else I'll endeavour to add new content!</p>
             </div>
          </div>
       </div>
@@ -77,11 +79,6 @@
       </div>
    </div>
 </div>
-  <div class="row pt-md-5">
-                <div class="container text-center pt-5 pb-5">
-                    <p>Find out about delivery, security & payment <a href="{% url 'aless_art_shop:faqs' %}">here.</a></p>
-                </div>
-
 </div>
 {% endblock content %}
 </body>

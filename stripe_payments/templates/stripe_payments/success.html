@@ -12,9 +12,8 @@
 
 {% block content %}
 <div class="container pt-5 text-center">
-   <h1>Order successful!</h1><br>
-    <img src="#", alt="Some funny image">
-<p>Thanks so much for purchasing some artwork! Feel free to keep browsing <a href="{% url 'stripe_payments:home' %}">here</a>!</p>
+    <h1 class="pt-5 pb-5 page-headers">Order successful!</h1>
+<p>Thanks so much for purchasing some artwork! Feel free to keep browsing <a href="{% url 'stripe_payments:home' %}">here!</a></p>
 <p>Check out my faqs <a href="{% url 'aless_art_shop:faqs' %}">here<a/> if you have any more questions. You will receive an email confirmation of your order shortly.</a></p>
     <p> Have a lovely day!</p>
     </div>

@@ -1,3 +1,10 @@
+:root {
+    --purple: #7026b9;
+    --lightpurple: #ABBAEA;
+    --lightpurpletransparent:rgba(171,186,234,0.5);
+}
+
+
 ul.social-network {
 	list-style: none;
 	display: inline-block;
@@ -34,7 +41,7 @@ a.socialIcon:hover, .socialHoverClass {
 	width: 50px;
 	height: 50px;
 	font-size:20px;
-	background-color: #7026b9;
+	background-color: var(--purple);
 }
 .social-circle li i {
 	margin:0;
@@ -68,8 +75,6 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 
-
-
 .jumbotron {
     background: url("/static/man_sitting.jpeg") no-repeat center;
     background-size: contain;
@@ -78,8 +83,8 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 .black-btn {
-    background-color: #7026b9;
-    border-color: #7026b9;
+    background-color: var(--purple);
+    border-color: var(--purple);
 }
 
 .card-columns {
@@ -106,41 +111,84 @@ background-color: #f99;
 .product-img{
     width: 100%;
     object-fit: cover;
+    border: 2px solid #555;
+
 }
 
 .bg-1 {
-        background-color: #ABBAEA;
+        background-color: var(--lightpurple);
     }
 
 .btn:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color:white;
     background-color: black;
-    border-color: black; /*set the color you want here*/
+    border-color: black;
 }
 
 .page-headers {
-    color:#7026b9;
+    color:var(--purple);
   font-weight: bold;
-    font-family: "Sofia", sans-serif;
+    font-family: "Sofia", sans-serif, Arial;
     text-align:center;
 }
 
 .nav-link{
-    color: #7026b9;
+    color: var(--purple);
     font-size: large;
     font-family: Montserrat;}
 
 .navbar-nav .nav-item.active .nav-link,
 .navbar-nav .nav-item:hover .nav-link {
-    color: black;
+    color: black !important;
 }
 
-h5{    font-family: "Sofia", sans-serif;
+.navbar-collapse{
+    text-align:center;
+}
+.navbarCollapse{
+    background-color:black;
+}
+
+h5{    font-family: "Sofia", sans-serif, Arial;
 }
 
 .sub-headers{
-    color:#7026b9;
-    font-family:Montserrat;
+    color:var(--purple);
+    font-family:Montserrat, Arial;
     font-weight: bold;
 
+}
+
+@media only screen and ( max-width: 768px ) {
+  .jumbotron {
+    background-image: none !important;
+  }
+  .navbar-collapse{
+    background-color: var(--lightpurpletransparent) !important;
+}
+    .tagline{
+    background:transparent !important;
+    }
+}
+
+.footer-info{font-weight:normal;
+}
+
+p{
+    font-family:Montserrat, Arial;
+    font-weight:bold;
+    font-size:1.1rem;
+}
+
+hr{background-color: var(--lightpurple);}
+
+.responsive-image{
+  max-width: 40%;
+  height: auto;
+}
+
+.tagline{
+    font-family:Montserrat;
+    width:40%;
+    background:rgba(171,186,234,0.5);
 }

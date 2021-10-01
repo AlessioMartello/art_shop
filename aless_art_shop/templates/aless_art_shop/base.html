@@ -25,12 +25,12 @@
 
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarCollapse" aria-controls="navbarCollapse"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                aria-expanded="false" aria-label="Toggle navigation" style="padding:0;">
+            <i class="fa fa-bars sub-headers" style="font-size:2rem"></i>
         </button>
 
         <div class="collapse navbar-collapse mx-5" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto nav-wording">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class = "nav-link" href="{% url 'stripe_payments:home' %}"> Life Drawings</a></li>
                 <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:about' %}"> About</a></li>
                 <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:faqs' %}"> Faqs</a></li>
@@ -48,6 +48,15 @@
             {% block content %}
             {% endblock content %}
     </main>
+    <footer>
+        <div class="row">
+            <div class="container text-center pt-5 pb-3">
+                <hr>
+                <p>Find out about delivery, security & payment <a href="{% url 'aless_art_shop:faqs' %}">here.</a></p>
+                <p class="footer-info">Copyright &copy; 2021 Artlessi. Made by <a href="https://github.com/AlessioMartello">yours truly.</a> </p>
+            </div>
+        </div>
+    </footer>
 
     <footer class="bd-footer p-md-2 mt-5 text-center fixed-bottom">
         <div class = "footer-container">

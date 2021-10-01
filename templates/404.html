@@ -1,5 +1,16 @@
 {% extends 'aless_art_shop/base.html' %}
 {% block content %}
 
-<h2>Not Found - The server has not found anything matching the Request-URI.</h2>
+<div class="container">
+    <h1 class="pt-5 page-headers">404</h1>
+    <div class="container text-center pt-5">
+        <img src="/static/cancelled-image.jpg", alt="Order cancelled" class="responsive-image">
+    </div>
+    <div class="text-center pt-5">
+    <p>Page not found!</p>
+    <p>Feel free to take another look at my artwork <a href="{% url 'stripe_payments:home' %}">here!</a></p>
+    </div>
+
+    </div>
+
 {% endblock content %}
