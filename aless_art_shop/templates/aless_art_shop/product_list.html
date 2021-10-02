@@ -20,14 +20,13 @@
 <div class="card-columns pt-5 px-3">
     {% if product_list %}
         {% for p in product_list %}
-            <div class="card bg-1">
+            <div class="card bg-1 product-list-card">
                 {% if p.photo %}
                     <a href="{% url 'stripe_payments:detail' id=p.id %}">
                     <img class="card-img-top" src="{{ p.photo.url }}" alt="Hand drawn artwork" ></a>
                     {% endif %}
                     <div class="card-body text-center">
                         <h4 class="sub-headers">{{ p.product_name }}</h4>
-                        <p class="card-text">{{ p.description }}</p>
                     </div>
                 <div class="card-footer text-center">
                     <a href="{% url 'stripe_payments:detail' id=p.id %}" class="btn btn-success ml-auto black-btn">More info</a>

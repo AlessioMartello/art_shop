@@ -192,3 +192,15 @@ hr{background-color: var(--lightpurple);}
     width:40%;
     background:rgba(171,186,234,0.5);
 }
+
+.card {
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.product-list-card:hover {
+  box-shadow: 0 0px 15px rgba(0,0,0,0.25);
+}
+
+.card-img-top {
+  border-radius: 10px 10px 0 0;
+}

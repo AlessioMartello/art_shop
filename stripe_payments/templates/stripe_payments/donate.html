@@ -12,7 +12,7 @@
 
 {% block page_header %}
 <div class="row p-5 text-center">
-<div class="container text-center pt-5 pb-5">
+<div class="container text-center pt-5">
 <h1 class="page-headers">Help me make art</h1>
 <hr>
 </div>
@@ -26,36 +26,36 @@
     <p>Thank you!</p>
 
 </div>
-<div class="container">
+<div class="container ">
     <div class="card-deck mt-5 text-center">
-    <div class="card bg-1">
+    <div class="card bg-1 product-list-card">
         <div class="card-body">
             <h3 class="card-title">£5</h3>
            <p class="card-text">New charcoals!</p>
-            <form action="{% url 'stripe_payments:make-donation' amount=5%}" method="POST">
+            <form action="{% url 'stripe_payments:make-donation' amount=5 %}" method="POST">
             {% csrf_token %}
-            <button type="button" class="btn button56 btn-success btn-lg black-btn">Donate</button>
+            <button type="submit" class="btn button56 btn-success btn-lg black-btn">Donate</button>
         </form>
         </div>
     </div>
-    <div class="card bg-1">
+    <div class="card bg-1 product-list-card">
         <div class="card-body">
             <h3 class="card-title">£10</h3>
            <p class="card-text">A life drawing class!</p>
-            <form action="{% url 'stripe_payments:make-donation' amount=10%}" method="POST">
+            <form action="{% url 'stripe_payments:make-donation' amount=10 %}" method="POST">
             {% csrf_token %}
-            <button type="button" class="btn btn-success btn-lg black-btn">Donate</button>
+            <button type="submit" class="btn btn-success btn-lg black-btn">Donate</button>
         </form>
         </div>
     </div>
-    <div class="card bg-1">
+    <div class="card bg-1 product-list-card">
         <div class="card-body">
             <h3 class="card-title">£20</h3>
            <p class="card-text">A Canvas!</p>
 
-            <form action="{% url 'stripe_payments:make-donation' amount=20%}" method="POST">
+            <form action="{% url 'stripe_payments:make-donation' amount=20 %}" method="POST">
             {% csrf_token %}
-            <button type="button" class="btn btn-success btn-lg black-btn">Donate</button>
+            <button type="submit" class="btn btn-success btn-lg black-btn">Donate</button>
 
         </form>
         </div>
