@@ -164,7 +164,7 @@ h5{    font-family: "Sofia", sans-serif, Arial;
     background-image: none !important;
   }
   .navbar-collapse{
-    background-color: var(--lightpurpletransparent) !important;
+    background-color: var(--lightpurple) !important;
 }
     .tagline{
     background:transparent !important;
