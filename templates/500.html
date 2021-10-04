@@ -14,7 +14,17 @@
 {% extends 'aless_art_shop/base.html' %}
 {% block content %}
 
-<h2>Internal Server Error - The server encountered an unexpected condition which prevented it from fulfilling the request.</h2>
-{% endblock content %}
+<div class="container">
+    <h1 class="pt-5 page-headers">That's my mistake!</h1>
+    <div class="container text-center pt-5">
+    <div class="text-center pt-5">
+    <p>Something went wrong on our end, apologies.</p>
+    <p>Feel free to take another look at my artwork <a href="{% url 'aless_art_shop:gallery' %}">here!</a></p>
+    </div>
+
+    </div>
+</div>
+
+    {% endblock content %}
 
 </body>

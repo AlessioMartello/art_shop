@@ -19,55 +19,53 @@
             </div>
         </div>
 
-        <div class="container">
+
+        <div class="container ">
+        <div class="row row-about text-center">
+        <div class="col-md-12 pb-3">
+            <p >I'm Alessio.<br> I'm an amateur artist from London.<br> I've been drawing, sketching and painting all my life.</p>
+        </div>
+
+        </div>
+
         <div class="row text-center">
-        <div class="col-md-6">
-            <p >I'm Alessio.<br> I'm an amateur artist based in London.<br> I've been drawing, sketching and painting all my life.</p>
-        </div>
-        <div class="col-md-6">
-            <img src="/static/Professional_photo.png" alt="Professional photo" style="width:70%">
+        <div class="col-md-12 pb-5">
+            <img src="/static/Professional_photo.png" alt="Professional photo" style="width:50%">
         </div>
         </div>
-            </div>
 
 
-        <div class="container text-center lead">
-        <div class="row">
-            <div class="col-md-6">
-                <p>I attend life drawing classes in South London and sketch in public whenever I can - unsuspecting members of public make for great subjects.</p>
+    <div class="card-deck mt-5 text-center">
+
+            <div class="row row-about justify-content-md-center">
+            <div class="col-md-4 card bg-1 p-3">
+                <p>I attend life drawing classes, sketch in public and make art whenever I can.</p>
             </div>
-            <div class="col-md-6">
-                <p>Add an image here</p>
+            <div class="col-md-4 card bg-1 p-3">
+                <p>I always found that original artwork costs too much to buy.</p>
             </div>
         </div>
 
-            <div class="row">
-            <div class="col-md-6">
-                <p>Add an image here</p>
+            <div class="row row-about pt-md-5 justify-content-md-center">
+            <div class="col-md-4 card bg-1 p-3">
+                <p>So I decided to start selling my artwork to provide affordable artwork locally.</p>
             </div>
-            <div class="col-md-6">
-                <p>Maybe Ive sketched you!</p>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-md-6">
-                <p>I decided to start selling my artwork to provide affordable art in the local London area.</p>
-            </div>
-            <div class="col-md-6">
-                <p>Add an image here</p>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-md-6">
-                <p>Add an image here</p>
-            </div>
-            <div class="col-md-6">
-                <p>And an online store allows me to reach a wider audience</p>
+            <div class="col-md-4 card bg-1 p-3">
+                <p>An online store allows me to reach a wider audience.</p>
             </div>
             </div>
 
+
+    </div>
+            <div class="row row-about text-center">
+            <div class="col-md-12 pt-5">
+            <p><a href = "{% url 'aless_art_shop:gallery' %}" class="btn btn-primary btn-lg black-btn" role="button">Gallery</a></p>
+            </div>
+            </div>
         </div>
 
+
+        </div>
 
         {% endblock content %}
 

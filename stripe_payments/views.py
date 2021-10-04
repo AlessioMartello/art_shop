@@ -6,7 +6,7 @@ from django.views import View
 from aless_art_shop.models import Product
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-from stripe_payments.email.send_email import confirmation_email
+from stripe_payments.email.send_email import confirmation_email, error_email
 from aless_art_shop.models import Donation
 
 stripe.api_key = settings.STRIPE_PRIVATE_KEY
@@ -18,7 +18,6 @@ else:
 
 success_url = DOMAIN + '/stripe_payments/success/'
 cancel_url = DOMAIN + '/stripe_payments/cancel/'
-
 
 
 class SuccessView(TemplateView):
@@ -100,5 +99,14 @@ def stripe_webhook(request):
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         customer_email = session["customer_details"]["email"]
-        confirmation_email(customer_email)
+        delivery_address_object = session["shipping"]["address"]
+        customer_name = session["shipping"]["name"]
+        if customer_email and delivery_address_object and customer_name:
+            try:
+                confirmation_email(customer_name, customer_email, delivery_address_object)
+            except:
+                error_email(customer_name, customer_email, delivery_address_object)
+                return None
+        else:
+            pass
     return HttpResponse(status=200)
