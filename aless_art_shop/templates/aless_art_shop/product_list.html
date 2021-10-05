@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>Products</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="description=" content="Art gallery for life drawings">
+
+    <title>Gallery</title>
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 
 </head>
@@ -23,7 +26,7 @@
             <div class="card bg-1 product-list-card">
                 {% if p.photo %}
                     <a href="{% url 'aless_art_shop:detail' id=p.id %}">
-                    <img class="card-img-top " src="{{ p.photo.url }}" alt="Hand drawn artwork"></a>
+                    <img class="card-img-top " src="{{ p.photo.url }}" alt="Hand drawn artwork for sale"></a>
                     {% endif %}
                     <div class="card-body text-center">
                         <h4 class="sub-headers">{{ p.product_name }}</h4>

@@ -60,7 +60,7 @@ class Donate(TemplateView):
 
 
 class MakeDonation(View):
-    """To make a fixed amount donation using stripe checkout. Currently £10 only, not dynamic"""
+    """To make a fixed amount donation using stripe checkout. Not dynamic"""
 
     def post(self, request, *args, **kwargs):
         donation_object = Donation.objects.get(amount=self.kwargs["amount"])
@@ -102,11 +102,22 @@ def stripe_webhook(request):
         delivery_address_object = session["shipping"]["address"]
         customer_name = session["shipping"]["name"]
         if customer_email and delivery_address_object and customer_name:
+            # If a purchase was made then all of these fields should exist, send confirmation
             try:
-                confirmation_email(customer_name, customer_email, delivery_address_object)
+                confirmation_email(customer_name, customer_email, delivery_address_object, False)
             except:
                 error_email(customer_name, customer_email, delivery_address_object)
                 return None
+        elif customer_email:
+            # If there was a donation, only the customer_email exists, so send a donation confirmation
+            try:
+                confirmation_email(None, customer_email, None, True)
+            except:
+                error_email(False, False, False)
         else:
-            pass
+            # If there was an error then send a minimal email if possible, otherwise notify me
+            try:
+                confirmation_email(False, customer_email, False, False)
+            except:
+                error_email(False, False, False)
     return HttpResponse(status=200)

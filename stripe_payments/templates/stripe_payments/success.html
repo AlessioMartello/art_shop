@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="description=" content="Order confirmed">
     <title>Order confirmed!</title>
     <link rel="icon" type="image/png" href="/static/am_logo_white.png">
 </head>
 
-<body class="pt-5">
+<body class="pt-5 pb-5">
 
 {% extends "aless_art_shop/base.html" %}
 
 {% block content %}
-<div class="container pt-5 text-center">
-    <h1 class="pt-5 pb-5 page-headers">Order successful!</h1>
-<p>Thanks so much for purchasing an artwork! Feel free to keep browsing <a href="{% url 'aless_art_shop:gallery' %}">here!</a></p>
-<p>Check out my faqs <a href="{% url 'aless_art_shop:faqs' %}">here<a/> if you have any more questions. You will receive an email confirmation of your order shortly.</a></p>
-    <p> Have a lovely day!</p>
+    <div class="container pt-5 text-center">
+        <h1 class="pt-5 pb-5 page-headers">Order confirmed!</h1>
+        <p>Thanks so much for purchasing an artwork! Feel free to keep browsing <a href="{% url 'aless_art_shop:gallery' %}">here!</a></p>
+        <p>Check out my faqs <a href="{% url 'aless_art_shop:faqs' %}">here<a/> if you have any more questions. You will receive an email confirmation of your order shortly.</a></p>
+        <p> Have a lovely day!</p>
     </div>
 {% endblock content %}
 </body>
