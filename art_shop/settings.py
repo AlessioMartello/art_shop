@@ -36,6 +36,8 @@ else:
 
 ALLOWED_HOSTS = ["www.artlessi.co.uk", "artlessi.co.uk"]
 
+SITE_ID = 1
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -51,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites', # For sitemap generation
+    'django.contrib.sitemaps', # For sitemap generation
 
     # Third-party apps
     'bootstrap4',

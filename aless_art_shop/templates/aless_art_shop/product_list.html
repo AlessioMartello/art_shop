@@ -20,10 +20,11 @@
 <div class="container text-center">
     <p>Each of the the below are originals, drawn from life models at various life drawing classes in London.</p>
 </div>
+<div class="container">
 <div class="card-columns pt-5 px-3">
     {% if product_list %}
         {% for p in product_list %}
-            <div class="card bg-1 product-list-card">
+            <div class="card bg-1 product-list-card" >
                 {% if p.photo %}
                     <a href="{% url 'aless_art_shop:detail' id=p.id %}">
                     <img class="card-img-top " src="{{ p.photo.url }}" alt="Hand drawn artwork for sale"></a>
@@ -32,7 +33,7 @@
                         <h4 class="sub-headers">{{ p.product_name }}</h4>
                     </div>
                 <div class="card-footer text-center">
-                    <a href="{% url 'aless_art_shop:detail' id=p.id %}" class="btn btn-success ml-auto black-btn">More info</a>
+                    <a href="{% url 'aless_art_shop:detail' id=p.id %}" class="btn btn-success ml-auto black-btn">Product details</a>
                 </div>
         </div>
         {% endfor %}
@@ -43,4 +44,6 @@
     </div>
     {% endif %}
 </div>
+</div>
+
 {% endblock content %}

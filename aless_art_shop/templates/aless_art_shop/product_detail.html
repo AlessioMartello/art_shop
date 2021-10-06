@@ -34,7 +34,7 @@
     <div class="text-center pt-5">
         <form action="{% url 'stripe_payments:create-checkout-session' object.id %}" method="POST">
             {% csrf_token %}
-            <button class="btn btn-primary black-btn btn-lg" type="submit" id="checkout-button">Buy me!</button>
+            <button class="btn btn-primary black-btn btn-lg" type="submit" id="checkout-button">Buy this art!</button>
         </form>
     </div>
                 </div>

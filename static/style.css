@@ -23,11 +23,9 @@ ul.social-network li {
 .social-network a.icoLinkedin:hover {
 	background-color:#007bb7;
 }
-.social-network a.icoLinkedin:hover i {
-	color:#fff;
-}
-a.socialIcon:hover, .socialHoverClass {
-	color:#44BCDD;
+
+.social-network a.icoEmail:hover {
+	background-color:#0072c6;
 }
 
 .social-circle li a {
@@ -76,7 +74,7 @@ a.socialIcon:hover, .socialHoverClass {
 
 
 .jumbotron {
-    background: url("/static/man_sitting.jpeg") no-repeat center;
+    background: url("/static/charcoal_art_life_drawing.jpeg") no-repeat center;
     background-size: contain;
     background-attachment: fixed;
 
