@@ -19,11 +19,21 @@ from django.conf import settings
 from django.conf.urls.static import static
 from aless_art_shop.admin import donation_admin_site
 
+from aless_art_shop.sitemaps import StaticViewSitemap, ProductSitemap
+from django.contrib.sitemaps.views import sitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'products': ProductSitemap,
+}
+
 urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'donation_admin/', donation_admin_site.urls),
     path(r'', include('aless_art_shop.urls', namespace='aless_art_shop')),
-    path(r'stripe_payments/', include('stripe_payments.urls', namespace='stripe_payments'))
+    path(r'stripe_payments/', include('stripe_payments.urls', namespace='stripe_payments')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
+
 ]
 
 if settings.DEBUG:

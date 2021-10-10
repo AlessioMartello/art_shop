@@ -5,6 +5,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 from aless_art_shop.views import ProductListView, ProductDetailView
+
+
 app_name = "aless_art_shop"
 
 

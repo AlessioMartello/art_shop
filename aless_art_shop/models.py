@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Catalogue(models.Model):
@@ -21,8 +22,13 @@ class Product(models.Model):
     photo = models.ImageField(upload_to="images/", blank=True)
     size = models.CharField(max_length=50)
     material = models.CharField(max_length=200)
+    updated_on = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return self.product_name
+
+    def get_absolute_url(self):
+        return reverse('aless_art_shop:detail', args=[str(self.id)])
 
 
 class Donation(models.Model):
