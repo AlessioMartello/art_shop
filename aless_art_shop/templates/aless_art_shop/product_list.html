@@ -27,6 +27,7 @@
             <div class="card bg-1 product-list-card" >
                 {% if p.photo %}
                     <img class="card-img-top" src="{{ p.photo.url }}" alt="Hand drawn artwork for sale">
+                    {% endif %}
                         <a href="{% url 'aless_art_shop:detail' id=p.id %}">
                             <div class="image-overlay-title">
                                 <p>{{ p.product_name }}</p>
@@ -35,7 +36,6 @@
                                 <p>{{ p.material }}</p>
                             </div>
                         </a>
-                    {% endif %}
         </div>
         {% endfor %}
 
