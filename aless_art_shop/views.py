@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from aless_art_shop.models import Product
+from aless_art_shop.models import Product, BlogPost
 from django.conf import settings
 
 
@@ -34,3 +34,14 @@ class ProductDetailView(DetailView):
         context = super(ProductDetailView, self).get_context_data(**kwargs)
         context['stripe_public_key'] = settings.STRIPE_PUBLIC_KEY
         return context
+
+
+class BlogListView(ListView):
+    queryset = BlogPost.objects.order_by('-created_on')
+    template_name = "aless_art_shop/blog_list.html"
+
+
+class BlogPost(DetailView):
+    model = BlogPost
+    template_name = "aless_art_shop/blog_detail.html"
+

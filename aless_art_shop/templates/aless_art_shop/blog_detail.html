@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="description=" content="Art gallery for life drawings">
+
+    <title>Gallery</title>
+    <link rel="icon" type="image/png" href="/static/am_logo_white.png">
+
+</head>
+<body class="pt-5 pb-5">
+{% extends 'aless_art_shop/base.html' %}
+
+{% block content %}
+<div class="container">
+<h1 class="pt-5 page-headers">{{ object.title }}</h1>
+<hr>
+</div>
+<div class="container">
+        <p>{{ object.author|title }} | {{ object.created_on }}</p>
+        <p>{{ object.content | safe }}</p></div>
+
+
+{% endblock content %}
