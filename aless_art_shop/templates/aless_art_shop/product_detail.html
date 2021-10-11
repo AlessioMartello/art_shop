@@ -29,12 +29,15 @@
                     <p><strong>Description:</strong> {{ object.description }}</p>
                     <p><strong>Price:</strong> £{{ object.price }}</p>
                     <p><strong>Dimensions:</strong> {{ object.size }}</p>
-
                     <p><strong>Medium:</strong> {{ object.material }}</p>
     <div class="text-center pt-5">
         <form action="{% url 'stripe_payments:create-checkout-session' object.id %}" method="POST">
             {% csrf_token %}
+            {% if object.sold is True %}
+            <button class="btn black-btn btn-lg" disabled style="color:white;">Sold</button>
+            {% else %}
             <button class="btn btn-primary black-btn btn-lg" type="submit" id="checkout-button">Buy this art!</button>
+            {% endif%}
         </form>
     </div>
                 </div>

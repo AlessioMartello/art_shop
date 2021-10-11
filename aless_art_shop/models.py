@@ -23,6 +23,7 @@ class Product(models.Model):
     size = models.CharField(max_length=50)
     material = models.CharField(max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
+    sold = models.BooleanField(default=False)
 
     def __str__(self):
         return self.product_name

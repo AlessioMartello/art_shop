@@ -30,10 +30,14 @@
                     {% endif %}
                         <a href="{% url 'aless_art_shop:detail' id=p.id %}">
                             <div class="image-overlay-title">
+                                {% if p.sold is True %}
+                                <p> Sold </p>
+                                {% else %}
                                 <p>{{ p.product_name }}</p>
                                 <p>£{{ p.price }}</p>
                                 <p>{{ p.size }}</p>
                                 <p>{{ p.material }}</p>
+                                {% endif %}
                             </div>
                         </a>
         </div>
