@@ -6,7 +6,7 @@
         <meta name="description=" content="Art gallery for life drawings">
 
     <title>Gallery</title>
-    <link rel="icon" type="image/png" href="/static/am_logo_white.png">
+    <link rel="icon" type="image/jpg" href="/static/am_logo_white.png">
 
 </head>
 <body class="pt-5 pb-5">
@@ -14,16 +14,28 @@
 
 {% block content %}
 <div class="container">
-<h1 class="pt-5 page-headers">Blogs</h1>
+<h1 class="pt-5 page-headers">Blog</h1>
 <hr>
 </div>
-<div class="container">
+
+<div class="container pt-5">
     {% for post in blogpost_list %}
-    <div class="container pt-5">
+    <div class="row">
+        <div class="col-md">
         <h2>{{ post.title }}</h2>
-        <p>{{ post.author|title }} - {{ post.created_on }}</p>
-        <p>{{ post.content|slice:":200" }} .... </p>
-        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="btn btn-primary">Read More</a>
+        <p class="blog-meta-data">{{ post.author|title }} - {{ post.created_on|date:"M d, Y" }}</p>
+        <p class="blog-post-content">{{ post.content|slice:":200" }} .... </p>
+        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="btn btn-primary black-btn mb-5">Read more</a>
+    </div>
+
+    <div class="col-md" style="display:flex; align-items:center; justify-content:center">
+        <div class="product-list-card" >
+        <img class="product-img" src=" {{ post.blog_photo.url }}" alt="Hand drawn artwork for blog post";>
+        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}">
+        <div class="image-overlay-title">
+        </div>
+        </a>
+    </div>
     </div>
         {% endfor %}
 </div>

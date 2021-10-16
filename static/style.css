@@ -161,11 +161,23 @@ h5{    font-family: "Sofia", sans-serif, Arial;
   .jumbotron {
     background-image: none !important;
   }
+
   .navbar-collapse{
     background-color: var(--lightpurple) !important;
 }
     .tagline{
     background:transparent !important;
+    }
+
+    .blog-post-content {
+    display:none;
+    }
+}
+
+@media only screen and ( max-width: 425px ) {
+
+    .blog-meta-data {
+    display:none;
     }
 }
 

@@ -40,7 +40,7 @@ def confirmation_email(customer_name, receiver, delivery_address_object, donatio
         email_text = f"""
         <html>
           <body>
-            <img src="data:image/png;base64,{encoded}" width="120" height="150">
+            <img src="data:image/jpg;base64,{encoded}" width="120" height="150">
             <h1>Thank you so much for your Donation! </h1>
             <p>Hi!, I'm so pleased you like my art and have decided to contribute!</p>
             <p>This means so much to me and I will continue to make art thanks to your donation</p>
@@ -55,7 +55,7 @@ def confirmation_email(customer_name, receiver, delivery_address_object, donatio
         email_text = f"""
         <html>
           <body>
-            <img src="data:image/png;base64,{encoded}" width="120" height="150">
+            <img src="data:image/jpg;base64,{encoded}" width="120" height="150">
             <h1>Thank you so much for your purchase! </h1>
             <p>Hi! I'm so pleased you like my art and have decided to buy something!</p>
             <p>Your order has been received and is being processed.</p>
@@ -77,7 +77,7 @@ def confirmation_email(customer_name, receiver, delivery_address_object, donatio
         email_text = f"""
         <html>
           <body>
-            <img src="data:image/png;base64,{encoded}" width="120" height="150">
+            <img src="data:image/jpg;base64,{encoded}" width="120" height="150">
             <h1>Thank you so much for your purchase! </h1>
             <p>Hi {customer_name}, I'm so pleased you like my art and have decided to buy something!</p>
             <p>Your order has been received and is being processed.</p>

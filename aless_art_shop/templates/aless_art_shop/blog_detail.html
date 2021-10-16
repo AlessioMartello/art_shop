@@ -3,23 +3,32 @@
 <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <meta name="description=" content="Art gallery for life drawings">
+        <meta name="description=" content="Blog post">
 
-    <title>Gallery</title>
-    <link rel="icon" type="image/png" href="/static/am_logo_white.png">
+    <title>Blog post</title>
+    <link rel="icon" type="image/jpg" href="/static/am_logo_white.png">
 
 </head>
 <body class="pt-5 pb-5">
 {% extends 'aless_art_shop/base.html' %}
 
 {% block content %}
-<div class="container">
-<h1 class="pt-5 page-headers">{{ object.title }}</h1>
+<div class="container pt-5">
+<a href="{% url 'aless_art_shop:blogs' %}" class="btn btn-primary black-btn">Back to blog posts</a>
+<h1 class="pt-5 page-headers" style="text-align:left;">{{ object.title }}</h1>
+        <h4>{{ object.sub_heading|title }}</h4>
 <hr>
 </div>
 <div class="container">
-        <p>{{ object.author|title }} | {{ object.created_on }}</p>
-        <p>{{ object.content | safe }}</p></div>
+
+    <p>by {{ object.author|title }} | {{ object.created_on|date:"M d, Y" }}</p>
+    <div class="col-8" style="margin-left:auto;margin-right: auto;">
+        <img class="product-img" src=" {{ object.blog_photo.url }}" alt="Hand drawn artwork for blog post";>
+    </div>
+        <p class="pt-5">{{ object.content | safe }}</p>
+
+</div>
+</body>
 
 
 {% endblock content %}

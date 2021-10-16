@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="About page for Artlessi, an online art shop">
         <title>About</title>
-        <link rel="icon" type="image/png" href="/static/am_logo_white.png">
+        <link rel="icon" type="image/jpg" href="/static/am_logo_white.png">
     </head>
     <body class = "pt-5 pb-5">
 
@@ -32,42 +32,41 @@
 
         <div class="row text-center">
         <div class="col-md-12 pb-5">
-            <img src="/static/Professional_photo.png" alt="Alessio professional photo" style="width:50%" loading="lazy">
+            <img src="/static/Alessio Martello black and white.jpg" alt="Alessio professional photo" style="width:50%" loading="lazy">
         </div>
         </div>
 
 
-    <div class="card-deck mt-5 text-center">
-
+    <div class="mt-5">
             <div class="row row-about justify-content-md-center">
-            <div class="col-md-4 card bg-1 p-3">
-                <p>I love to attend life drawing classes, sketch in public and make art whenever I can.</p>
-            </div>
-            <div class="col-md-4 card bg-1 p-3">
-                <p>I always found that original artwork costs too much to buy.</p>
+            <div class="col-md-8 card bg-1 p-3">
+                <p>I started this blog to <strike>improve SEO to my shop</strike> track my progress and hopefully help others along the way. I love to attend life drawing classes in London, sketch in public and make art whenever I can.<br><br>
+                    I dont claim to be an expert and haven't studied art but I love drawing and reading about other people's journey and techniques; I know I've googled <a href="{% url 'aless_art_shop:blogdetail' 'CharcoalEyeBlogPost' %}">how to draw a charcoal eye</a> more than once!
+                </p>
             </div>
         </div>
-
-            <div class="row row-about pt-md-5 justify-content-md-center">
-            <div class="col-md-4 card bg-1 p-3">
-                <p>So I decided to start selling my artwork to provide affordable artwork locally.</p>
-            </div>
-            <div class="col-md-4 card bg-1 p-3">
-                <p>An online store allows me to reach a wider audience.</p>
+    </div>
+            <div class="row row-about text-center">
+            <div class="col-md-12 pt-5">
+            <p><a href = "{% url 'aless_art_shop:blogs' %}" class="btn btn-primary btn-lg black-btn" role="button">Go to my blog</a></p>
             </div>
             </div>
 
-
+            <div class="mt-5">
+            <div class="row row-about justify-content-md-center">
+            <div class="col-md-8 card bg-1 p-3">
+                <p> I always found that original artwork costs too much to buy.</p>
+                <p>So I decided to start selling my artwork at a price a (stingy) young adult would be happy to pay. An online store allows me to reach a wider audience.</p>
+            </div>
+            </div>
     </div>
             <div class="row row-about text-center">
             <div class="col-md-12 pt-5">
             <p><a href = "{% url 'aless_art_shop:gallery' %}" class="btn btn-primary btn-lg black-btn" role="button">Life drawing gallery</a></p>
             </div>
             </div>
-        </div>
 
 
-        </div>
 
         {% endblock content %}
 
