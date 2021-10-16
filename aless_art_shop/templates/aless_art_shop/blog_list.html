@@ -24,7 +24,7 @@
         <div class="col-md">
         <h2>{{ post.title }}</h2>
         <p class="blog-meta-data">{{ post.author|title }} - {{ post.created_on|date:"M d, Y" }}</p>
-        <p class="blog-post-content">{{ post.content|slice:":200" }} .... </p>
+        <p class="blog-post-content">{{ post.content|slice:":200"|safe }} .... </p>
         <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="btn btn-primary black-btn mb-5">Read more</a>
     </div>
 
