@@ -59,8 +59,8 @@
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
                 <h5 class="card-title"><i class="fa fa-calendar fa-2x"></i></h5>
-               <h5 class="card-title  sub-headers">Original artwork added regularly!</h5>
-               <p class="card-text">Whether its life drawing, watercolour or something else I'll endeavour to add new content!</p>
+               <h5 class="card-title  sub-headers">Original content added regularly!</h5>
+               <p class="card-text">Whether its life drawing or a blog post I'll endeavour to add new content weekly!</p>
             </div>
          </div>
       </div>
@@ -91,6 +91,35 @@
    </div>
 </div>
 </div>
+
+<div class="container pt-5">
+    {% for post in blogpost_list %}
+    <div class="row">
+        <div class="col-md">
+        <h2>{{ post.title }}</h2>
+            <div class="blog-meta-data">
+                <p>{{ post.author|title }} - {{ post.created_on|date:"M d, Y" }}</p>
+                <p>{{ post.content|slice:":400"|safe }} .... </p>
+            </div>
+
+        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="btn btn-primary black-btn mb-5">Read more</a>
+    </div>
+
+    <div class="col-md" style="display:flex; align-items:center; justify-content:center">
+        <div class="product-list-card" >
+        <img class="product-img" src=" {{ post.blog_photo.url }}" alt="Hand drawn artwork for blog post";>
+        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}">
+        <div class="image-overlay-title">
+        </div>
+        </a>
+    </div>
+    </div>
+        {% endfor %}
+</div>
+
+</div>
+
+
 {% endblock content %}
 </body>
 </html>
