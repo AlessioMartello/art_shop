@@ -49,7 +49,9 @@ class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete= models.CASCADE, related_name='blog_posts')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
     blog_photo = models.ImageField(upload_to="images/", blank=True)
+
 
     class Meta:
         ordering = ['-created_on']

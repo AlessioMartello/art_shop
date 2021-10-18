@@ -19,12 +19,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from aless_art_shop.admin import donation_admin_site
 
-from aless_art_shop.sitemaps import StaticViewSitemap, ProductSitemap
+from aless_art_shop.sitemaps import StaticViewSitemap, ProductSitemap, BlogSitemap
 from django.contrib.sitemaps.views import sitemap
 
 sitemaps = {
     'static': StaticViewSitemap,
     'products': ProductSitemap,
+    'blogs': BlogSitemap
 }
 
 urlpatterns = [

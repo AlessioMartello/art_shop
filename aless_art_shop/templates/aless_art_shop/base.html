@@ -1,11 +1,10 @@
-{% load bootstrap4 %}
 <!DOCTYPE html>
+{% load bootstrap4 %}
 <html lang="en">
 <head>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <meta name="description" content="Navigation and footer template">
 
     <title>Base</title>
         {% bootstrap_css %}
@@ -57,7 +56,7 @@
             <div class="container text-center pt-5 pb-3">
                 <hr>
                 <p>Find out about delivery, security & payment in the <a href="{% url 'aless_art_shop:faqs' %}">faqs.</a></p>
-                <p class="footer-info">Copyright &copy; 2021 Artlessi. Made by <a href="https://github.com/AlessioMartello" target="_blank" rel=noopener>yours truly.</a> </p>
+                <p class="footer-info">Copyright &copy; {% now "Y" %} Artlessi. Made by <a href="https://github.com/AlessioMartello" target="_blank" rel=noopener>yours truly.</a> </p>
             </div>
         </div>
     </footer>
