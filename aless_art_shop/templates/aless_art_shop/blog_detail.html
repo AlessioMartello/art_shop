@@ -51,12 +51,12 @@
 
 </div>
     <div class="col-md-2 pt-5">
-        <div class="position-sticky sub-headers" style="top:3rem;">
+        <div class="bg-1 position-sticky sub-headers p-2 card bg-1" style="top:3rem;">
             <h4>Latest blogs</h4>
                 {% for blog in blogs %}
               <p>
                   <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}" style="color:black;">
-                      {{blog.title}}
+                      {{blog.title}}<br>- {{blog.created_on|date:"M d, Y" }}
                   </a>
               </p>
     {% endfor %}

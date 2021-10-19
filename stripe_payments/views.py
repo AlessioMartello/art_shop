@@ -110,9 +110,9 @@ def stripe_webhook(request):
                     error_email()
         except:
             # Otherwise a donation was made, send receipt
-                try:
-                    confirmation_email(False, customer_email, False, True)
-                except:
-                    error_email()
+            try:
+                confirmation_email(False, customer_email, False, True)
+            except:
+                error_email()
 
     return HttpResponse(status=200)
