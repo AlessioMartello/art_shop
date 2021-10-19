@@ -40,6 +40,8 @@
 <hr>
 </div>
 <div class="container">
+<div class="row">
+<div class="container col-md-10">
 
     <p>by {{ object.author|title }} | {{ object.created_on|date:"M d, Y" }}</p>
     <div class="col-8" style="margin-left:auto;margin-right: auto;">
@@ -48,6 +50,23 @@
         <p class="pt-5">{{ object.content | safe }}</p>
 
 </div>
+    <div class="col-md-2 pt-5">
+        <div class="position-sticky sub-headers" style="top:3rem;">
+            <h4>Latest blogs</h4>
+                {% for blog in blogs %}
+              <p>
+                  <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}" style="color:black;">
+                      {{blog.title}}
+                  </a>
+              </p>
+    {% endfor %}
+
+        </div>
+    </div>
+</div>
+</div>
+
+
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>

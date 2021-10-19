@@ -6,7 +6,9 @@ from django.conf import settings
 
 def index(request):
     """The home page for artlessi.co.uk"""
-    return render(request, "aless_art_shop/index.html")
+    blogs = BlogPost.objects.order_by('-created_on')
+    context = {'blogs': blogs}
+    return render(request, "aless_art_shop/index.html", context)
 
 
 def about(request):
@@ -41,7 +43,8 @@ class BlogListView(ListView):
     template_name = "aless_art_shop/blog_list.html"
 
 
-class BlogPost(DetailView):
+class BlogPostView(DetailView):
     model = BlogPost
+    extra_context={'blogs': BlogPost.objects.all()}
     template_name = "aless_art_shop/blog_detail.html"
 

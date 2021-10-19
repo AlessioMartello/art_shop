@@ -147,8 +147,6 @@ background-color: #f99;
     background-color:black;
 }
 
-h5{    font-family: "Sofia", sans-serif, Arial;
-}
 
 .sub-headers{
     color:var(--purple);
@@ -183,10 +181,15 @@ h5{    font-family: "Sofia", sans-serif, Arial;
 .footer-info{font-weight:normal;
 }
 
-p, ul, ol, h4{
+p, ul, ol {
     font-family:Montserrat, Arial;
     font-weight:bold;
     font-size:1.1rem;
+}
+
+h4, h2, h3 {
+    font-family:Montserrat, Arial;
+    font-weight:bold;
 }
 
 hr{background-color: var(--lightpurple);}
@@ -244,3 +247,34 @@ hr{background-color: var(--lightpurple);}
   box-shadow: 0 0px 15px rgba(0,0,0,0.25);
   }
 
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+ul.timeline > li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid var(--purple);
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}

@@ -99,25 +99,20 @@ def stripe_webhook(request):
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
         customer_email = session["customer_details"]["email"]
-        delivery_address_object = session["shipping"]["address"]
-        customer_name = session["shipping"]["name"]
-        if customer_email and delivery_address_object and customer_name:
+        try:
             # If a purchase was made then all of these fields should exist, send confirmation
-            try:
-                confirmation_email(customer_name, customer_email, delivery_address_object, False)
-            except:
-                error_email(customer_name, customer_email, delivery_address_object)
-                return None
-        elif customer_email:
-            # If there was a donation, only the customer_email exists, so send a donation confirmation
-            try:
-                confirmation_email(None, customer_email, None, True)
-            except:
-                error_email(False, False, False)
-        else:
-            # If there was an error then send a minimal email if possible, otherwise notify me
-            try:
-                confirmation_email(False, customer_email, False, False)
-            except:
-                error_email(False, False, False)
+            delivery_address_object = session["shipping"]["address"]
+            customer_name = session["shipping"]["name"]
+            if customer_email and delivery_address_object and customer_name:
+                try:
+                    confirmation_email(customer_name, customer_email, delivery_address_object, False)
+                except:
+                    error_email()
+        except:
+            # Otherwise a donation was made, send receipt
+                try:
+                    confirmation_email(False, customer_email, False, True)
+                except:
+                    error_email()
+
     return HttpResponse(status=200)

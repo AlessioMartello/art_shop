@@ -42,27 +42,11 @@ def confirmation_email(customer_name, receiver, delivery_address_object, donatio
           <body>
             <img src="data:image/jpg;base64,{encoded}" width="120" height="150">
             <h1>Thank you so much for your Donation! </h1>
-            <p>Hi!, I'm so pleased you like my art and have decided to contribute!</p>
+            <p>Hi! I'm so pleased you like my art and have decided to contribute!</p>
             <p>This means so much to me and I will continue to make art thanks to your donation</p>
             <p>Feel free to email me at
                 <a href="mailto:alessio@artlessi.co.uk">alessio@artlessi.co.uk</a>
              if you have any questions or want to buy/commission some work!<p/>
-            <p>Lots of love, Alessio</p>
-          </body>
-        </html>
-        """
-    elif not customer_name and not delivery_address_object:
-        email_text = f"""
-        <html>
-          <body>
-            <img src="data:image/jpg;base64,{encoded}" width="120" height="150">
-            <h1>Thank you so much for your purchase! </h1>
-            <p>Hi! I'm so pleased you like my art and have decided to buy something!</p>
-            <p>Your order has been received and is being processed.</p>
-            <p>The item will be shipped as soon as possible and you will receive a shipping confirmation</p>
-            <p>In the meantime, feel free to email me at
-                <a href="mailto:alessio@artlessi.co.uk">alessio@artlessi.co.uk</a>
-             if you have any questions or check out the faqs page <a href = "https://www.artlessi.co.uk">here.<a/><p/>
             <p>Lots of love, Alessio</p>
           </body>
         </html>
@@ -85,7 +69,7 @@ def confirmation_email(customer_name, receiver, delivery_address_object, donatio
             <p>Delivery address:<br><br><b>{delivery_address}</b></p>
             <p>In the meantime, feel free to email me at
                 <a href="mailto:alessio@artlessi.co.uk">alessio@artlessi.co.uk</a>
-             if you have any questions or check out the faqs page <a href = "https://www.artlessi.co.uk">here.<a/><p/>
+             if you have any questions or check out the faqs page <a href = "https://www.artlessi.co.uk/faqs/">here.<a/><p/>
             <p>Lots of love, Alessio</p>
           </body>
         </html>
@@ -103,12 +87,9 @@ def confirmation_email(customer_name, receiver, delivery_address_object, donatio
     return "confirmation email sent"
 
 
-def error_email(customer_name, customer_email, delivery_address_object):
+def error_email():
     """ An error email sent to myself to flag that the confirmation email failed"""
-    if not customer_name and not customer_email and not delivery_address_object:
-        error_message = f"""The email notification did not work for the latest purchase. The fields entered to the name, email and address were not valid. Check the logs"""
-    else:
-        error_message = f"""The email notification did not work for the latest purchase. Customer: {customer_name}, email: {customer_email}, address: {delivery_address_object}"""
+    error_message = f"""The email notification did not work for the latest purchase. The fields entered to the name, email and address were not valid. Check the logs"""
     message["Subject"] = "Email confirmation error"
     message["To"] = sender_email
 
@@ -120,4 +101,4 @@ def error_email(customer_name, customer_email, delivery_address_object):
 
 
 if __name__ == "__main__":
-    error_email(None, None,None)
+    error_email()

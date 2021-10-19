@@ -118,8 +118,25 @@
 </div>
 
 </div>
+<div class="container mt-5 mb-5">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<h3>Latest blogs</h3>
+			<ul class="timeline">
+            {% for blog in blogs|slice:":3" %}
+                <li>
+                    <p> {{blog.title }}</p>
+					<p>{{blog.created_on|date:"M d, Y"}}</p>
+                    <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">
+                        <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post";>
+                    </a>
+				</li>
+            {%endfor%}
 
-
+			</ul>
+		</div>
+	</div>
+</div>
 {% endblock content %}
 </body>
 </html>
