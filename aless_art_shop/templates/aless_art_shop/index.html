@@ -128,7 +128,7 @@
                     <p> {{blog.title }}</p>
 					<p>{{blog.created_on|date:"M d, Y"}}</p>
                     <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">
-                        <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post";>
+                        <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post"; style="max-height: 40vh;object-position: 0% 0%;">
                     </a>
 				</li>
             {%endfor%}

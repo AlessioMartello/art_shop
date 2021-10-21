@@ -155,7 +155,7 @@ background-color: #f99;
 
 }
 
-@media only screen and ( max-width: 768px ) {
+@media only screen and ( max-width: 767px ) {
   .jumbotron {
     background-image: none !important;
   }
