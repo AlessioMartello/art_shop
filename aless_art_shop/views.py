@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from aless_art_shop.models import Product, BlogPost
+from aless_art_shop.models import Product, BlogPost, BlogImage
 from django.conf import settings
 
 
@@ -45,6 +45,16 @@ class BlogListView(ListView):
 
 class BlogPostView(DetailView):
     model = BlogPost
-    extra_context={'blogs': BlogPost.objects.all()}
     template_name = "aless_art_shop/blog_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(BlogPostView, self).get_context_data(**kwargs)
+        context["blogs"] = BlogPost.objects.all()
+        context["walkthrough_steps"] = BlogImage.objects.filter(postname=self.object)
+
+        return context
+
+
+
+
 

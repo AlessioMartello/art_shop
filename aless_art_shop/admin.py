@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Catalogue, Product, Donation, BlogPost
+from .models import Catalogue, Product, Donation, BlogPost, BlogImage
 
 
 class DonationAdminSite(admin.AdminSite):
@@ -15,3 +15,4 @@ admin.site.register(Catalogue)
 admin.site.register(Product)
 admin.site.register(BlogPost)
 donation_admin_site.register(Donation)
+admin.site.register(BlogImage)

@@ -51,6 +51,7 @@ class BlogPost(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     blog_photo = models.ImageField(upload_to="images/", blank=True)
+    video_embed_url = models.TextField(blank=True)
 
 
     class Meta:
@@ -58,3 +59,9 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class BlogImage(models.Model):
+    step = models.TextField(blank=True)
+    postname = models.ForeignKey(BlogPost, on_delete=models.CASCADE, default=None)
+    image = models.ImageField(upload_to="images/", blank=True)

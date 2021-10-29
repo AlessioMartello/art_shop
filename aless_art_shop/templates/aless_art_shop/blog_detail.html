@@ -41,15 +41,45 @@
 </div>
 <div class="container">
 <div class="row">
-<div class="container col-md-10">
+<div class="container col-lg-10">
 
     <p>by {{ object.author|title }} | {{ object.created_on|date:"M d, Y" }}</p>
     <div class="col-8" style="margin-left:auto;margin-right: auto;">
+        {% if object.video_embed_url %}
+            <div>
+            <iframe width="560" height="315"
+                    src= "{{ object.video_embed_url }}"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer;
+                     autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        {% elif object.blog_photo.url %}
         <img class="product-img" src=" {{ object.blog_photo.url }}" alt="Hand drawn artwork for blog post";>
+        {% endif %}
     </div>
         <p class="pt-5">{{ object.content | safe }}</p>
+    <div class = "row pt-5">
+       {% for walkthrough_step in walkthrough_steps %}
+        {% if walkthrough_step.step %}
+                <div class="col-md-6 pt-5">
+                        <img src="{{ walkthrough_step.image.url }}" alt="Hand drawn artwork for sale" style="display:block;width: 100%;">
+                    </div>
+                    <div class="col-md-6 pt-5">
+                    <p>{{walkthrough_step.step}}</p>
+                </div>
+        {% else %}
+                    <div class="pt-5" style="display:block;margin:auto;">
+                        <img src="{{ walkthrough_step.image.url }}" alt="Hand drawn artwork for sale" >
+                    </div>
+        {% endif %}
+        {% endfor %}
+    </div>
 
-</div>
+     </div>
+
+
     <div class="col-lg-2 pt-5">
         <div class="bg-1 position-sticky sub-headers p-2 card bg-1" style="top:3rem;">
             <h4>Latest blogs</h4>
