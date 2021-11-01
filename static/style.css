@@ -1,6 +1,6 @@
 :root {
     --purple: #7026b9;
-    --lightpurple: #ABBAEA;
+    --lightpurple: #E6DDFB;
     --lightpurpletransparent:rgba(171,186,234,0.5);
 }
 
@@ -77,7 +77,6 @@ ul.social-network li {
     background: url("/static/charcoal_art_life_drawing.jpeg") no-repeat center;
     background-size: contain;
     background-attachment: fixed;
-
 }
 
 .black-btn {
@@ -97,7 +96,6 @@ ul.social-network li {
 .vertical-center {
   min-height: 100%;
   min-height: 100vh;
-
   display: flex;
   align-items: center;
 }
@@ -115,6 +113,8 @@ background-color: #f99;
 
 .bg-1 {
         background-color: var(--lightpurple);
+        border:0;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
     }
 
 .btn:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
@@ -167,15 +167,22 @@ background-color: #f99;
     background:transparent !important;
     }
 
+    .about-img{
+    width: 100% !important;
+    }
 }
 
 @media only screen and ( max-width: 425px ) {
 
     .blog-meta-data {
     display:none !important;
-
     }
 
+
+}
+
+.about-img{
+width:50%;
 }
 
 .footer-info{font-weight:normal;
@@ -244,7 +251,7 @@ hr{background-color: var(--lightpurple);}
 }
 
 .product-list-card:hover {
-  box-shadow: 0 0px 15px rgba(0,0,0,0.25);
+  box-shadow: 0 0px 15px rgba(0,0,0,0.5);
   }
 
 
@@ -277,4 +284,11 @@ ul.timeline > li:before {
     width: 20px;
     height: 20px;
     z-index: 400;
+}
+
+.section-background{
+    background-color:rgba(0,0,0,0.1);
+    width: 100vw;
+    position:relative;
+
 }

@@ -24,7 +24,7 @@
 <div class="card-columns pt-5 px-3">
     {% if product_list %}
         {% for p in product_list %}
-            <div class="card bg-1 product-list-card" >
+            <div class="card product-list-card" >
                 {% if p.photo %}
                     <img class="card-img-top" src="{{ p.photo.url }}" alt="Hand drawn artwork for sale">
                     {% endif %}
@@ -49,6 +49,7 @@
     </div>
     {% endif %}
 </div>
+
 </div>
 
 {% endblock content %}
