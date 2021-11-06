@@ -15,7 +15,8 @@
         <link rel="icon" type="image/jpg" href="/static/am_logo.jpg">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1268104295070057"
+     crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -50,7 +51,9 @@
 
             {% block content %}
             {% endblock content %}
+            {% block subscribe %}
             {% include 'subscribers/SubscribeForm.html'%}
+            {% endblock subscribe %}
 
     </main>
     <footer>

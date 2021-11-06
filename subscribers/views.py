@@ -3,6 +3,11 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from subscribers.forms import SubscriberForm
 from .models import Subscriber
+from django.views.generic import TemplateView
+
+class successfulSubscriptionView(TemplateView):
+    """Display the about page"""
+    template_name = 'subscribers/SuccessfulSubscription.html'
 
 def subscribe(request):
     # if this is a POST request we need to process the form data
@@ -16,7 +21,7 @@ def subscribe(request):
             model.save()            # process the data in form.cleaned_data as required
             # redirect to a new URL:
             #return render(request, './subscribers/SubscribeForm.html', {'form': form})
-            return HttpResponseRedirect('/') # todo Make a thanks page
+            return HttpResponseRedirect('SuccessfulSubscription') # todo Make a thanks page
     # if a GET (or any other method) we'll create a blank form
     else:
         form = SubscriberForm()

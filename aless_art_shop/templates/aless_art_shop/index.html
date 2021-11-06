@@ -142,7 +142,13 @@
 </div>
 <div class="container">
 </div>
+{% include 'aless_art_shop/SubscribeModal.html' %}
 
+            <script>
+                        setTimeout(function() {
+            $('#ModalCenter').modal();
+        }, 10000);
+            </script>
 
 {% endblock content %}
 </body>

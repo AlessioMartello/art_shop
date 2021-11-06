@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Successful Subscription</title>
+</head>
+<body class="pt-5 pb-5">
+{% extends 'aless_art_shop/base.html' %}
+{% block content %}
+    <div class="container pt-5">
+        <h1 class="pt-5 pb-5 page-headers">Thanks for subscribing!</h1>
+        <p>Thanks so much for subscribing to Artlessi!</p>
+            <p>
+                I'll email you once a week with my latest blog and any great deals that are worth your time as an aspiring artist!
+            Feel free to keep reading my blogs <a href="{% url 'aless_art_shop:blogs' %}">here!</a>
+            </p>
+        <p> Have a lovely day!</p>
+    </div>
+{% endblock content %}
+            {% block subscribe %}
+            {% endblock subscribe %}
+</body>
+</html>
