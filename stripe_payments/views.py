@@ -61,12 +61,10 @@ class Donate(TemplateView):
 
 class MakeDonation(View):
     """To make a fixed amount donation using stripe checkout. Not dynamic"""
-
     def post(self, request, *args, **kwargs):
         donation_object = Donation.objects.get(amount=self.kwargs["amount"])
         donation_session = stripe.checkout.Session.create(
             line_items=[
-
                 {
                     'price': donation_object.stripe_price_id,
                     'quantity': 1,
@@ -76,6 +74,27 @@ class MakeDonation(View):
                 'card',
             ],
             mode='payment',
+            success_url=success_url,
+            cancel_url=cancel_url.replace("cancel", "donate"),
+        )
+
+        return redirect(donation_session.url, code=303)
+
+class MakeMonthlyDonation(View):
+    """To make a recurring amount donation using stripe checkout. Not dynamic"""
+    def post(self, request, *args, **kwargs):
+        donation_object = Donation.objects.get(amount=self.kwargs["amount"])
+        donation_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    'price': donation_object.stripe_price_id,
+                    'quantity': 1,
+                },
+            ],
+            payment_method_types=[
+                'card',
+            ],
+            mode='subscription',
             success_url=success_url,
             cancel_url=cancel_url.replace("cancel", "donate"),
         )

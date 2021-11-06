@@ -12,16 +12,15 @@
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="icon" type="image/jpg" href="/static/am_logo_white.png">
+        <link rel="icon" type="image/jpg" href="/static/am_logo.jpg">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <script>
-    </script>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md fixed-top mx-5 sub-headers">
+
+    <nav class="navbar navbar-expand-md fixed-top sub-headers" id="BaseNav">
         <a class="navbar-brand mx-auto" href="{% url 'aless_art_shop:index'%}">
             <img src="{% static 'am_logo.png' %}" alt="Artlessi company logo" height="60">
         </a>
@@ -45,16 +44,17 @@
            </div>
  </nav>
 
-    <main role = "main" class="container-fluid" style="margin:0;padding:0; width: fit-content
-block-size: fit-content;">
+    <main role = "main" class="container-fluid" style="margin:0;padding:0;">
             {%block page_header %}
             {% endblock page_header %}
 
             {% block content %}
             {% endblock content %}
+            {% include 'subscribers/SubscribeForm.html'%}
+
     </main>
     <footer>
-        <div class="row">
+        <div class="row" style="width:100vw;">
             <div class="container text-center pt-5 pb-3">
                 <hr>
                 <p>Find out about delivery, security & payment in the <a href="{% url 'aless_art_shop:faqs' %}">faqs.</a></p>
@@ -73,6 +73,22 @@ block-size: fit-content;">
             </div>
         </div>
     </footer>
+<script>
+    var scrollPosition = window.scrollY;
+    var MyNav = document.getElementsByClassName('navbar')[0];
+
+    window.addEventListener('scroll', function() {
+        scrollPosition = window.scrollY;
+
+        if (scrollPosition >= 100) {
+            MyNav.classList.add('navbar-scroll');
+            }
+        else {
+            MyNav.classList.remove('navbar-scroll');}
+
+        }
+    );
+</script>
 
 </body>
 </html>

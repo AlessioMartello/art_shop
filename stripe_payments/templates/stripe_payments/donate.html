@@ -5,12 +5,11 @@
         <meta charset="UTF-8">
         <meta name="description=" content="Donate to Artlessi">
     <title>Donate</title>
-    <link rel="icon" type="image/jpg" href="/static/am_logo_white.png">
-
-</head>
+    <link rel="icon" type="image/jpg" href="/static/am_logo.jpg">
 
 <body class="pb-5">
     {% extends "aless_art_shop/base.html" %}
+ {% load static %}
 
 {% block page_header %}
 <div class="row p-5 text-center">
@@ -22,13 +21,25 @@
 
 
 <div class="container">
-<div class="col-md-6 mx-auto text-center">
+    <div class="row">
+<div class="col-md-10 mx-auto">
     <p>A small donation would help me purchase materials and attend classes so that I can make more art.</p>
     <p>The below options are one off contributions, you would be making a really big difference to me!</p>
     <p>Thank you!</p>
-
 </div>
-<div class="container ">
+    <div class="col-md-2 text-center" style="margin:auto">
+
+                <label class="switch">
+            <input type="checkbox" onclick="display()">
+                <span class="slider round"></span>
+        </label>
+        <p id="DonateMonthly">Monthly</p>
+        <p id="DonateOnce"style="display:none;">One-time</p>    </div>
+    </div>
+
+
+
+<div class="container duration-1"  id="Div1" style="display:none;">
     <div class="card-deck mt-5 text-center">
     <div class="card bg-1 product-list-card">
         <div class="card-body">
@@ -64,7 +75,47 @@
     </div>
 </div>
 </div>
+<div class="container"  id="Div2">
+    <div class="card-deck mt-5 text-center">
+    <div class="card bg-1 product-list-card">
+        <div class="card-body">
+            <h3 class="card-title">£5 <small>/month</small></h3>
+           <p class="card-text">New charcoals!</p>
+            <form action="{% url 'stripe_payments:make-monthly-donation' amount=50 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn button56 btn-success btn-lg black-btn">Donate</button>
+        </form>
+        </div>
+    </div>
+    <div class="card bg-1 product-list-card">
+        <div class="card-body">
+            <h3 class="card-title">£10 <small>/month</small></h3>
+           <p class="card-text">A life drawing class!</p>
+            <form action="{% url 'stripe_payments:make-monthly-donation' amount=100 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success btn-lg black-btn">Donate</button>
+        </form>
+        </div>
+    </div>
+    <div class="card bg-1 product-list-card">
+        <div class="card-body">
+            <h3 class="card-title">£20 <small>/month</small></h3>
+           <p class="card-text">A Canvas!</p>
+
+            <form action="{% url 'stripe_payments:make-monthly-donation' amount=200 %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success btn-lg black-btn">Donate</button>
+
+        </form>
+        </div>
+    </div>
 </div>
+</div>
+
+</div>
+<script src="{% static 'js/script.js' %}"></script></head>
+
 {% endblock page_header %}
+
 </body>
 </html>

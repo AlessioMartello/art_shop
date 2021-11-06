@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="About page for Artlessi, an online art shop">
         <title>About</title>
-        <link rel="icon" type="image/jpg" href="/static/am_logo_white.png">
+        <link rel="icon" type="image/jpg" href="/static/am_logo.jpg">
     </head>
     <body class = "pt-5 pb-5">
 
@@ -40,9 +40,10 @@
     <div class="mt-5">
             <div class="row row-about justify-content-md-center">
             <div class="col-md-8 card bg-1 p-3">
-                <p>I started this charcoal art blog to <strike>improve numbers to my online shop</strike> track my progress and hopefully help others along the way. I love to attend life drawing classes in London, sketch in public and make art whenever I can.<br><br>
+                <p>I started this charcoal art blog to track my progress and hopefully help others along the way. Keeping a weekly blog makes me accountable! I love to attend life drawing classes in London, sketch in public and make art whenever I can.<br><br>
                     I don't claim to be an expert and haven't studied art but I love drawing and reading about other people's journey and techniques; I know I've googled <a href="{% url 'aless_art_shop:blogdetail' 'CharcoalEyeBlogPost' %}">how to draw a charcoal eye</a> more than once!
                 </p>
+                <p> Follow my blog and improve your art with me!</p>
             </div>
         </div>
     </div>
@@ -56,7 +57,8 @@
             <div class="row row-about justify-content-md-center">
             <div class="col-md-8 card bg-1 p-3">
                 <p> I always found that original artwork costs too much to buy.</p>
-                <p>So I decided to start selling my artwork at a price a I would be happy to pay. An online store allows me to reach a wider audience.</p>
+                <p>So I decided to start selling my life drawings at a price a I would be happy to pay. An online store allows me to reach a wider audience.
+                Each drawing has been drawn by me at my favourite life drawing classes in London, as I learn to represent the human form as best I can!.</p>
             </div>
             </div>
     </div>
@@ -66,7 +68,26 @@
             </div>
             </div>
 
+                        <div class="mt-5">
+            <div class="row row-about justify-content-md-center">
+            <div class="col-md-8 card bg-1 p-3">
+                <p>If you like my drawings and enjoy my blog then feel free to contribute, it would be greatly appreciated.</p>
+            </div>
+            </div>
+    </div>
+            <div class="row row-about text-center">
+            <div class="col-md-12 pt-5">
+            <p><a href = "{% url 'stripe_payments:donate' %}" class="btn btn-primary btn-lg black-btn" role="button">Contribute</a></p>
+            </div>
+            </div>
+        </div>
 
+{% include 'aless_art_shop/SubscribeModal.html' %}
+            <script>
+                        setTimeout(function() {
+            $('#ModalCenter').modal();
+        }, 1000);
+            </script>
 
         {% endblock content %}
 

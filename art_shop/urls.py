@@ -33,6 +33,7 @@ urlpatterns = [
     path(r'donation_admin/', donation_admin_site.urls),
     path(r'', include('aless_art_shop.urls', namespace='aless_art_shop')),
     path(r'stripe_payments/', include('stripe_payments.urls', namespace='stripe_payments')),
+    path(r'subscribers/', include('subscribers.urls', namespace='subscribers')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
 
 ]

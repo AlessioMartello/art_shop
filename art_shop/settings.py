@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # MyApps
     'aless_art_shop',
     'stripe_payments',
+    'subscribers',
 
     # Default Django Apps
     'whitenoise.runserver_nostatic',
@@ -78,7 +79,8 @@ ROOT_URLCONF = 'art_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR,'templates')
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,6 +88,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'aless_art_shop.context_processors.add_variable_to_context',
+
             ],
         },
     },

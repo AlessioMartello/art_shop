@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from aless_art_shop.models import Product, BlogPost, BlogImage
 from django.conf import settings
+from subscribers.models import Subscriber
+from subscribers.forms import SubscriberForm
 
 
 def index(request):
@@ -51,10 +53,4 @@ class BlogPostView(DetailView):
         context = super(BlogPostView, self).get_context_data(**kwargs)
         context["blogs"] = BlogPost.objects.all()
         context["walkthrough_steps"] = BlogImage.objects.filter(postname=self.object)
-
         return context
-
-
-
-
-

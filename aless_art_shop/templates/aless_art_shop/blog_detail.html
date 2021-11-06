@@ -10,9 +10,8 @@
         <meta property="og:url" content="https://www.artlessi.co.uk/blogs">
 
     <title>Artlessi blog post</title>
-    <link rel="icon" type="image/jpg" href="/static/am_logo_white.png">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1268104295070057"
-     crossorigin="anonymous"></script>
+    <link rel="icon" type="image/jpg" href="/static/am_logo.jpg">
+
 </head>
 <body class="pt-5 pb-5">
 <div id="fb-root"></div>
@@ -75,13 +74,14 @@
                         <img src="{{ walkthrough_step.image.url }}" alt="Hand drawn artwork for sale" >
                     </div>
         {% endif %}
+        <hr style="width:80%;background-color:var(--lightpurple));height:1px;">
         {% endfor %}
     </div>
 
      </div>
 
-    <div class="col-lg-2 pt-5">
-        <div class="bg-1 position-sticky sub-headers p-2 card bg-1" style="top:4rem;">
+    <div class="col-lg-2 pb-5">
+        <div class="bg-1 position-sticky sub-headers p-2 card bg-1" style="top:6rem;">
             <h4>Latest blogs</h4>
                 {% for blog in blogs %}
               <p>
@@ -95,7 +95,13 @@
     </div>
 </div>
 </div>
+{% include 'aless_art_shop/SubscribeModal.html' %}
 
+            <script>
+                        setTimeout(function() {
+            $('#ModalCenter').modal();
+        }, 10000);
+            </script>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
