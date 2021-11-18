@@ -63,15 +63,15 @@
     <div class = "row pt-5">
        {% for walkthrough_step in walkthrough_steps %}
         {% if walkthrough_step.step %}
-                <div class="col-md-6 pt-5">
+                <div class="col-md-6">
                         <img src="{{ walkthrough_step.image.url }}" alt="Hand drawn artwork for sale" style="display:block;width: 100%;">
                     </div>
                     <div class="col-md-6 pt-5">
                     <p>{{walkthrough_step.step}}</p>
                 </div>
         {% else %}
-                    <div class="pt-5" style="display:block;margin:auto;">
-                        <img src="{{ walkthrough_step.image.url }}" alt="Hand drawn artwork for sale" >
+                    <div class="col-md-8 mx-auto">
+                        <img src="{{ walkthrough_step.image.url }}" alt="Hand drawn artwork for sale" style="display:block;width:100%;">
                     </div>
         {% endif %}
         <hr style="width:80%;background-color:var(--lightpurple));height:1px;">
@@ -83,7 +83,7 @@
     <div class="col-lg-2 pb-5">
         <div class="bg-1 position-sticky sub-headers p-2 card bg-1" style="top:6rem;">
             <h4>Latest blogs</h4>
-                {% for blog in blogs %}
+                {% for blog in blogs|slice:":3" %}
               <p>
                   <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}" style="color:black;">
                       {{blog.title}}<br>- {{blog.created_on|date:"M d, Y" }}

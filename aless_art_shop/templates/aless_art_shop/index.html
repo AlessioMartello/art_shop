@@ -44,7 +44,7 @@
 <div class="section-background">
 <div class="container">
 <div class="row">
-   <div class="col-md-6 pb-5 pt-5">
+   <div class="col-md-6 pt-5">
       <div class="card card-block text-center " style="height: 18rem;">
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
@@ -131,7 +131,7 @@
                     <p> {{blog.title }}</p>
 					<p>{{blog.created_on|date:"M d, Y"}}</p>
                     <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">
-                        <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post"; style="max-height: 40vh;object-position: 0% 0%;">
+                        <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post"; style="max-height: 40vh;object-fit:scale-contain;">
                     </a>
 				</li>
             {%endfor%}
@@ -140,8 +140,7 @@
 		</div>
 	</div>
 </div>
-<div class="container">
-</div>
+
 {% include 'aless_art_shop/SubscribeModal.html' %}
 
             <script>

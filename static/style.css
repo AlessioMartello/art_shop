@@ -185,6 +185,7 @@ background-color: #f99;
 @media only screen and ( max-width: 1023px ) {
 
     .modal-text{
+    color:var(--purple);
     background-color:var(--lightpurple) !important;
     border-radius:10px;
     padding:10px;
