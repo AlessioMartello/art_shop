@@ -28,6 +28,10 @@ ul.social-network li {
 	background-color:#0072c6;
 }
 
+.social-network a.icoYoutube:hover {
+	background-color:#FF0000;
+}
+
 .social-circle li a {
 	display:inline-block;
 	position:relative;
