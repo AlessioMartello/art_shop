@@ -44,10 +44,10 @@
 <div class="container col-lg-10">
 
     <p>by {{ object.author|title }} | {{ object.created_on|date:"M d, Y" }}</p>
-    <div class="col-8" style="margin-left:auto;margin-right: auto;">
+    <div class="col-md-8" style="margin-left:auto;margin-right: auto;">
         {% if object.video_embed_url %}
-            <div>
-            <iframe width="560" height="315"
+            <div class="videoWrapper">
+            <iframe
                     src= "{{ object.video_embed_url }}"
                     title="YouTube video player"
                     frameborder="0"
