@@ -45,7 +45,29 @@
     <hr style="width:80%;background-color:var(--lightpurple));height:1px;">
 </div>
         {% endfor %}
-<div class="container">
+
+<div class="col-6 mx-auto mt-5" style="display:flex;justify-content:center;">
+    {% if page_obj.has_other_pages %}
+  <ul class="pagination sub-headers" style="font-size:2rem;letter-spacing:0.7rem;">
+    {% if page_obj.has_previous %}
+      <li><a class="paginate-black" href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+    {% else %}
+      <li class="disabled"><span><i class="fa fa-angle-left"></i></span></li>
+    {% endif %}
+    {% for i in page_obj.paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a  class="paginate-black" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a  class="paginate-black" href="?page={{ page_obj.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+    {% else %}
+      <li class="disabled"><span><i class="fa fa-angle-right"></i></span></li>
+    {% endif %}
+  </ul>
+{% endif %}
 </div>
 
 {% endblock content %}

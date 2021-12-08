@@ -42,6 +42,7 @@ class ProductDetailView(DetailView):
 
 class BlogListView(ListView):
     queryset = BlogPost.objects.order_by('-created_on')
+    paginate_by = 6
     template_name = "aless_art_shop/blog_list.html"
 
 
