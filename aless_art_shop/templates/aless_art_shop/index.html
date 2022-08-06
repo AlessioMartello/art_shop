@@ -5,14 +5,13 @@
         <meta charset="UTF-8">
         <meta name=description content="Artlessi sells affordable original hand-drawn artwork including charcoal life drawings">
         <meta property='og:image' content='/static/am_logo.png'>
-        <meta property='og:title' content='Artlessi: Afford original art'>
+        <meta property='og:title' content='Artlessi: Amateur artists unite.'>
         <meta property='og:description' content='An online blog and shop to buy affordable original charcoal artwork'>
         <meta property="og:url" content="https://www.artlessi.co.uk" />
 
-
         <meta name="author" content="Alessio Martello">
 
-        <title>Artlessi: Afford original art.</title>
+        <title>Artlessi: Amateur artists unite.</title>
         <link rel="canonical" href="https://www.artlessi.co.uk" />
         <link rel="icon" type="image/jpg" href="/static/am_logo.jpg">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -26,75 +25,17 @@
 {% block page_header %}
     <header class="jumbotron jumbotron-fluid vertical-center ">
         <div class = "container rounded text-center">
-            <h1 class="display-3 page-headers"> Artlessi</h1>
+            <h1 class="display-3 page-headers">Artlessi</h1>
             <div class="container tagline">
-            <p class="lead" style="font-weight:bold">Afford original art.</p>
+            <p class="lead" style="font-weight:bold">Amateur artists unite.</p>
             </div>
-            <p><a href = "{% url 'aless_art_shop:gallery' %}" class="btn btn-primary btn-lg black-btn" role="button">Shop now</a></p>
+            <p><a href = "{% url 'aless_art_shop:blogs' %}" class="btn btn-primary btn-lg black-btn" role="button">Get involved</a></p>
         </div>
     </header>
-
-
-
 {% endblock page_header %}
 
-
 {% block content %}
-<div class="section-background">
-<div class="container">
-<div class="row">
-   <div class="col-md-6 pt-5">
-      <div class="card card-block text-center " style="height: 18rem;">
-         <div class="card-body align-items-center d-flex justify-content-center bg-1">
-            <div class="container">
-                <h5 class="card-title"><i class="fa fa-pencil fa-2x"></i></h5>
-               <h5 class="card-title sub-headers">What art can I buy?</h5>
-               <p class="card-text">I sell life drawings and portraits made using charcoal and pencil.</p>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-md-6  pb-5 pt-5">
-      <div class="card card-block text-center" style="height: 18rem;">
-         <div class="card-body align-items-center d-flex justify-content-center bg-1">
-            <div class="container">
-                <h5 class="card-title"><i class="fa fa-calendar fa-2x"></i></h5>
-               <h5 class="card-title  sub-headers">Original content added regularly!</h5>
-               <p class="card-text">Whether its life drawing or a blog post I'll endeavour to add new content weekly!</p>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<div class="row pt-md-5">
-   <div class="col-md-6 pb-5">
-      <div class="card card-block text-center" style="height: 18rem;">
-         <div class="card-body align-items-center d-flex justify-content-center bg-1">
-            <div class="container">
-                <h5 class="card-title"><i class="fa fa-lock fa-2x"></i></h5>
-               <h5 class="card-title sub-headers">Secure payments </h5>
-               <p class="card-text">Using a trusted payment provider to process your order safely and risk free.</p>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-md-6 pb-5">
-      <div class="card card-block text-center" style="height: 18rem;">
-         <div class="card-body align-items-center d-flex justify-content-center bg-1">
-            <div class="container">
-                <h5 class="card-title"> <i class="fa fa-truck fa-2x"></i></h5>
-               <h5 class="card-title sub-headers">Free delivery!</h5>
-               <p class="card-text">If you're in the UK I'll send you the art you buy free of charge.</p>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-</div>
-
-</div>
-
-<div class="container pt-5">
+<div class="container pt-5 ">
     {% for post in blogpost_list %}
     <div class="row">
         <div class="col-md">
@@ -140,18 +81,73 @@
 	</div>
 </div>
 <div class="section-background">
+<div class="container">
+<div class="row">
+   <div class="col-md-6 pt-5">
+      <div class="card card-block text-center " style="height: 18rem;">
+         <div class="card-body align-items-center d-flex justify-content-center bg-1">
+            <div class="container">
+                <h5 class="card-title"><i class="fa fa-pencil fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Developing artists</h5>
+               <p class="card-text">Learn from our community of aspiring artists come bloggers, making learning to draw & paint accessible to us all.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-6  pb-5 pt-5">
+      <div class="card card-block text-center" style="height: 18rem;">
+         <div class="card-body align-items-center d-flex justify-content-center bg-1">
+            <div class="container">
+                <h5 class="card-title"><i class="fa fa-calendar fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Original content added regularly!</h5>
+               <p class="card-text">Artlessi has new content added regularly from our talented and committed aspiring artists.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="row pt-md-5">
+   <div class="col-md-6 pb-5">
+      <div class="card card-block text-center" style="height: 18rem;">
+         <div class="card-body align-items-center d-flex justify-content-center bg-1">
+            <div class="container">
+                <h5 class="card-title"><i class="fa fa-check fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Totally free</h5>
+               <p class="card-text">Art classes can be expensive, we want to give you the chance to grow and develop without having to spend money.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-6 pb-5">
+      <div class="card card-block text-center" style="height: 18rem;">
+         <div class="card-body align-items-center d-flex justify-content-center bg-1">
+            <div class="container">
+                <h5 class="card-title"> <i class="fa fa-comments fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Connect</h5>
+               <p class="card-text">Learning is more effective and fun together. Reach out to the artist of each blog and get involved.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+
+</div>
+
+
+<div class="pt-5">
 <div class = "container" style="text-align:center;">
     <a data-pin-do="embedUser" href="https://www.pinterest.co.uk/Artlessi/"></a>
 </div>
 </div>
 
-{% include 'aless_art_shop/SubscribeModal.html' %}
+<!--{% include 'aless_art_shop/SubscribeModal.html' %}-->
 
-            <script>
-                        setTimeout(function() {
-            $('#ModalCenter').modal();
-        }, 10000);
-            </script>
+<!--            <script>-->
+<!--                        setTimeout(function() {-->
+<!--            $('#ModalCenter').modal();-->
+<!--        }, 10000);-->
+<!--            </script>-->
 
 {% endblock content %}
 </body>

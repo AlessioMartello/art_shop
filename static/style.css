@@ -1,7 +1,7 @@
 :root {
     --purple: #7026b9;
     --lightpurple: #E6DDFB;
-    --lightpurpletransparent:rgba(171,186,234,0.5);
+    --lightpurpletransparent:rgba(171,186,234,0.8);
 }
 
 
@@ -303,7 +303,7 @@ ul.timeline > li:before {
 }
 
 .section-background{
-    background-color:rgba(0,0,0,0.1);
+    background-color:rgba(0,0,0,0.3);
     width: 100vw;
     position:relative;
 
@@ -373,7 +373,7 @@ input:checked + .slider:before {
 }
 
 .navbar-scroll{
-background-color:var(--lightpurple) !important;
+background-color:var(--lightpurpletransparent) !important;
 transition: 0.6s;
 }
 
@@ -416,3 +416,8 @@ color:black;
 
 .paginate-black{
 color:black;}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}

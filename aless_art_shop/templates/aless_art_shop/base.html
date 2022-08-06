@@ -34,10 +34,10 @@
 
         <div class="collapse navbar-collapse mx-5" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:gallery' %}"> Life Drawings</a></li>
-                <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:faqs' %}"> Faqs</a></li>
                 <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:blogs' %}"> Blog</a></li>
+                <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:gallery' %}"> Gallery</a></li>
                 <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:about' %}"> About</a></li>
+                <li class="nav-item"><a class = "nav-link" href="{% url 'aless_art_shop:faqs' %}"> Faqs</a></li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item"><a class = "nav-link" href="{% url 'stripe_payments:donate' %}"> Donate <i class="fa fa-heart"></i></a></li>
@@ -51,17 +51,18 @@
 
             {% block content %}
             {% endblock content %}
-            {% block subscribe %}
-            {% include 'subscribers/SubscribeForm.html'%}
-            {% endblock subscribe %}
+<!--            {% block subscribe %}-->
+<!--&lt;!&ndash;            {% include 'subscribers/SubscribeForm.html'%}&ndash;&gt;-->
+<!--            {% endblock subscribe %}-->
 
     </main>
     <footer>
         <div class="row" style="width:100vw;">
             <div class="container text-center pt-5 pb-3">
                 <hr>
-                <p>Find out about delivery, security & payment in the <a href="{% url 'aless_art_shop:faqs' %}">faqs.</a></p>
-                <p class="footer-info">Copyright &copy; {% now "Y" %} Artlessi. Made by <a href="https://github.com/AlessioMartello" target="_blank" rel=noopener>yours truly.</a> </p>
+                <h1 class="page-headers">Artlessi</h1>
+                <p >Amateur artists unite.</p>
+                <p class="footer-info"> &copy; {% now "Y" %} Artlessi. Made by <a href="https://github.com/AlessioMartello" target="_blank" rel=noopener>yours truly.</a> </p>
             </div>
         </div>
     </footer>
