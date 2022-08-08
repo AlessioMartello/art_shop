@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17bde6e5-7a20-4da0-af45-cf31a0f41894" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../../../LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/product_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../stripe_payments/templates/stripe_payments/donate.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../stripe_payments/templates/stripe_payments/donate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faqs.html" beforeDir="false" afterPath="$PROJECT_DIR$/faqs.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
