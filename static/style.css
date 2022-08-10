@@ -303,10 +303,11 @@ ul.timeline > li:before {
 }
 
 .section-background{
-    background-color:rgba(0,0,0,0.3);
-    width: 100vw;
+    background-color:#0f172a;
     position:relative;
-
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 /* The switch - the box around the slider */

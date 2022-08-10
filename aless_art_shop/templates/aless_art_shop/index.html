@@ -16,16 +16,20 @@
         <link rel="icon" type="image/jpg" href="/static/am_logo.jpg">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>    </head>
 
 <body class="pb-5">
 
 {% extends "aless_art_shop/base.html" %}
+{% load static %}
 
 {% block page_header %}
     <header class="jumbotron jumbotron-fluid vertical-center ">
         <div class = "container rounded text-center">
-            <h1 class="display-3 page-headers">Artlessi</h1>
+<!--            <h1 class="display-3 page-headers">Artlessi</h1>-->
+      <div class="display-3 page-headers" id="app"></div>
             <div class="container tagline">
             <p class="lead" style="font-weight:bold">Amateur artists unite.</p>
             </div>
@@ -63,7 +67,7 @@
 </div>
 <div class="container mt-5 mb-5">
 	<div class="row">
-		<div class="col-md-6 offset-md-3">
+		<div class="col-md-8 offset-md-2">
 			<h3>Latest blogs</h3>
 			<ul class="timeline">
             {% for blog in blogs|slice:":3" %}
@@ -73,12 +77,78 @@
                     <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">
                         <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post"; style="max-height: 40vh;object-fit:scale-contain;">
                     </a>
+                    <p>{{ blog.content|slice:":200"|safe }} ... <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">read more</a>  </p>
+
 				</li>
             {%endfor%}
 
 			</ul>
 		</div>
 	</div>
+</div>
+<div class="section-background">
+<div class="container">
+<div class="row">
+   <div class="col-md-6 pt-5">
+      <div class="card card-block text-center " style="height: 18rem;">
+         <div class="card-body align-items-center d-flex justify-content-center bg-1">
+            <div class="container">
+                <h5 class="card-title"><i class="fa fa-pencil fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Developing artists</h5>
+               <p class="card-text">Learn from our community of aspiring artists come bloggers, making learning to draw & paint accessible to us all.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-6 pb-5 pt-5">
+      <div class="card card-block text-center" style="height: 18rem;">
+         <div class="card-body align-items-center d-flex justify-content-center bg-1">
+            <div class="container">
+                <h5 class="card-title"><i class="fa fa-calendar fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Original content added regularly!</h5>
+               <p class="card-text">Artlessi has new content added regularly from our talented and committed aspiring artists.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="row pt-md-5">
+   <div class="col-md-6 pb-5">
+      <div class="card card-block text-center" style="height: 18rem;">
+         <div class="card-body align-items-center d-flex justify-content-center bg-1">
+            <div class="container">
+                <h5 class="card-title"><i class="fa fa-check fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Totally free</h5>
+               <p class="card-text">Art classes can be expensive, we want to give you the chance to grow and develop without having to spend money.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-6 pb-5">
+      <div class="card card-block text-center" style="height: 18rem;">
+         <div class="card-body align-items-center d-flex justify-content-center bg-1">
+            <div class="container">
+                <h5 class="card-title"> <i class="fa fa-comments fa-2x"></i></h5>
+               <h5 class="card-title sub-headers">Connect</h5>
+               <p class="card-text">Learning is more effective and fun together. Reach out to the artist of each blog and get involved.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+
+</div>
+
+
+<div class = "pt-5 pb-5" style="min-height: 100vh;display: flex;justify-content: center;align-items: center;">
+    <div class="row" style="width:100%;padding-inline:4rem">
+          <div class="col-md">
+            <a data-pin-do="embedUser" href="https://www.pinterest.co.uk/Artlessi/"></a>
+    </div>
+    <div class="col-md" style="min-height:50vh;">
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/ySPr8f-WdrM?autoplay=1&mute=1" title="Draw realistic hair with charcoal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    </div>
+    </div>
 </div>
 <div class="section-background">
 <div class="container">
@@ -134,13 +204,6 @@
 
 </div>
 
-
-<div class="pt-5">
-<div class = "container" style="text-align:center;">
-    <a data-pin-do="embedUser" href="https://www.pinterest.co.uk/Artlessi/"></a>
-</div>
-</div>
-
 <!--{% include 'aless_art_shop/SubscribeModal.html' %}-->
 
 <!--            <script>-->
@@ -149,6 +212,11 @@
 <!--        }, 10000);-->
 <!--            </script>-->
 
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+<script src="{% static 'js/script.js' %}"></script></head>
 {% endblock content %}
+
 </body>
+
+
 </html>

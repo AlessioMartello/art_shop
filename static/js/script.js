@@ -16,3 +16,14 @@ function display(){
         z.style.display="none";
 }
 }
+
+var app = document.getElementById('app');
+var typewriter = new Typewriter(app, {
+  loop: false,
+  delay: 100,
+});
+
+typewriter
+  .pauseFor(500)
+  .typeString('Artlessi')
+  .start();
