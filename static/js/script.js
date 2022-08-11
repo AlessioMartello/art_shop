@@ -27,3 +27,16 @@ typewriter
   .pauseFor(500)
   .typeString('Artlessi')
   .start();
+
+var txt = document.getElementById('creative-text');
+
+function changeColour(){
+const max = 255;
+let a = Math.floor(Math.random() * max);
+let b = Math.floor(Math.random() * max);
+let c = Math.floor(Math.random() * max);
+txt.style.color = `rgb(${a},${b},${c})`;
+};
+
+setInterval(changeColour, 1000);
+

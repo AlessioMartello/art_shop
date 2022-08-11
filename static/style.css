@@ -309,6 +309,12 @@ ul.timeline > li:before {
     display: flex;
     align-items: center;
 }
+.section-background-non-center{
+    background-color:#0f172a;
+    color:white;
+    position:relative;
+    min-height: 100vh;
+}
 
 /* The switch - the box around the slider */
 .switch {
@@ -421,4 +427,40 @@ color:black;}
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+}
+
+.card-body{
+border-radius:10px;
+}
+
+.centre-text{
+padding:2rem;
+color:skyblue;
+font-size:1.75rem;
+}
+
+.get-in-touch{
+    width: 15rem;
+    height: 6rem;
+    align-items: center;
+    display: inline-grid;
+    border-radius: 5rem;
+    font-size: 1.75rem;}
+
+/*  To be used for shareable links to social media*/
+.social a{
+    background-color: #1eaedb;
+    border-radius: 100px;
+    color: #fff;
+    font-size: 17px;
+    height: 44px;
+    line-height: 44px;
+    margin-right: 6px;
+    width: 44px;
+    display: inline-block;
+    text-align: center;
+}
+
+.display-1{
+font-size:xxx-large;
 }
