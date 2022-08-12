@@ -39,4 +39,3 @@ txt.style.color = `rgb(${a},${b},${c})`;
 };
 
 setInterval(changeColour, 1000);
-

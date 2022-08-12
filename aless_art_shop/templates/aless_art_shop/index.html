@@ -78,7 +78,12 @@
                         <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post"; style="max-height: 40vh;object-fit:scale-contain;">
                     </a>
                     <p>{{ blog.content|slice:":200"|safe }} ... <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">read more</a>  </p>
-
+                    <div class="social">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://artlessi.co.uk/blogs/{{ blog.slug }}/" class="shareFB" target="_blank" rel="nofollow" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+                    <a id="pin" href="http://pinterest.com/pin/create/button/?url=https://www.artlessi.co.uk/blogs/{{ blog.slug }}/&description={{ object.title }}" data-pin-custom="true" class="shareFB" target="_blank" rel="nofollow" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
+                    <a href="http://twitter.com/share?text=${{ object.title }}&url=https://www.artlessi.co.uk/blogs/{{ blog.slug }}/&hashtags=Artlessi,blog" class="shareFB" target="_blank" type="button" role="button" title="Share on twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
+                    <a href="https://linkedin.com/shareArticle?url=https://www.artlessi.co.uk/blogs/{{ blog.slug }}/&title={{ blog.title }}&source=https://www.artlessi.co.uk/" class="shareFB" target="_blank" rel="nofollow" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    </div>
 				</li>
             {%endfor%}
 
@@ -90,23 +95,23 @@
 <div class="container">
 <div class="row">
    <div class="col-md-6 pt-5">
-      <div class="card card-block text-center " style="height: 18rem;">
+      <div class="card card-block text-center">
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
                 <h5 class="card-title"><i class="fa fa-pencil fa-2x"></i></h5>
                <h5 class="card-title sub-headers">Developing artists</h5>
-               <p class="card-text">Learn from our community of aspiring artists come bloggers, making learning to draw & paint accessible to us all.</p>
+               <p class="card-text">High quality content from non-professional artists. Learn from our community of aspiring artists, making art accessible.</p>
             </div>
          </div>
       </div>
    </div>
    <div class="col-md-6 pb-5 pt-5">
-      <div class="card card-block text-center" style="height: 18rem;">
+      <div class="card card-block text-center">
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
                 <h5 class="card-title"><i class="fa fa-calendar fa-2x"></i></h5>
                <h5 class="card-title sub-headers">Original content added regularly!</h5>
-               <p class="card-text">Artlessi has new content added regularly from our talented and committed aspiring artists.</p>
+               <p class="card-text">Artlessi has new content added regularly from our motivated artists.</p>
             </div>
          </div>
       </div>
@@ -114,7 +119,7 @@
 </div>
 <div class="row pt-md-5">
    <div class="col-md-6 pb-5">
-      <div class="card card-block text-center" style="height: 18rem;">
+      <div class="card card-block text-center">
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
                 <h5 class="card-title"><i class="fa fa-check fa-2x"></i></h5>
@@ -125,7 +130,7 @@
       </div>
    </div>
    <div class="col-md-6 pb-5">
-      <div class="card card-block text-center" style="height: 18rem;">
+      <div class="card card-block text-center">
          <div class="card-body align-items-center d-flex justify-content-center bg-1">
             <div class="container">
                 <h5 class="card-title"> <i class="fa fa-comments fa-2x"></i></h5>

@@ -232,6 +232,11 @@ hr{background-color: var(--lightpurple);}
   border-radius: 10px;
 }
 
+.card-block {
+  height:20rem;
+}
+
+
 .product-list-card{
   position:relative;
 }
@@ -426,7 +431,7 @@ color:black;}
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip ;
 }
 
 .card-body{
@@ -447,10 +452,9 @@ font-size:1.75rem;
     border-radius: 5rem;
     font-size: 1.75rem;}
 
-/*  To be used for shareable links to social media*/
+/*  To be used for shareable links to social media */
 .social a{
-    background-color: #1eaedb;
-    border-radius: 100px;
+    background-color: var(--purple);
     color: #fff;
     font-size: 17px;
     height: 44px;
@@ -459,8 +463,51 @@ font-size:1.75rem;
     width: 44px;
     display: inline-block;
     text-align: center;
+    hover:
+}
+
+.social a.shareFB:hover {
+	background-color:black;
 }
 
 .display-1{
 font-size:xxx-large;
 }
+
+#pin{
+cursor: pointer;
+}
+
+.card-text{
+font-size:1.5rem;
+}
+
+.card-title{
+font-size:1.75rem;
+}
+
+
+
+@media only screen and ( max-width: 425px ) {
+
+    .card-title i {
+    display:none !important;
+    }
+
+    .card-body p {
+    font-size:large;;
+    }
+
+}}
+
+.navbar:hover { opacity: 1 !important;
+ -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+    }
+
+/*
+
+.navbar{
+opacity:0;
+}
+*/
