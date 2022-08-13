@@ -466,7 +466,7 @@ font-size:1.75rem;
     hover:
 }
 
-.social a.shareFB:hover {
+.social a.shareButton:hover{
 	background-color:black;
 }
 
@@ -474,7 +474,7 @@ font-size:1.75rem;
 font-size:xxx-large;
 }
 
-#pin{
+#pin, #copyClip{
 cursor: pointer;
 }
 
@@ -511,3 +511,16 @@ font-size:1.75rem;
 opacity:0;
 }
 */
+/* Show hide relevant whatsapp link depending on screen size (pc vs mobile) */
+
+@media screen and ( max-width: 480px ) {
+    #whatsappWeb a {
+    display: none !important;
+        }}
+@media screen and ( min-width: 480px ) {
+    #whatsappMobile a {
+        display: none !important;
+    }
+}}
+
+

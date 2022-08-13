@@ -28,10 +28,14 @@
         <h4>{{ object.sub_heading|title }}</h4>
 
 <div class="social">
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://artlessi.co.uk/blogs/{{ object.slug }}/" class="shareFB" target="_blank" rel="nofollow" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
-<a href="http://pinterest.com/pin/create/button/?url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&description={{ object.title }}" class="shareFB" target="_blank" rel="nofollow" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
-<a href="http://twitter.com/share?text={{ object.title }}&url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&hashtags=Artlessi,blog" class="shareFB" target="_blank" type="button" role="button" title="Share on twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
-<a href="https://linkedin.com/shareArticle?url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&title={{ object.title }}&source=https://www.artlessi.co.uk/" class="shareFB" target="_blank" rel="nofollow" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://artlessi.co.uk/blogs/{{ object.slug }}/" class="shareButton" target="_blank" rel="nofollow" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+<a href="http://pinterest.com/pin/create/button/?url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&description={{ object.title }}" class="shareButton" target="_blank" rel="nofollow" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
+<a href="http://twitter.com/share?text={{ object.title }}&url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&hashtags=Artlessi,blog" class="shareButton" target="_blank" type="button" role="button" title="Share on twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
+<a href="https://linkedin.com/shareArticle?url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&title={{ object.title }}&source=https://www.artlessi.co.uk/" class="shareButton" target="_blank" rel="nofollow" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+<span id="whatsappWeb"><a href="https://api.whatsapp.com/send?text=Check out this blog by Artlessi: https://artlessi.co.uk/blogs/{{ object.slug }}/" data-action="share/whatsapp/share" target="_blank"><i class="fa fa-whatsapp"></i></a></span>
+<span id="whatsappMobile"><a href="whatsapp://send?text=Check out this blog by Artlessi: https://artlessi.co.uk/blogs/{{ object.slug }}/" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a></span>
+<a href="https://www.reddit.com/submit?url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&title={{ object.title }} by Artlessi" class="shareButton" target="_blank" rel="nofollow" title="Share on Reddit"><i class="fa fa-reddit"></i></a>
+<a id="copyClip" class="shareButton" target="_blank" rel="nofollow" title="Copy link" ><i class="fa fa-link"></i></a>
 </div>
 
 <hr>
@@ -57,24 +61,6 @@
         {% endif %}
     </div>
         <p class="pt-5">{{ object.content | safe }}</p>
-    <div class = "row pt-5">
-       {% for walkthrough_step in walkthrough_steps %}
-        {% if walkthrough_step.step %}
-                <div class="col-md-6">
-                        <img src="{{ walkthrough_step.image.url }}" alt="Hand drawn artwork for sale" style="display:block;width: 100%;">
-                    </div>
-                    <div class="col-md-6 pt-5">
-                    <p>{{walkthrough_step.step}}</p>
-                </div>
-        {% else %}
-                    <div class="col-md-8 mx-auto">
-                        <img src="{{ walkthrough_step.image.url }}" alt="Hand drawn artwork for sale" style="display:block;width:100%;">
-                    </div>
-        {% endif %}
-        <hr style="width:80%;background-color:var(--lightpurple));height:1px;">
-        {% endfor %}
-    </div>
-
      </div>
 
     <div class="col-lg-2 pb-5">
@@ -91,10 +77,10 @@
         </div>
     </div>
 </div>
-
+<div>
+<hr style="width:80%;background-color:var(--lightpurple));height:1px;">
     <div id="disqus_thread"></div>
-
-
+</div>
 </div>
 <!--{% include 'aless_art_shop/SubscribeModal.html' %}-->
 
@@ -116,6 +102,15 @@
     (d.head || d.body).appendChild(s);
     })();
 </script>
+
+<script>
+var copyClipbutton = document.getElementById('copyClip');
+copyClipbutton.onclick = () => {
+  navigator.clipboard.writeText(window.location.href);
+}
+</script>
+
+
 {% endblock content %}
 </body>
 </html>

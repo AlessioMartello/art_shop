@@ -1,6 +1,6 @@
 """Defines URL patterns for aless_art_shop app"""
 
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
@@ -18,5 +18,5 @@ urlpatterns = [
     path('gallery/detail/<id>/', ProductDetailView.as_view(), name='detail'),
     path('blogs', BlogListView.as_view(), name='blogs'),
     path('blogs/<slug:slug>/', BlogPostView.as_view(), name='blogdetail'),
-
+      path('ckeditor/', include('ckeditor_uploader.urls')),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

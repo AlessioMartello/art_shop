@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-
+from ckeditor.fields import RichTextField
 
 class Catalogue(models.Model):
     """An group of products the user can inspect"""
@@ -47,7 +47,8 @@ class BlogPost(models.Model):
     sub_heading = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete= models.CASCADE, related_name='blog_posts')
-    content = models.TextField()
+    #content = models.TextField()
+    content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     blog_photo = models.ImageField(upload_to="images/", blank=True)
