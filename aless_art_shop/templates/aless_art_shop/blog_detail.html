@@ -20,6 +20,7 @@
 </head>
 <body class="pt-5 pb-5">
 {% extends 'aless_art_shop/base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container pt-5">
@@ -27,16 +28,18 @@
 <h1 class="pt-5 page-headers" style="text-align:left;">{{ object.title }}</h1>
         <h4>{{ object.sub_heading|title }}</h4>
 
-<div class="social">
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://artlessi.co.uk/blogs/{{ object.slug }}/" class="shareButton" target="_blank" rel="nofollow" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
-<a href="http://pinterest.com/pin/create/button/?url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&description={{ object.title }}" class="shareButton" target="_blank" rel="nofollow" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
-<a href="http://twitter.com/share?text={{ object.title }}&url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&hashtags=Artlessi,blog" class="shareButton" target="_blank" type="button" role="button" title="Share on twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
-<a href="https://linkedin.com/shareArticle?url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&title={{ object.title }}&source=https://www.artlessi.co.uk/" class="shareButton" target="_blank" rel="nofollow" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
-<span id="whatsappWeb"><a href="https://api.whatsapp.com/send?text=Check out this blog by Artlessi: https://artlessi.co.uk/blogs/{{ object.slug }}/" data-action="share/whatsapp/share" target="_blank"><i class="fa fa-whatsapp"></i></a></span>
-<span id="whatsappMobile"><a href="whatsapp://send?text=Check out this blog by Artlessi: https://artlessi.co.uk/blogs/{{ object.slug }}/" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a></span>
-<a href="https://www.reddit.com/submit?url=https://www.artlessi.co.uk/blogs/{{ object.slug }}/&title={{ object.title }} by Artlessi" class="shareButton" target="_blank" rel="nofollow" title="Share on Reddit"><i class="fa fa-reddit"></i></a>
-<a id="copyClip" class="shareButton" target="_blank" rel="nofollow" title="Copy link" ><i class="fa fa-link"></i></a>
-</div>
+        <div class="social">
+        <a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'fb')" class="shareButton" target="_blank" rel="nofollow" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+        <a id="pin" onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'pinterest')" data-pin-custom="true" class="shareButton" target="_blank" rel="nofollow" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
+        <a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'twitter')" class="shareButton" target="_blank" type="button" role="button" title="Share on twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
+        <a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'linkedin')" class="shareButton" target="_blank" rel="nofollow" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <span id="whatsappWeb"><a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'whatsappweb')" data-action="share/whatsapp/share" target="_blank" title="Share on WhatsApp" type="button" role="button"><i class="fa fa-whatsapp"></i></a></span>
+        <span id="whatsappMobile"><a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'whatsappmobile')" data-action="share/whatsapp/share" title="Share on WhatsApp"><i class="fa fa-whatsapp"  type="button" role="button"></i></a></span>
+        <a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'reddit')" class="shareButton" target="_blank" rel="nofollow" title="Share on Reddit"><i class="fa fa-reddit"></i></a>
+        <a class="shareButton" href="mailto:?subject=Artlessi blog post&amp;body=Hi, check out this blog post on Artlessi! http://www.artlessi.co.uk/blog/{{ object.slug }}/" title="Share by Email"><i class="fa fa-envelope"></i></a>
+        <a id="copyClip" class="shareButton" target="_blank" rel="nofollow" title="Copy link" ><i class="fa fa-link"></i></a>
+        </div>
+
 
 <hr>
 </div>
@@ -109,6 +112,8 @@ copyClipbutton.onclick = () => {
   navigator.clipboard.writeText(window.location.href);
 }
 </script>
+
+<script src="{% static 'js/script.js' %}"></script>
 
 
 {% endblock content %}

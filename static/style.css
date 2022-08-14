@@ -453,6 +453,10 @@ font-size:1.75rem;
     font-size: 1.75rem;}
 
 /*  To be used for shareable links to social media */
+.social{
+    line-height:3rem;
+    color:white;
+    }
 .social a{
     background-color: var(--purple);
     color: #fff;
@@ -463,11 +467,11 @@ font-size:1.75rem;
     width: 44px;
     display: inline-block;
     text-align: center;
-    hover:
-}
+    }
 
 .social a.shareButton:hover{
 	background-color:black;
+	cursor:pointer;
 }
 
 .display-1{
@@ -524,3 +528,6 @@ opacity:0;
 }}
 
 
+a:hover{
+background-color:black !important;
+}

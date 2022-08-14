@@ -39,3 +39,15 @@ txt.style.color = `rgb(${a},${b},${c})`;
 };
 
 setInterval(changeColour, 1000);
+
+function openPopUp (link, title, medium) {
+switch (medium)
+{
+case 'fb': window.open(`https://www.facebook.com/sharer/sharer.php?u=https://artlessi.co.uk/blogs/${link}/`, 'windownam' , 'width=950,height=650,scrollbars=yes'); return false;
+case 'pinterest': window.open(`http://pinterest.com/pin/create/button/?url=https://www.artlessi.co.uk/blogs/${link}/&description=${title}`, 'windownam' , 'width=950,height=650,scrollbars=yes'); return false;
+case 'twitter': window.open(`https://twitter.com/share?text=${title}&url=https://www.artlessi.co.uk/blogs/${link}/&hashtags=Artlessi,blog`, 'windownam' , 'width=950,height=650,scrollbars=yes'); return false;
+case 'linkedin': window.open(`https://linkedin.com/shareArticle?url=https://www.artlessi.co.uk/blogs/${link}/&title=${title}&source=https://www.artlessi.co.uk/`, 'windownam' , 'width=950,height=650,scrollbars=yes'); return false;
+case 'whatsappweb': window.open(`https://api.whatsapp.com/send?text=Check out this blog by Artlessi: https://artlessi.co.uk/blogs/${link}/`, 'windownam' , 'width=950,height=650,scrollbars=yes'); return false;
+case 'whatsappmobile': window.open(`whatsapp://send?text=Check out this blog by Artlessi: https://artlessi.co.uk/blogs/${link}/`, 'windownam' , 'width=950,height=650,scrollbars=yes'); return false;
+case 'reddit': window.open(`https://www.reddit.com/submit?url=https://www.artlessi.co.uk/blogs/${link}/&title=${title} by Artlessi`, 'windownam' , 'width=950,height=650,scrollbars=yes'); return false;
+}}
