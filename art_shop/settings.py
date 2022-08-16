@@ -181,7 +181,7 @@ CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
 
 #ckeditor upload path
-CKEDITOR_UPLOAD_PATH="uploads/"
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 CKEDITOR_CONFIGS = {
     'default': {

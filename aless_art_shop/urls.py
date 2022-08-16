@@ -18,5 +18,4 @@ urlpatterns = [
     path('gallery/detail/<id>/', ProductDetailView.as_view(), name='detail'),
     path('blogs', BlogListView.as_view(), name='blogs'),
     path('blogs/<slug:slug>/', BlogPostView.as_view(), name='blogdetail'),
-      path('ckeditor/', include('ckeditor_uploader.urls')),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

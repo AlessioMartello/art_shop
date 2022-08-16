@@ -130,10 +130,13 @@ background-color: #f99;
 
 .page-headers {
     color:var(--purple);
-  font-weight: bold;
+    font-weight: bold;
     font-family: "Sofia", sans-serif, Arial;
     text-align:center;
+
+
 }
+#blog-titles:hover { text-decoration: none; }
 
 .nav-link{
     color: var(--purple);

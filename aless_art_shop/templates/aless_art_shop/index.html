@@ -72,7 +72,7 @@
 			<ul class="timeline">
             {% for blog in blogs|slice:":3" %}
                 <li>
-                    <p> {{blog.title }}</p>
+                    <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}" id="blog-titles"><h1 class="page-headers" style="text-align:left;">{{blog.title }}</h1></a>
 					<p>{{blog.created_on|date:"M d, Y"}}</p>
                     <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">
                         <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post"; style="max-height: 40vh;object-fit:scale-contain;">

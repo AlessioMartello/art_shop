@@ -35,6 +35,7 @@ urlpatterns = [
     path(r'stripe_payments/', include('stripe_payments.urls', namespace='stripe_payments')),
     path(r'subscribers/', include('subscribers.urls', namespace='subscribers')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
+    path('ckeditor/', include('ckeditor_uploader.urls'))
 
 ]
 
