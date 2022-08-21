@@ -136,7 +136,7 @@ background-color: #f99;
 
 
 }
-#blog-titles:hover { text-decoration: none; }
+.blog-titles:hover { text-decoration: none; }
 
 .nav-link{
     color: var(--purple);
@@ -530,7 +530,25 @@ opacity:0;
     }
 }}
 
+a.whatsappBg:hover{
+    background-color: black !important;}
 
-a:hover{
-background-color:black !important;
+.hashtags{
+    padding:0.2rem;
+    color:skyblue;
+    font-size:1.5rem;
+    font-weight:bold;
 }
+
+.hashtags:hover{
+    background-color: var(--purple);
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none !important;
+}
+
+.hashtagsAll{
+    border-radius: 0.5rem;
+    background-color: skyblue;
+    border-width: 0.18rem;
+    color:white !important;}

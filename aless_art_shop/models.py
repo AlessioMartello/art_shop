@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
+from taggit.managers import TaggableManager
 
 class Catalogue(models.Model):
     """An group of products the user can inspect"""
@@ -53,7 +54,7 @@ class BlogPost(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     blog_photo = models.ImageField(upload_to="images/", blank=True)
     video_embed_url = models.TextField(blank=True)
-
+    tags = TaggableManager()
 
     class Meta:
         ordering = ['-created_on']

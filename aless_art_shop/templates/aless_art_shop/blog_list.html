@@ -14,36 +14,53 @@
 
 {% block content %}
 <div class="container">
-<h1 class="pt-5 page-headers">Blog</h1>
+    <a href="{% url 'aless_art_shop:blogs' %}" class="blog-titles"><h1 class="pt-5 page-headers">Blog</h1></a>
 <hr>
 </div>
+<div class="container text-center">
+    <p>Search our blog posts, where artists share and grow together.</p>
+</div>
+<div class="container pb-5" style="text-align:center;">
+{% for tag in tags%}
+<a href="{% url 'aless_art_shop:posts_by_tag' tag.slug%}" class="hashtags hashtagsAll">{{tag.name}}</a>
+{%endfor%}
     {% for post in blogpost_list %}
+</div>
 
-<div class="container pt-5">
+
+<div class="container">
     <div class="row">
         <div class="col-md">
-        <h2>{{ post.title }}</h2>
+        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="blog-titles"><h2 style="color:black;">{{ post.title }}</h2></a>
             <div class="blog-meta-data">
                 <p>{{ post.author|title }} - {{ post.created_on|date:"M d, Y" }}</p>
-                <p>{{ post.content|slice:":400"|safe }} .... </p>
+                <p>{{ post.content|slice:":200"|safe }} .... </p>
             </div>
 
-        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="btn btn-primary black-btn mb-5">Read more</a>
+        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="btn btn-primary black-btn">Read more</a>
     </div>
 
     <div class="col-md" style="display:flex; align-items:center; justify-content:center">
         <div class="product-list-card" >
-        <img class="product-img" src=" {{ post.blog_photo.url }}" alt="Hand drawn artwork for blog post" style="max-height: 40vh;object-position: 0% 0%;">
+        <img class="product-img" src="{{ post.blog_photo.url }}" alt="Hand drawn artwork for blog post" style="max-height: 30vh;object-position: 0% 0%;">
         <a href="{% url 'aless_art_shop:blogdetail' post.slug %}">
         <div class="image-overlay-title">
         </div>
         </a>
-    </div>
+
+        </div>
     </div>
 
 </div>
+    <div>
+                {% for tag in post.tags.all %}
+                <a href="{% url 'aless_art_shop:posts_by_tag' tag.slug %}" class="hashtags">#{{ tag.name }}</a>
+                {% endfor %}
+    </div>
+
     <hr style="width:80%;background-color:var(--lightpurple));height:1px;">
 </div>
+
         {% endfor %}
 
 <div class="col-6 mx-auto mt-5" style="display:flex;justify-content:center;">
@@ -69,6 +86,7 @@
   </ul>
 {% endif %}
 </div>
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
 {% endblock content %}
 </body>

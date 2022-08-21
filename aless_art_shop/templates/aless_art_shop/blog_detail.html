@@ -33,11 +33,12 @@
         <a id="pin" onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'pinterest')" data-pin-custom="true" class="shareButton" target="_blank" rel="nofollow" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
         <a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'twitter')" class="shareButton" target="_blank" type="button" role="button" title="Share on twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
         <a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'linkedin')" class="shareButton" target="_blank" rel="nofollow" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
-        <span id="whatsappWeb"><a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'whatsappweb')" data-action="share/whatsapp/share" target="_blank" title="Share on WhatsApp" type="button" role="button"><i class="fa fa-whatsapp"></i></a></span>
-        <span id="whatsappMobile"><a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'whatsappmobile')" data-action="share/whatsapp/share" title="Share on WhatsApp"><i class="fa fa-whatsapp"  type="button" role="button"></i></a></span>
+        <span id="whatsappWeb"><a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'whatsappweb')" data-action="share/whatsapp/share" target="_blank" title="Share on WhatsApp" type="button" role="button" class="whatsappBg"><i class="fa fa-whatsapp"></i></a></span>
+        <span id="whatsappMobile"><a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'whatsappmobile')" data-action="share/whatsapp/share" title="Share on WhatsApp" class="whatsappBg"><i class="fa fa-whatsapp"  type="button" role="button"></i></a></span>
         <a onclick="openPopUp('{{ object.slug }}', '{{ object.title }}', 'reddit')" class="shareButton" target="_blank" rel="nofollow" title="Share on Reddit"><i class="fa fa-reddit"></i></a>
         <a class="shareButton" href="mailto:?subject=Artlessi blog post&amp;body=Hi, check out this blog post on Artlessi! http://www.artlessi.co.uk/blog/{{ object.slug }}/" title="Share by Email"><i class="fa fa-envelope"></i></a>
-        <a id="copyClip" class="shareButton" target="_blank" rel="nofollow" title="Copy link" ><i class="fa fa-link"></i></a>
+        <a id="copyClip()" class="shareButton" target="_blank" rel="nofollow" title="Copy link" ><i class="fa fa-link"></i></a>
+</button>
         </div>
 
 
@@ -106,15 +107,9 @@
     })();
 </script>
 
-<script>
-var copyClipbutton = document.getElementById('copyClip');
-copyClipbutton.onclick = () => {
-  navigator.clipboard.writeText(window.location.href);
-}
-</script>
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
 <script src="{% static 'js/script.js' %}"></script>
-
 
 {% endblock content %}
 </body>

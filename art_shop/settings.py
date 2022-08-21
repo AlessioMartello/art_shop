@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'ckeditor',
     'ckeditor_uploader',
+    'taggit'
 ]
 
 MIDDLEWARE = [
@@ -249,3 +250,5 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+TAGGIT_CASE_INSENSITIVE = True

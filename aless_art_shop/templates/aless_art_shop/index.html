@@ -39,32 +39,6 @@
 {% endblock page_header %}
 
 {% block content %}
-<div class="container pt-5 ">
-    {% for post in blogpost_list %}
-    <div class="row">
-        <div class="col-md">
-        <h2>{{ post.title }}</h2>
-            <div class="blog-meta-data">
-                <p>{{ post.author|title }} - {{ post.created_on|date:"M d, Y" }}</p>
-                <p>{{ post.content|slice:":400"|safe }} .... </p>
-            </div>
-
-        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="btn btn-primary black-btn mb-5">Read more</a>
-    </div>
-
-    <div class="col-md" style="display:flex; align-items:center; justify-content:center">
-        <div class="product-list-card" >
-        <img class="product-img" src=" {{ post.blog_photo.url }}" alt="Hand drawn artwork for blog post";>
-        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}">
-        <div class="image-overlay-title">
-        </div>
-        </a>
-    </div>
-    </div>
-        {% endfor %}
-</div>
-
-</div>
 <div class="container mt-5 mb-5">
 	<div class="row">
 		<div class="col-md-8 offset-md-2">
@@ -72,24 +46,30 @@
 			<ul class="timeline">
             {% for blog in blogs|slice:":3" %}
                 <li>
-                    <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}" id="blog-titles"><h1 class="page-headers" style="text-align:left;">{{blog.title }}</h1></a>
+                    <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}" class="blog-titles"><h1 class="page-headers" style="text-align:left;">{{blog.title }}</h1></a>
 					<p>{{blog.created_on|date:"M d, Y"}}</p>
                     <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">
                         <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post"; style="max-height: 40vh;object-fit:scale-contain;">
                     </a>
-                    <p>{{ blog.content|slice:":200"|safe }} ... <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">read more</a>  </p>
-                    <div class="social">
+<!--                    <p>{{ blog.content|slice:":200"|safe }} ... <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">read more</a>  </p>-->
+                    <div class="social pt-4">
                     <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'fb')" class="shareButton" target="_blank" rel="nofollow" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
                     <a id="pin" onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'pinterest')" data-pin-custom="true" class="shareButton" target="_blank" rel="nofollow" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
                     <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'twitter')" class="shareButton" target="_blank" type="button" role="button" title="Share on twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
                     <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'linkedin')" class="shareButton" target="_blank" rel="nofollow" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
-                    <span id="whatsappWeb"><a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'whatsappweb')" data-action="share/whatsapp/share" target="_blank" title="Share on WhatsApp" type="button" role="button"><i class="fa fa-whatsapp"></i></a></span>
-                    <span id="whatsappMobile"><a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'whatsappmobile')" data-action="share/whatsapp/share" title="Share on WhatsApp"><i class="fa fa-whatsapp"  type="button" role="button"></i></a></span>
+                    <span id="whatsappWeb"><a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'whatsappweb')" data-action="share/whatsapp/share" target="_blank" title="Share on WhatsApp" type="button" role="button" class="whatsappBg"><i class="fa fa-whatsapp"></i></a></span>
+                    <span id="whatsappMobile"><a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'whatsappmobile')" data-action="share/whatsapp/share" title="Share on WhatsApp" class="whatsappBg"><i class="fa fa-whatsapp"  type="button" role="button"></i></a></span>
                     <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'reddit')" class="shareButton" target="_blank" rel="nofollow" title="Share on Reddit"><i class="fa fa-reddit"></i></a>
                     <a class="shareButton" href="mailto:?subject=Artlessi blog post&amp;body=Hi, check out this blog post on Artlessi! http://www.artlessi.co.uk/blog/{{ blog.slug }}/" title="Share by Email"><i class="fa fa-envelope"></i></a>
                     </div>
 				</li>
-            {%endfor%}
+                <div class="container" style="display:flex;">
+                {% for tag in blog.tags.all %}
+                <a href="{% url 'aless_art_shop:posts_by_tag' tag.slug %}" class="hashtags">#{{ tag.name }}</a>
+                {% endfor %}
+                </div>
+
+                {%endfor%}
 
 			</ul>
 		</div>

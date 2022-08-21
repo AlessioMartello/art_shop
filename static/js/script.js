@@ -28,17 +28,19 @@ typewriter
   .typeString('Artlessi')
   .start();
 
-var txt = document.getElementById('creative-text');
 
 function changeColour(){
+var txt = document.getElementById('creative-text');
 const max = 255;
 let a = Math.floor(Math.random() * max);
 let b = Math.floor(Math.random() * max);
 let c = Math.floor(Math.random() * max);
 txt.style.color = `rgb(${a},${b},${c})`;
 };
-
+if ( window.location.pathname === '/' ){
+    //code for index page
 setInterval(changeColour, 1000);
+}
 
 function openPopUp (link, title, medium) {
 switch (medium)
@@ -51,3 +53,5 @@ case 'whatsappweb': window.open(`https://api.whatsapp.com/send?text=Check out th
 case 'whatsappmobile': window.open(`whatsapp://send?text=Check out this blog by Artlessi: https://artlessi.co.uk/blogs/${link}/`, 'windownam' , 'width=950,height=650,scrollbars=yes'); return false;
 case 'reddit': window.open(`https://www.reddit.com/submit?url=https://www.artlessi.co.uk/blogs/${link}/&title=${title} by Artlessi`, 'windownam' , 'width=950,height=650,scrollbars=yes'); return false;
 }}
+
+var xhttp = new XMLHttpRequest();
