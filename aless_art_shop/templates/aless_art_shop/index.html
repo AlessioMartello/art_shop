@@ -14,9 +14,6 @@
         <title>Artlessi: Amateur artists unite.</title>
         <link rel="canonical" href="https://www.artlessi.co.uk" />
         <link rel="icon" type="image/jpg" href="/static/am_logo.jpg">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-
 
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>    </head>
 
@@ -52,16 +49,17 @@
                         <img class="product-img" src=" {{ blog.blog_photo.url }}" alt="Hand drawn artwork for blog post"; style="max-height: 40vh;object-fit:scale-contain;">
                     </a>
 <!--                    <p>{{ blog.content|slice:":200"|safe }} ... <a href="{% url 'aless_art_shop:blogdetail' blog.slug %}">read more</a>  </p>-->
-                    <div class="social pt-4">
-                    <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'fb')" class="shareButton" target="_blank" rel="nofollow" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
-                    <a id="pin" onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'pinterest')" data-pin-custom="true" class="shareButton" target="_blank" rel="nofollow" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
-                    <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'twitter')" class="shareButton" target="_blank" type="button" role="button" title="Share on twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
-                    <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'linkedin')" class="shareButton" target="_blank" rel="nofollow" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
-                    <span id="whatsappWeb"><a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'whatsappweb')" data-action="share/whatsapp/share" target="_blank" title="Share on WhatsApp" type="button" role="button" class="whatsappBg"><i class="fa fa-whatsapp"></i></a></span>
-                    <span id="whatsappMobile"><a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'whatsappmobile')" data-action="share/whatsapp/share" title="Share on WhatsApp" class="whatsappBg"><i class="fa fa-whatsapp"  type="button" role="button"></i></a></span>
-                    <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'reddit')" class="shareButton" target="_blank" rel="nofollow" title="Share on Reddit"><i class="fa fa-reddit"></i></a>
-                    <a class="shareButton" href="mailto:?subject=Artlessi blog post&amp;body=Hi, check out this blog post on Artlessi! http://www.artlessi.co.uk/blog/{{ blog.slug }}/" title="Share by Email"><i class="fa fa-envelope"></i></a>
-                    </div>
+        <div class="social pt-4">
+        <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'fb')" class="shareButton" target="_blank" rel="nofollow" title="Share on Facebook" data-toggle="tooltip"><i class="fa fa-facebook"></i></a>
+        <a id="pin" onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'pinterest')" data-pin-custom="true" class="shareButton" target="_blank" rel="nofollow" title="Share on Pinterest" data-toggle="tooltip"><i class="fa fa-pinterest"></i></a>
+        <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'twitter')" class="shareButton" target="_blank" type="button" role="button" title="Share on twitter" rel="nofollow" data-toggle="tooltip"><i class="fa fa-twitter"></i></a>
+        <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'linkedin')" class="shareButton" target="_blank" rel="nofollow" title="Share on LinkedIn" data-toggle="tooltip"><i class="fa fa-linkedin" ></i></a>
+        <span id="whatsappWeb"><a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'whatsappweb')" data-action="share/whatsapp/share" target="_blank" title="Share on WhatsApp" type="button" role="button" class="whatsappBg" data-toggle="tooltip"><i class="fa fa-whatsapp"></i></a></span>
+        <span id="whatsappMobile"><a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'whatsappmobile')" data-action="share/whatsapp/share" title="Share on WhatsApp" class="whatsappBg" data-toggle="tooltip"><i class="fa fa-whatsapp"  type="button" role="button"></i></a></span>
+        <a onclick="openPopUp('{{ blog.slug }}', '{{ blog.title }}', 'reddit')" class="shareButton" target="_blank" rel="nofollow" title="Share on Reddit" data-toggle="tooltip"><i class="fa fa-reddit" ></i></a>
+        <a class="shareButton" href="mailto:?subject=Artlessi blog post&amp;body=Hi, check out this blog post on Artlessi! https://www.artlessi.co.uk/blog/{{ blog.slug }}/" title="Share by Email" data-toggle="tooltip"><i class="fa fa-envelope"></i></a>
+        <button id= "copy" class="shareButton tooltips" title="Copy to clipboard" data-clipboard-text="https://www.artlessi.co.uk/blog/{{ blog.slug }}/"><i class="fa fa-link"></i></button>
+        </div>
 				</li>
                 <div class="container" style="display:flex;">
                 {% for tag in blog.tags.all %}
@@ -174,6 +172,25 @@
 
 <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 <script src="{% static 'js/script.js' %}"></script>
+<script>// Typewriter effect on index page
+var app = document.getElementById('app');
+var typewriter = new Typewriter(app, {
+  loop: false,
+  delay: 100,
+});
+
+typewriter
+  .pauseFor(500)
+  .typeString('Artlessi')
+  .start();
+$("#blogFilter").on("keyup", function() {
+    var value = $(this).val().toLowerCase().trim();
+    $(".filterBlogList").filter(function() {
+        title = $(this).find(".filterTitle").text();
+        tags = $(this).find(".hashtags").text();
+        $(this).toggle(title.toLowerCase().indexOf(value) > -1 || tags.toLowerCase().indexOf(value) > -1)
+    });
+  });</script>
 </head>
 {% endblock content %}
 

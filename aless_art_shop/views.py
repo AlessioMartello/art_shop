@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from aless_art_shop.models import Product, BlogPost, BlogImage
 from django.conf import settings
-from subscribers.models import Subscriber
-from subscribers.forms import SubscriberForm
 from taggit.models import Tag
+from django.http import HttpResponse
+from django.views import View
 
 
 def index(request):
@@ -40,15 +40,16 @@ class ProductDetailView(DetailView):
         context['stripe_public_key'] = settings.STRIPE_PUBLIC_KEY
         return context
 
+
 class TaxMixIn(object):
     def get_context_data(self, **kwargs):
         context = super(TaxMixIn, self).get_context_data(**kwargs)
-        context['tags']= Tag.objects.all()
+        context['tags'] = Tag.objects.all()
         return context
+
 
 class BlogListView(TaxMixIn, ListView):
     queryset = BlogPost.objects.order_by('-created_on')
-    paginate_by = 6
     template_name = "aless_art_shop/blog_list.html"
 
 
@@ -62,11 +63,15 @@ class BlogPostView(DetailView):
         context["walkthrough_steps"] = BlogImage.objects.filter(postname=self.object)
         return context
 
+
 class TagIndexiew(TaxMixIn, ListView):
     model = BlogPost
     template_name = "aless_art_shop/blog_list.html"
-    #context_object_name = 'posts'
 
     def get_queryset(self):
         return BlogPost.objects.filter(tags__slug=self.kwargs.get('tag_slug'))
 
+
+class AdsView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse("google.com, pub-1268104295070057, DIRECT, f08c47fec0942fa0")

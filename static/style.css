@@ -317,6 +317,7 @@ ul.timeline > li:before {
     display: flex;
     align-items: center;
 }
+
 .section-background-non-center{
     background-color:#0f172a;
     color:white;
@@ -460,7 +461,7 @@ font-size:1.75rem;
     line-height:3rem;
     color:white;
     }
-.social a{
+.social a, button.shareButton{
     background-color: var(--purple);
     color: #fff;
     font-size: 17px;
@@ -470,11 +471,17 @@ font-size:1.75rem;
     width: 44px;
     display: inline-block;
     text-align: center;
+    border:none;
+    font-family:none;
     }
 
-.social a.shareButton:hover{
-	background-color:black;
+.social a.shareButton:hover, button.shareButton:hover{
+	background-color:black !important;
 	cursor:pointer;
+}
+
+#whatsappWeb a:hover{
+	background-color:black !important;
 }
 
 .display-1{
@@ -547,8 +554,24 @@ a.whatsappBg:hover{
     text-decoration: none !important;
 }
 
+
 .hashtagsAll{
     border-radius: 0.5rem;
     background-color: skyblue;
     border-width: 0.18rem;
-    color:white !important;}
+    color:white !important;
+    margin:0.1rem;
+    }
+
+
+.form-control:focus{
+    color: var(--purple);
+    background-color: #fff;
+    border-color: var(--purple);
+    outline: 0;
+    box-shadow: --var(purple);
+}
+
+.input-group{
+    width:60%;
+}

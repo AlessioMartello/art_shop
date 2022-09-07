@@ -11,27 +11,40 @@
 </head>
 <body class="pt-5 pb-5">
 {% extends 'aless_art_shop/base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container">
     <a href="{% url 'aless_art_shop:blogs' %}" class="blog-titles"><h1 class="pt-5 page-headers">Blog</h1></a>
 <hr>
-</div>
-<div class="container text-center">
+</div >
+<div class="container text-center" style="text-align:center;">
     <p>Search our blog posts, where artists share and grow together.</p>
 </div>
-<div class="container pb-5" style="text-align:center;">
-{% for tag in tags%}
-<a href="{% url 'aless_art_shop:posts_by_tag' tag.slug%}" class="hashtags hashtagsAll">{{tag.name}}</a>
-{%endfor%}
-    {% for post in blogpost_list %}
+
+<div class="container" style="text-align:center;display: flex;justify-content: center;">
+<!--    Search-->
+    <div class="input-group m-2">
+          <input style="border-radius:10px;" type="text" class="form-control" id="blogFilter" aria-label="Search for keywords..." placeholder="Search for keywords..." aria-describedby="basic-addon1">
+    </div>
+
+</div>
+<div class="container ">
+<div class="pb-5" style="display:flex;justify-content: center;flex-wrap:wrap;">
+    {% for tag in tags%}
+    <a href="{% url 'aless_art_shop:posts_by_tag' tag.slug%}" class="hashtags hashtagsAll">{{tag.name}}</a>
+    {%endfor%}
+</div>
 </div>
 
 
-<div class="container">
+
+    {% for post in blogpost_list %}
+
+<div class="container filterBlogList">
     <div class="row">
         <div class="col-md">
-        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="blog-titles"><h2 style="color:black;">{{ post.title }}</h2></a>
+        <a href="{% url 'aless_art_shop:blogdetail' post.slug %}" class="blog-titles"><h2 class="filterTitle" style="color:black;">{{ post.title }}</h2></a>
             <div class="blog-meta-data">
                 <p>{{ post.author|title }} - {{ post.created_on|date:"M d, Y" }}</p>
                 <p>{{ post.content|slice:":200"|safe }} .... </p>
@@ -63,31 +76,8 @@
 
         {% endfor %}
 
-<div class="col-6 mx-auto mt-5" style="display:flex;justify-content:center;">
-    {% if page_obj.has_other_pages %}
-  <ul class="pagination sub-headers" style="font-size:2rem;letter-spacing:0.7rem;">
-    {% if page_obj.has_previous %}
-      <li><a class="paginate-black" href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li>
-    {% else %}
-      <li class="disabled"><span><i class="fa fa-angle-left"></i></span></li>
-    {% endif %}
-    {% for i in page_obj.paginator.page_range %}
-      {% if page_obj.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-      {% else %}
-        <li><a  class="paginate-black" href="?page={{ i }}">{{ i }}</a></li>
-      {% endif %}
-    {% endfor %}
-    {% if page_obj.has_next %}
-      <li><a  class="paginate-black" href="?page={{ page_obj.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
-    {% else %}
-      <li class="disabled"><span><i class="fa fa-angle-right"></i></span></li>
-    {% endif %}
-  </ul>
-{% endif %}
-</div>
-<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-
-{% endblock content %}
+<script src="{% static 'js/script.js' %}"></script>
 </body>
+{% endblock content %}
+
 </html>
